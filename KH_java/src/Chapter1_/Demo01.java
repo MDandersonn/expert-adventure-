@@ -10,7 +10,11 @@ public class Demo01 {
 		int $num=10;
 		int _num=20;
 		System.out.println($num+_num);
+	
+		
 		
 	}
 
 }
+
+
