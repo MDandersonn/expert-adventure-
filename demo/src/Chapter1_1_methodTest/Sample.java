@@ -1,4 +1,4 @@
-package methodTest;
+package Chapter1_1_methodTest;
 
 class Updater {
     void update(int count) {

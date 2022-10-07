@@ -28,6 +28,26 @@ public class operator {
 		System.out.println(result);
 		//11이아닌 10이 결과. 후위연산이기떄문.
 		
+		int x1=3;
+		int y1=2;
+		System.out.println("===정수와정수====");
+		System.out.println(x1+y1);
+		System.out.println(x1*y1);
+		System.out.println(x1/y1);
+		System.out.println(x1%y1);
+		System.out.println("====정수와 실수는 실수로 출력된다. =======");
+		double x2=3.0;
+		System.out.println(x2+y1);
+		System.out.println(x2*y1);
+		System.out.println(x2/y1);
+		System.out.println(x2%y1);
+		System.out.println("=====실수와실수 ======");
+		double y2= 2.0;
+		System.out.println(x2+y2);
+		System.out.println(x2*y2);
+		System.out.println(x2/y2);
+		System.out.println(x2%y2);
+	
 	}
 
 }
