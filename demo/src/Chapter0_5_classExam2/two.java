@@ -1,4 +1,4 @@
-package Chapter0_4_classExam2;
+package Chapter0_5_classExam2;
 
 class Calculator {
     int value;

@@ -1,8 +1,7 @@
-package Chapter0_4_classExam4;
+package Chapter0_7_classExam4_1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 class Calculator {
     int value;
 
@@ -17,20 +16,21 @@ class Calculator {
     int getValue() {
         return this.value;
     }
-    double avg(ArrayList<Integer> list1){
+    double avg(ArrayList<Integer> a) {
     	int sum=0;
-    	for(int i=0; i<list1.size(); i++) {
-    		sum= sum + (int)list1.get(i);
+    	for(int i : a) {
+    		sum +=i;	
     	}
-    	return (double)(sum/list1.size());
+    	return sum/a.size();	
     }
-    double avg(int[] list1){
+    double avg(int[] a) {
     	int sum=0;
-    	for(int i=0; i< list1.length ; i++) {
-    		sum= sum + list1[i];
+    	for(int i : a) {
+    		sum +=i;	
     	}
-    	return (double)(sum/list1.length);
+    	return sum/a.length;	
     }
+    
     
 }
 
@@ -46,10 +46,7 @@ public class four {
 		Calculator cal1 = new Calculator();
 		double result1 = cal1.avg(data1);
 		System.out.println(result1);  // 5 출력
-		
-		System.out.println(data1.get(3));
-		System.out.println(data1.size());
-		
+
 	}
 }
 

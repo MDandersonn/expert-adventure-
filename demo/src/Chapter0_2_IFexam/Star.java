@@ -1,4 +1,4 @@
-package Chapter0_2_exam;
+package Chapter0_2_IFexam;
 
 public class Star {
 
