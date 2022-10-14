@@ -1,4 +1,4 @@
-package Chapter4_abstractClass;
+package Chapter04_abstractClass;
 
 abstract class Predator extends Animal {
 	abstract String  getFood();

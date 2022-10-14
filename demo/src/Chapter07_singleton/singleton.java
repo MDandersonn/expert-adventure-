@@ -1,4 +1,4 @@
-package Chapter7_singleton;
+package Chapter07_singleton;
 
 //한객체만 만들수있게 만드는방법.
 class House{

@@ -1,4 +1,4 @@
-package Chapter7_IF;
+package Chapter07_IF;
 
 import java.util.Scanner;
 

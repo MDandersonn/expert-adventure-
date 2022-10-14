@@ -1,4 +1,4 @@
-package Chapter5_Console;
+package Chapter05_Console;
 
 import java.io.BufferedReader;
 import java.io.IOException;

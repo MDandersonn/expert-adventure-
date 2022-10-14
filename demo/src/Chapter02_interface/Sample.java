@@ -1,4 +1,4 @@
-package Chapter2_interface;
+package Chapter02_interface;
 
 interface Predator {
 	String getFood();

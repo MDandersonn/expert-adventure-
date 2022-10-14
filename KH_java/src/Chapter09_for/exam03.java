@@ -1,4 +1,4 @@
-package Chapter9_for;
+package Chapter09_for;
 
 import java.util.Scanner;
 

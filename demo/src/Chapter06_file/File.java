@@ -1,4 +1,4 @@
-package Chapter6_file;
+package Chapter06_file;
 
 import java.io.FileOutputStream;
 import java.io.FileWriter;

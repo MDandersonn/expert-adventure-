@@ -1,4 +1,4 @@
-package Chapter3_polymorphism;
+package Chapter03_polymorphism;
 
 interface Predator {
 	String getFood();

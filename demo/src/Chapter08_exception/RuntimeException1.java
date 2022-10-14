@@ -1,4 +1,4 @@
-package Chapter8_exception;
+package Chapter08_exception;
 
 class FoolException extends RuntimeException {
 }

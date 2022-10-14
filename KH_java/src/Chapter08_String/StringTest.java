@@ -1,4 +1,4 @@
-package Chapter8_String;
+package Chapter08_String;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Chapter6_exam;
+package Chapter06_exam;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
