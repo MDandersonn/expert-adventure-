@@ -22,7 +22,7 @@ public class ArrayExam_answer {
 				}
 				if(!isDuplicate) {//isDuple이 false이면
 					arr1[i]=num;
-					i++;
+					i++;//조건 만족을 시켰을때만 i를 증가시킨다.
 				}else {
 					System.out.println("이미 초기화한 값입니다.");
 				}

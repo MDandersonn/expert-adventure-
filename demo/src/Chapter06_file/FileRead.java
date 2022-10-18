@@ -13,6 +13,8 @@ public class FileRead {
         fr.read(b);
         System.out.println(new String(b));  // byte 배열을 문자열로 변경하여 출력
         fr.close();
+        
+        
         System.out.println("==================");
         BufferedReader br = new BufferedReader(new FileReader("D:/out.txt"));
         while(true) {

@@ -30,6 +30,8 @@ public class DeepCopy {
 		//System.arraycopy(...)
 		int arr3[]=new int[arr1.length];
 		System.arraycopy(arr1, 0, arr3, 0, arr1.length);
+		//arr1:원본 0:원본의 복사시작위치 arr3:복사본	0:복사대상에서 써나갈위치	
+		//arr1.length:원본에서 복사본으로 데이터를 읽어서 쓸 데이터 길이
 		
 		//Arrays.copyOf(...)
 		int arr4[];
