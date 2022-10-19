@@ -20,15 +20,26 @@ public class MenuClass {
 	}
 	
 	public void addMenu(String menu, int price) {
-		String[] tmp = new String[menuName.length+1];
-		System.arraycopy(menuName, 0, tmp, 0, menuName.length);
-		menuName=tmp;
-		menuName[menuName.length-1]=menu;
+//		String[] tmp = new String[menuName.length+1];
+//		System.arraycopy(menuName, 0, tmp, 0, menuName.length);
+//		menuName=tmp;
+//		menuName[menuName.length-1]=menu;
+				
+		//answer
+		this.menuName=Arrays.copyOf(this.menuName, this.menuName.length+1);
+		this.menuName[this.menuName.length-1]=menu;
 		
-		int[] tmp2 = new int[menuPrice.length+1];
-		System.arraycopy(menuPrice, 0, tmp2, 0, menuPrice.length);
-		menuPrice=tmp2;
-		menuPrice[menuPrice.length-1]=price;
+		
+//		int[] tmp2 = new int[menuPrice.length+1];
+//		System.arraycopy(menuPrice, 0, tmp2, 0, menuPrice.length);
+//		menuPrice=tmp2;
+//		menuPrice[menuPrice.length-1]=price;
+		
+		//answer
+		this.menuPrice=Arrays.copyOf(this.menuPrice, this.menuPrice.length+1);
+		this.menuPrice[this.menuPrice.length-1]=price;
+		
+		
 		System.out.println("메뉴가 추가되었습니다.");
 
 		
@@ -82,6 +93,23 @@ public class MenuClass {
 		}
 		
 	}
+	
+	/*//본배열의 i랑  복사배열의 j의 증감을 다르게하여 중간에 하나 뺴고 복사가 가능하다.
+	 * 
+	 * String tmp[]= new String(this.menuName.length-1];
+	 * for(int i=0,j=0; i<this.menuName.length; i++){
+	 * 		if(!this.menuName[i].equals(menu)){
+	 * 			tmp[j]=this.menuName[i];
+	 * 			j++;
+	 * 		}
+	 * }
+	 * this.menuName =tmp;
+	 */
+	
+	
+	
+	
+	
 	public int searchMenu(String menu) {
 		int i=0;
 		int idx=0;
