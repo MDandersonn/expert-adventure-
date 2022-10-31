@@ -14,6 +14,9 @@ public class MenuClass {
 		
 	}
 	
+	
+	
+	
 	public void addMenu(String menu, int price) {
 
 		this.fd=Arrays.copyOf(this.fd, this.fd.length+1);

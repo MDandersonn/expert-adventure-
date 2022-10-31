@@ -50,6 +50,25 @@ public class Student {
 		}
 		
 	}
+	public void getSubjectScore(String name) {
+		boolean sw1=true;
+		for(int i=0;i<sbArray.length;i++) {
+			if(sbArray[i].subjectName.equals(name)) {
+				System.out.print(sbArray[i].subjectName+" "+sbArray[i].score+" "+sbArray[i].grade);
+				System.out.println();
+				sw1=false;
+				break;
+			}
+		
+		}
+		if (sw1==true) {
+			System.out.println("찾는과목이 없습니다.");
+			
+		}
+		
+		
+	}
+	
 	
 	public void showAll() {
 		

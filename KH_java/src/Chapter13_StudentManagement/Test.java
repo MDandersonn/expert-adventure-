@@ -17,6 +17,10 @@ public class Test {
 		st.showAll();
 		st.removeSubject("국응");
 		st.showAll();
+		
+		
+		Run r1= new Run();
+		r1.start();
 	}
 
 }
