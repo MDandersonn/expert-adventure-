@@ -9,14 +9,20 @@ import java.util.Arrays;
 public class EX02 {
 
 	public static void main(String[] args) {
-		try {
-			FileReader fr = new FileReader("D:\\sample.txt");
-			BufferedReader br = new BufferedReader(fr);
+		BufferedReader br=null;
+		try (FileReader fr = new FileReader("D:\\sample.txt")){
+			br = new BufferedReader(fr);
 			String subject=br.readLine();
 			String[] subjectArr =subject.split(",");
 			System.out.println(Arrays.toString(subjectArr));
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 

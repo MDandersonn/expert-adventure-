@@ -19,6 +19,7 @@ public class FileInputStreamClass2 {
 			byte[] buffer = new byte[8];
 			byte[] datas = new byte[(int)f.length()];
 			int offset=0;
+			System.out.println(Arrays.toString(buffer));
 			System.out.println("바이트수 : "+ (int)f.length());//바이트수
 			while(true) {
 				int readByte =fis.read(buffer);//일정크기만큼 읽어서 바이트배열에 저장하여 활용
@@ -28,6 +29,7 @@ public class FileInputStreamClass2 {
 			
 				System.out.print(readByte);//8바이ㅌ,8,8,8,8,8,8,2 바이트읽음.
 				System.out.println();
+				System.out.println(Arrays.toString(buffer));
 				System.arraycopy(buffer, 0, datas, offset, readByte);
 				offset +=readByte;
 			}
