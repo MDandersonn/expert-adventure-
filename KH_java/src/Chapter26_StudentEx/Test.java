@@ -34,7 +34,7 @@ public class Test {
 			
 			
 		
-			try(BufferedWriter bw = new BufferedWriter(new FileWriter("D:\\학생성적관리정보.txt"))) {
+			try(BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\학생성적관리정보.txt"))) {
 				for(Entry<Student, ArrayList<Subject>> a : hm1.entrySet()) {
 					bw.write(a.getKey().toString()+a.getValue().toString().substring(1,a.getValue().toString().length()-1)+"\r\n");	
 				}
@@ -43,10 +43,11 @@ public class Test {
 				e.printStackTrace();
 			}
 			
-			try(BufferedReader br = new BufferedReader(new FileReader("D:\\학생성적관리정보.txt"))){
-				while(true) {
+			try(BufferedReader br = new BufferedReader(new FileReader("C:\\학생성적관리정보.txt"))){
+				while(br.ready()) {
+					
 					String s= br.readLine();
-					if (s==null)break;
+					
 					System.out.println(s);
 				}
 				
