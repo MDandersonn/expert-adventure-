@@ -10,15 +10,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
-public class ServerClass {
-	public static void temp(String name, byte[] rowData, byte length) {
-		File f = new File("D:\\ "+ name);
-		try(BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f,true))){
-			bos.write(rowData);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+public class UDP_ServerClass {
 
 	public static void main(String[] args) {
 		/*
@@ -73,7 +65,8 @@ public class ServerClass {
 				//4096+"  글자수"만큼 넣는데
 				//클라이언트쪽에서 4096만큼받을수있게 크기지정해서  클라이언트가 받을때 짤린것.
 				
-				DatagramPacket sendPacket = new DatagramPacket(byteData,byteData.length , recvPacket.getAddress(),recvPacket.getPort());
+				DatagramPacket sendPacket = 
+						new DatagramPacket(byteData,byteData.length , recvPacket.getAddress(),recvPacket.getPort());
 				dSocket.send(sendPacket);
 			}
 			

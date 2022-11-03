@@ -8,7 +8,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class ClientClass {
+public class UDP_ClientClass {
 
 	public static void main(String[] args) {
 		/*

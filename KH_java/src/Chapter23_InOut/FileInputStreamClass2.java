@@ -13,13 +13,13 @@ public class FileInputStreamClass2 {
 		 * FileInputStream
 		 *  -바이트기반 스트림으로 바이트단위로 파일을 읽는다. 
 		 */
-		File f = new File("D:\\sample.txt");
+		File f = new File("C:\\sample.txt");
 		
 		try (FileInputStream fis =new FileInputStream(f)){//알아서 close진행
 			byte[] buffer = new byte[8];
 			byte[] datas = new byte[(int)f.length()];
 			int offset=0;
-			System.out.println(Arrays.toString(buffer));
+			System.out.println("처음 buffer배열:"+Arrays.toString(buffer));
 			System.out.println("바이트수 : "+ (int)f.length());//바이트수
 			while(true) {
 				int readByte =fis.read(buffer);//일정크기만큼 읽어서 바이트배열에 저장하여 활용
@@ -27,9 +27,8 @@ public class FileInputStreamClass2 {
 				//int반환이지만 byte로 봐야함.
 				//-1이 반환이되면 더이상 읽을데이터가없다는것
 			
-				System.out.print(readByte);//8바이ㅌ,8,8,8,8,8,8,2 바이트읽음.
-				System.out.println();
-				System.out.println(Arrays.toString(buffer));
+				System.out.println("읽은바이트 수:"+readByte);//8바이ㅌ,8,8,8,8,8,8,2 바이트읽음.
+				System.out.println("buffer배열:"+Arrays.toString(buffer));
 				System.arraycopy(buffer, 0, datas, offset, readByte);
 				offset +=readByte;
 			}

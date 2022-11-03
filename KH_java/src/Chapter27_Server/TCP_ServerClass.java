@@ -8,6 +8,7 @@ import java.net.DatagramSocket;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.Arrays;
 
 public class TCP_ServerClass {
 
@@ -27,7 +28,7 @@ public class TCP_ServerClass {
 		 * netstat -nao
 		 * 
 		 * 서버는 두개의 소켓(서버소켓,일반소켓)이있고 클라이언트는 하나 있다.
-		 * 서버소켓은 승낙용도,  따로 클라이언트와 통신할 일반소켓.
+		 * 서버소켓은 승낙용도이고 , 승낙되면  따로 클라이언트와 통신할 일반소켓을 만듦.
 		 */
 		int port =51000;//1.포트지정하기
 
@@ -36,11 +37,12 @@ public class TCP_ServerClass {
 			ServerSocket serverSocket= new ServerSocket(port);
 			Socket sock =serverSocket.accept();//서버소켓으로 들어오면 승낙
 			BufferedInputStream bis = new BufferedInputStream(sock.getInputStream());
-			BufferedOutputStream bos = new BufferedOutputStream(sock.getOutputStream());
 			while(true) {
 				byte[] recv= new byte[4096];
 				while(true) {
 					int len = bis.read(recv);
+					System.out.println("recv : "+ Arrays.toString(recv));
+					System.out.println("len:"+len);
 					if(len == -1) {
 						break;
 					}
