@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,12 +21,22 @@ public class Test11_04 {
 		String s = sdf.format(new Date());
 		System.out.println(s);
 		
-		FileWriter fw =null;
+		FileOutputStream fos =null;
+		FileWriter fw=null;
 		try {
 			fw=new FileWriter("D:\\sample6.txt",true);
+			fos=new FileOutputStream("D:\\sample6.txt",true);
+		
 			fw.write(97);
 			fw.write(65);
+			fos.write(97);
+			fos.write(65);
+			
+			fw.write("안녕");
+			fos.write("안녕".getBytes());
+			
 			fw.close();
+			fos.close();
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

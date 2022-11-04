@@ -11,7 +11,6 @@ public class TCP_ClientTest1 {
 	try {
 		serverIpp=InetAddress.getLocalHost().getHostAddress();
 		System.out.println(serverIpp);
-		Socket sock = new Socket(serverIpp,serverPort);//클라이언트도 통신할 소켓을 만듦.
 	} catch (UnknownHostException e) {
 		e.printStackTrace();
 	} catch (IOException e) {
