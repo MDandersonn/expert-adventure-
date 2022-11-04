@@ -1,4 +1,4 @@
-package Chapter27_Server;
+
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -23,11 +23,11 @@ public class TCP_ClientClass {
 		 */
 		Scanner sc =new Scanner(System.in);
 		int serverPort=51000;
-		InetAddress serverIp;
+		String serverIpp;
 		
 		try {
-			serverIp= InetAddress.getByName("127.0.0.1");
-			Socket sock = new Socket(serverIp,serverPort);//클라이언트도 통신할 소켓을 만듦.
+			serverIpp=InetAddress.getLocalHost().getHostAddress();
+			Socket sock = new Socket(serverIpp,serverPort);//클라이언트도 통신할 소켓을 만듦.
 			BufferedOutputStream bos = new BufferedOutputStream(sock.getOutputStream());
 			
 			while(true) {

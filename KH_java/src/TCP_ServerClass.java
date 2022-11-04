@@ -1,4 +1,4 @@
-package Chapter27_Server;
+
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -31,29 +31,20 @@ public class TCP_ServerClass {
 		 * 서버소켓은 승낙용도이고 , 승낙되면  따로 클라이언트와 통신할 일반소켓을 만듦.
 		 */
 		int port =51000;//1.포트지정하기
-
 		
 		try {
 			ServerSocket serverSocket= new ServerSocket(port);
 			Socket sock =serverSocket.accept();//서버소켓으로 들어오면 승낙
 			BufferedInputStream bis = new BufferedInputStream(sock.getInputStream());
 			while(true) {
+				
+				
 				byte[] recv= new byte[3];
-				while(true) {
-					System.out.println("while시작");
-					int len = bis.read(recv);
-					//len이 -1이 출력을 안한다. 
-					//bis가 읽을거리가 끝났다고 인식을 안하고 클라이언트의 응답을 계속 기다리는듯하다.
-					
-					System.out.println("len:"+len);
-					if(len == -1) {
-						System.out.println("브레이크걸렸습니다.");
-						break;
-					}
-					System.out.println("recv : "+ Arrays.toString(recv));
-					System.out.println(new String(recv,0,len));
-				}
-				System.out.println("while문을 빠져나왔습니다.");
+				System.out.println("while시작");
+				int len = bis.read(recv);
+				System.out.println("len:"+len);
+				System.out.println("recv : "+ Arrays.toString(recv));
+				System.out.println(new String(recv,0,len));
 			}
 		} catch (SocketException e) {
 			e.printStackTrace();
