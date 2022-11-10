@@ -11,6 +11,7 @@ public class 스트림 {
 		System.out.println(arr.length);
 		String b="aaas";
 		System.out.println(b.length());
+		System.out.println(b.repeat(2));
 		
 
 	}

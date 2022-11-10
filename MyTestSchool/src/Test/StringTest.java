@@ -27,6 +27,11 @@ public class StringTest {
 		sb.append(str);
 		sb.reverse();
 		System.out.println(sb);
+		System.out.println("2"+1);
+		System.out.println(+1);
+		str=str.replace('a', 'g');
+		System.out.println(str);
+
 		
 		
 	}

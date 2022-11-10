@@ -10,6 +10,7 @@ public class 스트림 {
     public static int[] solution(int[] numList) {
     	List<Integer> list1= Arrays.stream(numList).boxed().collect(Collectors.toList());
     	Collections.reverse(list1);
+
     	return list1.stream().mapToInt(Integer::intValue ).toArray();
     }
 
