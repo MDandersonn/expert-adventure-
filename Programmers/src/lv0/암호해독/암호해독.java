@@ -1,7 +1,6 @@
 package lv0.암호해독;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 class Solution {
     public String solution(String str, int code) {
@@ -22,10 +21,10 @@ public class 암호해독 {
 		String str1="dfjardstddetckdaccccdegk";
 		int code1= 4;
 		
-		IntStream.rangeClosed(0, 10).
-		Arrays.stream(str1.split("")).filter(null)
+		//  인덱스를 어떻게 표현해야하지????
 		
-		
+		int[] arr4=Arrays.stream(str1.split("")).mapToInt(Integer::parseInt).filter(a -> a%code1==0).toArray();	
+		System.out.println(Arrays.toString(arr4));
 		
 		
 
