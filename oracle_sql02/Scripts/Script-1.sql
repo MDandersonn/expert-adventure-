@@ -85,6 +85,22 @@ having  count(substr(PHONE_NUMBER,1,3)) >1
 order by DEPARTMENT_ID ;
 
 
+create table 지출내역서(
+	ID number(10) primary key,
+	날짜 date,
+	출입구분 varchar2(2) check (출입구분 in ('출','입')),
+	금액 number(10),
+	비고 varchar2(50)
+);
+
+drop table 지출내역서;
+
+
+
+
+
+
+
 
 
 
