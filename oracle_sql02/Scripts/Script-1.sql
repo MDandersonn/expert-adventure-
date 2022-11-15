@@ -96,11 +96,45 @@ create table 지출내역서(
 drop table 지출내역서;
 
 
+create table emps
+as select * from EMPLOYEES;
 
 
+select * from emps;
+select * from user_constraints where table_name = 'EMPS';
+alter table emps drop constraint SYS_C008257;
+alter table emps drop constraint SYS_C008258;
+alter table emps drop constraint SYS_C008259;
+alter table emps drop constraint SYS_C008260;
+
+insert into emps (EMPLOYEE_ID,first_name,last_name,hire_date, department_id,Salary) values(207,'길동','홍','2022-03-05',80,2800 );
+delete from emps where Employee_Id=207;
+
+update EMps
+set phone_number= replace(phone_number,'.','-');
 
 
+update EMPs
+set email = email || '@emp.co.kr';
+
+update EMps
+set department_id =60
+where employee_id=207;
 
 
+update EMps
+set email ='1215kimyj@emp.co.kr'
+where employee_id=207;
 
+update EMPs
+set salary= salary*0.75
+where extract(year from hire_date) < 1990 and salary>=10000;
+
+
+update EMPs
+set salary= salary*1.1
+where department_id in (50,60,70);
+
+
+insert all into 
 
