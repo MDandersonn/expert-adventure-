@@ -116,6 +116,57 @@ public class 한번만등장한문자 {
 	        System.out.println(s.replace("a",""));
 	        
 	        
+	        
+	        int[] alpha = new int[26];
+	        for(char c : s.toCharArray()){
+	            alpha[c - 'a']++;
+	        }
+
+	        StringBuilder answer3 = new StringBuilder();
+	        for(int i = 0; i < 26; i++){
+	            if(alpha[i] == 1){
+	                answer3.append((char)(i + 'a'));
+	            }
+	        }
+	        System.out.println(answer3.toString()); 
+
+
+	        
+	        Map<String, Integer> countMap = new HashMap<>();
+
+	        for(String string : s.split("")) {
+	            countMap.merge(string, 1, Integer::sum);
+	            
+	        }
+	        System.out.println(countMap);
+
+	        List<String> onceString = new ArrayList<>();
+	        for(String key : countMap.keySet()) {
+	            if(countMap.get(key) == 1) {//밸류가1이면
+	                onceString.add(key);//키삽입
+	            }
+	        }
+
+	        onceString.stream()//리턴문
+	                .sorted()
+	                .collect(Collectors.joining());   
+	        
+	        
+	        String answer4 = "";
+
+	        Map<String, Integer> map = new HashMap<>();
+	        List<String> strList = new ArrayList<>();
+
+	        Arrays.stream(s.split("")).forEach(x -> map.put(x, map.getOrDefault(x, 0)+1));
+	        
+	        System.out.println(map);
+	        map.keySet().stream().filter(x -> map.get(x)==1).forEach(strList::add);
+	        Collections.sort(strList);
+
+	        for(String x : strList) answer4+=x;
+
+//	        return answer4;
+	        
 	    }
 
 
