@@ -136,5 +136,39 @@ set salary= salary*1.1
 where department_id in (50,60,70);
 
 
-insert all into 
+SELECT CASE WHEN MANAGER_ID =100 THEN SALARY*0.2
+	WHEN MANAGER_ID =100 THEN SALARY*0.15
+	WHEN MANAGER_ID =100 THEN SALARY*0.1
+	ELSE 0
+	end BONUS
+FROM EMPLOYEES; 
+
+select * from EMPLOYEES e ;
+
+
+/*DEPT_CODE가 D9이거나 D6이고 SALARY이 300만원 이상이고 BONUS가 있고
+
+남자이고 이메일주소가 _ 앞에 3글자 있는
+
+사원의 EMP_NAME, EMP_NO, DEPT_CODE, SALARY를 조회*/
+
+select * from EMPLOYEES e ;
+SELECT * 
+FROM EMPLOYEES
+WHERE substr(PHONE_NUMBER,7,1)=3 ;
+
+select * 
+from EMPLOYEES e 
+where job_id like '__#_%' ESCAPE '#';
+
+SELECT EMP_NAME, EMP_NO, DEPT_CODE, SALARY
+
+FROM EMPLOYEE
+
+WHERE (DEPT_CODE='D9' OR DEPT_CODE='D6') 
+	AND SALARY >= 3000000
+	AND SUBSTR(EMP_NO,8,1) =1
+	AND EMAIL LIKE '___#_%' ESCAPE '#'
+	AND BONUS IS NOT NULL;
+
 
