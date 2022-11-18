@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class C01_3preparedStatement {
+public class C01_3prepared_Select {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		/*
 		 * 자바로 오라클 DB에 접속하여 데이터 조회

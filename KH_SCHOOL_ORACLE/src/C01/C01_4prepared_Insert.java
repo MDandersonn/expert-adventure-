@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
-public class C01_4Insert {
+public class C01_4prepared_Insert {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		/*
 		 * 자바로 오라클 DB에 접속하여 데이터 조회
@@ -63,7 +63,7 @@ public class C01_4Insert {
 		 	pstmt.setInt(1, 6);
             pstmt.setString(2, "JAPAN");
             //날짜는 pstmt.setDate(3, new Date(new java.util.Date()).getTime() ));//이게 java.sql.Date
-//new java.util.Date()는 현재날짜생성 .getTime은 long타입의 밀리세컨드값
+            //new java.util.Date()는 현재날짜생성 .getTime은 long타입의 밀리세컨드값
 
 		 
             int r = pstmt.executeUpdate();//반환값은 반영된 행의 갯수이다.
