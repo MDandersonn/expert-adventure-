@@ -172,3 +172,5 @@ WHERE (DEPT_CODE='D9' OR DEPT_CODE='D6')
 	AND BONUS IS NOT NULL;
 
 
+select * from REGIONS r ;
+select * from DEPARTMENTS d ;
