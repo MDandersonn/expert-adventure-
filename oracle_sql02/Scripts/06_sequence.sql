@@ -49,3 +49,25 @@ select * from temp;
  *
 */
 
+create sequence report_seq
+	start with 100 --100에서시작 
+	increment by 10 --10씩증가
+	maxvalue 1000 --생성번호의 최대값
+;
+drop sequence report_seq;
+
+BEGIN
+	FOR i IN 1..5 LOOP
+	DBMS_output.put_line(report_seq.NEXTVAL-90);
+	END LOOP;
+END;
+
+
+
+
+
+
+
+
+
+
