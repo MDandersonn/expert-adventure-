@@ -60,11 +60,12 @@ public class C01_4prepared_Insert {
 		 	//그래서 임포트없이 java.util을 붙여준다.
 		 	System.out.println(new java.util.Date().getTime());
 		 	System.out.println(new Date(new java.util.Date().getTime()));
-		 	pstmt.setInt(1, 6);
-            pstmt.setString(2, "JAPAN");
+		 	//System.out.println(new Date()); 에러
+		 	pstmt.setInt(1, 8); //1번째 ? 에 7이들어가고
+            pstmt.setString(2, "IRAN");// 2번째 ? 에 CHINA가 들어가라는뜻
             //날짜는 pstmt.setDate(3, new Date(new java.util.Date()).getTime() ));//이게 java.sql.Date
             //new java.util.Date()는 현재날짜생성 .getTime은 long타입의 밀리세컨드값
-
+            System.out.println(conn.getAutoCommit()); // 지금은 오토커밋된상태
 		 
             int r = pstmt.executeUpdate();//반환값은 반영된 행의 갯수이다.
             System.out.println("변경된 row : " + r);

@@ -15,9 +15,13 @@ import java.util.ArrayList;
 
 public class C02_3Connection_selectVO {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		//내가만든클래그 오라클커넥션 임포트
 		OracleConnection oc = new OracleConnection("localhost:1521/XEPDB1","dev01","dev01");
 		 	String query= "SELECT * FROM EMPLOYEES";
 		 	
+		 	
+		 	//오라클커넥션이라는 클래스안에 getPrepared라는 메서드를만들었다.
 		   //작성한 쿼리 전송후 ResultSet반환
 		 	oc.getPrepared(query);
 		 	ResultSet rs = oc.sendSelect();

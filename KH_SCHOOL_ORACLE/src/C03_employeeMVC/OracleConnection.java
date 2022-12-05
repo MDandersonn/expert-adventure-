@@ -14,7 +14,6 @@ public class OracleConnection {
 	public OracleConnection(String url, String username, String password) throws ClassNotFoundException, SQLException {
 		Class.forName(ORACLE_DRIVER);
 		this.conn = DriverManager.getConnection(ORACLE_URL+url, username , password);
-//		PreparedStatement pstat = conn.prepareStatement(null);
 	}
 	
 	public PreparedStatement getPrepared(String query) throws SQLException {
@@ -48,6 +47,14 @@ public class OracleConnection {
 		}
 		
 		
+	}
+	//아래는 내가만든거 객체확인해보기위해
+	public PreparedStatement getPstat() {
+		return pstat;
+	}
+
+	public void setPstat(PreparedStatement pstat) {
+		this.pstat = pstat;
 	}
 	
 	

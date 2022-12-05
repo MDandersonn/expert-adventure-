@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 
-public class C01_1Select {
+public class C01_1statement_Select {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		/*
 		 * 자바로 오라클 DB에 접속하여 데이터 조회

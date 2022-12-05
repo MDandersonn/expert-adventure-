@@ -7,10 +7,23 @@ public class DepartmentController {
 	DepartmentDAO DAO= new DepartmentDAO();
 	
 	public void getAll() {
+		ArrayList<DepartmentVO>  arr =DAO.selectAll();
+		DV.print(arr);
 		
+	}
+
+	public void getId(int id) {
+
 		
-		DV.print(DAO.selectAll());
-		
+	}
+
+	public void getName(String name) {
+	}
+
+	public void getManagerID(String managerID) {
+	}
+
+	public void getLocationID(String locationID) {
 	}
 
 }
