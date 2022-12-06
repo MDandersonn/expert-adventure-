@@ -5,10 +5,8 @@
  * 
 */
 
-create or replace function fun_sample1(
-	num1 number,
-	num2 number
-)return NUMBER 
+create or replace function fun_sample1(num1 number,	num2 number)
+return NUMBER 
 IS
 BEGIN 
 	return num1 +num2;
@@ -16,9 +14,9 @@ end;
 
 select fun_sample1(10,20) from dual;
 
-create or replace function get_job_title(
-	f_job_id varchar2
-)return varchar2
+
+create or replace function get_job_title(f_job_id varchar2)
+return varchar2
 IS var_job_title varchar(35);
 BEGIN 
 	select job_title into var_job_title from jobs where job_id =f_job_id;

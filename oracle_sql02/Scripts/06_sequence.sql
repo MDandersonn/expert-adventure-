@@ -65,9 +65,18 @@ END;
 
 
 
+create sequence s1;
+begin
+	dbms_output.put_line(s1.nextval);
+end;
 
+drop sequence s1;
 
+select * from temp;
+insert into temp values (s1.nextval);
+insert into temp values(5);
+select * from user_sequences;
 
-
+-- nextval 뒤에 () 를 쓰지않음에 주의.
 
 

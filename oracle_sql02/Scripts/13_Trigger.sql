@@ -32,7 +32,7 @@ END;
 
 select * from user_errors;
 insert into test1 values(1,'A');
-
+select * from test1;
 
 create or replace trigger tri_sample2
 after insert on test1 for each row
