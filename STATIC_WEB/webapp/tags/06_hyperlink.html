@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>하이퍼링크 태그</title>
+</head>
+<body>
+    <!-- 다른 사이트 또는 페이지 및 영역으로 화면을 전환(이동)시키기 위해 사용하는 테그
+    anchor태그이나 하이퍼링크라고 많이 부른다 
+        /부터시작하는것은 절대경로.
+
+
+        _blank속성 : 새탭에서 열기
+        download : 페이지이동이아니라 페이지다운로드 (미디어파일을 다운로드받고 싶게하고 싶을때 씀)
+        download ="파일명" 하면  파일명으로 저장됨
+
+        a href="#naver" 은 id ="naver" 가있는 곳으로 스크롤이 이동된다는 거임
+       -->
+
+    
+    <h2>외부서버의 페이지로 이동</h2>  
+    <a href="https://naver.com/" target="_blank"> 네이버로 이동</a>
+
+    <h2>내부서버의 다른페이지로 이동(절대경로 프로젝트명부터 시작 </h2>
+    <a href="/tags/03_paragraph.html" download> 03_paragraph로 이동</a>
+
+    <h2>자신과 같은 폴더에있는 다른파일의 페이지로 이동 (상대경로)</h2>
+    <a href="./04_list.html" download="hello.html"> 04_list로 이동</a>
+
+    <h2 id ="naver">상위 폴더에있는 다른파일의 페이지로 이동 (상대경로).</h2>
+    
+    <a href="../01_index.html"> 01_index 로 이동</a>
+       <br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br><br><br>
+    <h2> 동일 페이지의 특정 위치로 이동</h2>
+    <a href="#naver"> 동일페이지로이동</a>
+    
+
+</body>
+</html>

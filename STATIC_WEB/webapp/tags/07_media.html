@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 및 미디어관련태그</title>
+</head>
+<body>
+    <!-- 이미지를 삽입하기위해 사용하는 태그 
+    
+    height 와 width에 맞게 비율이 조절되네-->
+    <br>
+    <img src="/static/img/logo.png" alt="이미지에 문제가있는경우 대체할 메시지">
+    <br>
+    <img src="https://ssl.pstatic.net/static/www/img/uit/worldcup_banner.png" alt="이미지에 문제가있는경우 대체할 메시지">
+    <br>
+    <img src="https://ssl.pstatic.net/static/www/img/uit/worldcup_banner.png" alt="이미지에 문제가있는경우 대체할 메시지" width="80px">
+    <br>
+    <img src="https://www.naver.com/favicon.ico?1" alt="이미지에 문제가있는경우 대체할 메시지" height="80px">
+    <br>
+    <img src="https://ssl.pstatic.net/static/www/img/uit/worldcup_banner.png" alt="이미지에 문제가있는경우 대체할 메시지" height="80px">
+    <br>
+    <img src="https://www.naver.com/favicon.ico?1" alt="이미지에 문제가있는경우 대체할 메시지" width="100px">
+    <br>
+    <!-- 영상,음향을 재생하기 위해 사용하는 태그 , controls라고 써야 작동함
+    autoplay:자동재생 , loop: 반복재생 , muted 음소거 ,  
+        preload="auto" :미디어파일 다운로드
+      preload=  "none"  : 재생버튼을 안누르면 다운로드를 안함    (기본값: auto)
+      preload= "metadata" :다운로드는 안하지만  정보는 받아옴
+      poster=" 이미지경로" : 썸네일이미지 낚시용
+-->
+    <br>
+
+    <audio controls autoplay loop muted preload="none" src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"></audio>
+    <br>
+    <video controls  muted src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"></video>
+    <br>
+    <video controls  muted preload="none" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"></video>
+    <br>
+    <video controls  muted preload="metadata" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" width="320"></video>
+    <br>
+    <video controls  muted poster="/static/img/logo.png" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"></video>
+    <br>
+
+    <!--브라우저마다 지원해주는 확장자가 다르기떄문에  확장자, 코덱 다 명시. 나오는거 틀어줌 순서대로 되는지 확인하고 되면 틀어줌. -->
+    <audio controls>
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.flac">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3">
+    </audio>
+
+
+</body>
+</html>
