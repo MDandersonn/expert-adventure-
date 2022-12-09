@@ -1,0 +1,174 @@
+/* 전체선택자 */
+*{
+    color:gray;
+}
+
+/* 태그선택자 */
+h1{
+    background-color : aqua;
+    color: darkblue;
+}
+h2,h3{
+    background-color : orange;
+    color: darkblue;
+}
+
+/* ID선택자. */
+#title1{
+    border-style: solid;
+    border-width: 5px;
+    border-color: aquamarine;
+}
+
+/* 클래스 선택자 */
+
+.bg-gray{
+    background-color: blueviolet;
+}
+.fg-black{
+    background-color: cadetblue;
+}
+
+/*  속성 선택자.  */
+[type]{
+   background-color:gold; 
+}
+
+[type=text]{
+    background-color:green; 
+ }
+        /* 인풋태그의 속성이 password라는뜻 */
+ input[type=password]{
+    background-color:goldenrod; 
+ }
+ 
+
+ /*자손 후손 선택자 */
+    /* 모든후손 */
+ table tr {
+    background-color: orange;
+ }
+
+/* 자기자손 */
+ thead > tr {
+    background-color: beige;
+ }
+
+
+
+
+ /* 형제선택자 
+ 위로는선택이안되고 밑으로만 선택가능
+ 
+ */
+
+ .s-child + td {
+    color:black;
+    font-weight: bold;
+    font-size: large;
+ }
+
+
+ .s-child ~ td{
+    color:darkred;
+
+ }
+
+ /* 의사클래스 선택자 
+ 
+ 아래는
+ 후손선택자(공백)쓰고 의사클래스진행
+ */
+
+ table :hover {
+    background-color: black;
+    color:white;
+
+
+ }
+
+ /* 의사클래스 선택자 
+ 
+ 후손선택자(공백)쓰고 의사클래스진행
+ td에대해서만
+
+ table td:hover {
+    background-color: black;
+    color:white;
+
+
+ }
+ */
+
+/* 클릭하면 색바뀜 */
+ .t1 td:active{ color:red;}
+
+
+
+ /* 범위 드래그 선택 */
+ .t1 ::selection{
+    background-color: azure;
+ }
+
+
+ /* 방문이력없을때 */
+ a:link{
+    color:tomato;
+ }
+ 
+ /* 방문이력있을때 */
+ a:visited{
+    color:green;
+ }
+
+ /* 첫번째 자식을 선택. */
+ ol > li:first-child{
+    color:darkcyan;
+    font-weight: bold;
+ }
+ /* 마지막 자식을 선택 */
+ ol > li:last-child{
+    color:darkorange;
+    font-weight: bold;
+ }
+/* 짝수선택 */
+ol>li:nth-child(2n){
+    background-color: gold;
+ }
+ 
+ /* 두번째꺼만 (위치지정) */
+ ol>li:nth-child(2){
+    background-color: lavender;
+ }
+
+ .parent1 > :first-child{
+    background-color: yellow;
+    color: black;
+ }
+ .parent1 > :last-child{
+    background-color: blue;
+    color: red;
+ }
+ .parent1 > :nth-child(2n){
+    background-color: skyblue;
+    text-decoration: underline;
+    color: black;
+ }
+
+
+
+ /* 각 타입별 첫번째 */
+ .parent2 > :first-of-type{
+    background-color: green;
+    color: black;
+ }
+  /* 각 타입별 마지막 */
+  .parent2 > :last-of-type{
+    background-color: yellow;
+    color: black;
+ }
+  /* 각 타입별 2의배수 */
+  .parent2 > :nth-child(2n){
+    background-color: blue;
+    color: black;
+ }

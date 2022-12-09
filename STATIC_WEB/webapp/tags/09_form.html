@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 입력 폼 관련 태그</title>
+</head>
+<body>
+    <!-- 사용자 입력폼을 만들고 사용자가 입력한 데이터를 서버에 전송하기 위한 태그
+        지금은 전송만되고 처리는 안됨.
+        apache or  tomcat  을 설치하고 jsp/servlet 이나 spring을 사용해야지 데이터처리를 할수있따.
+        어떻게 서버에 전송할것이냐하는 전송방법에 대한것을 보자.
+     -->
+     <!-- input 태그를 사용한 입력 폼 -->
+
+     <input type="text"><br>
+     <input type="password"><br>
+     <input type="number"><br>
+     <input type="checkbox"><br>
+     <input type="radio"><br>
+     <input type="file"><br>
+     <input type="date"><br>
+     <input type="time"><br>
+     <input type="datetime-local"><br>
+     <input type="button"><br>
+     <input type="reset"><br>
+     <input type="submit"><br>
+
+     <!-- textarea, select, option태그를 사용한 입력폼 
+    input text는 한줄만입력가능하나 textarea는 여러줄입력가능,크기조절가능-->
+    
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <br>
+    <!-- 콤보박스,선택박스라고도 함 -->
+    <select name="" id="">
+        <option value="">옵션1</option>
+        <option value="">옵션2</option>
+        <option value="">옵션3</option>
+    </select>
+
+
+     <!-- form태그를 사용하여 입력폼을 묶고 서버에 전송 
+        서버페이지는 jsp /servlet  spring 을 지정
+        action : "데이터를 전송할 서버 페이지 주소"
+        method : 데이터를 어떠한 방식으로 보낼것인지 get / post 사용
+        
+
+
+        input으로 입력
+        submit으로 제출버튼
+        hidden:숨기기
+
+        placeholder는 워터마크같은개념
+        readonly : 읽기만가능(전송함)
+        required:필수입력
+        disabled :비활성 ( 전송안함)
+
+
+    -->
+    <h3>get 전송</h3>
+     <form action="./server.jsp" method="get">
+        <input type="text" name="a" value="초기값" required> <br>
+        <input type="text" name="b" placeholder="홀더값지정" ><br>
+        <input type="text" name="c" value="읽기만가능" readonly><br>
+        <input type="text" name="d" value="비활성" disabled><br>
+        <input type="hidden" name="e" value="읽기만가능" readonly><br>
+        <input type="submit" value ="전송">
+        <button type="reset">초기화버튼</button>
+
+
+     </form>
+     <!-- 사용자가입력한데이터를 포함해서 이동
+        이동한 주소페이지를  보면
+        ?a=데이터값&b=데이터값
+        a에는 특정값,    b에는 특정값이 있다는 뜻
+        
+
+        input submit대신 버튼submit도 가능-->
+
+     <h3>post전송</h3>
+     <form action="./server.jsp" method="post">
+        <input type="text" name="c"> <br>
+        <input type="text" name="d"><br>
+        <button type="submit">전송</button>
+
+
+     </form>
+     
+     <!-- checkbox,radio 
+    체크박스는 여러개선택 
+    라디오는 하나만 선택가능 
+    radio들의 이름이 동일해야 하나만 선택하게 할수있다.
+    이름이 같은것끼리 그룹이 묶인것이다.
+
+    주소에 c2=on  이런식으로 나옴
+    radio는 주소창에 뭘 입력했는지 안나오니까 value값으로 구분해줌
+    ex)?c1=on&r1=3
+
+    checked: 초기선택-->
+
+     <h3>checkbox ,radio 예시</h3>
+     <form action="./server.jsp" method="get">
+        <div>
+            <input type="checkbox" name="c1">
+            <input type="checkbox" name="c2">
+            <input type="checkbox" name="c3">
+        </div>
+        <div>
+            <input type="radio"  name="r1" value="1">
+            <input type="radio"  name="r1" value="2">
+            <input type="radio"  name="r1" value="3" checked>
+        </div>
+        <div>
+            <button type="submit">전송</button>
+        </div>
+     </form>
+
+
+     <!-- select ,option 사용예시 
+    
+    서버에 전송할 값은 value 사용자한테보여줄값은 '옵션1~3'
+
+    selected 하면 기본값
+    
+    textarea에서 cols30(영문자30자) rows10 (10줄)가 초기크기.
+    style="resize:none;"하면 늘리거나 줄이거나못함 
+
+    -->
+     <h3>select , option사용예시</h3>
+     <form action="./server.jsp" method="get">
+        <select name="a">
+            <option value="1">옵션1</option>
+            <option value="2" selected>옵션2</option>
+            <option value="3">옵션3</option>
+        </select>
+        <div>
+            <textarea name="txt" cols="30" rows="10" style="resize:none;" ></textarea>
+        </div>
+        <div>
+            <button type="submit">전송</button>
+        </div>
+     </form>
+
+
+     <!-- id ,class, style 속성 
+    id: html문서에서 유일한 tag엘리먼트를 식별하기 위한 용도로 사용하는 속성(중복값이 있으면안됨)
+    class : CSS로 스타일을 지정할때 어떤 스타일로 해당 tag 엘리먼트를 적용시킬지 지정하기 위한 용도의 속성
+    style : 직접 해당 엘리먼트에 디자인을 적용시키기 위해 사용하는 용도의 속성
+    
+
+
+
+
+
+
+
+
+ 
+    
+    -->
+
+     
+</body>
+</html>

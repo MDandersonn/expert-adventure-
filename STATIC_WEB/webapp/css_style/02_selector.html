@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 </title>
+    <link type ="text/css" rel="stylesheet" href="/static/css/selector.css">
+</head>
+<body>
+    <!-- 
+        css스타일을 적용할 태그 엘리먼트를 선택하기 위한 방법 
+        전체선택자 : *기호를 사용하여 모든 태그 엘리먼트를 선택하여 스타일을적용한다.
+        태그선택자: 태그명을 사용하여 지정한 태그명의 엘리먼트를 선택하여 스타일을 적용한다.
+        아이디선택자 : id속성을 사용하는 태그엘리먼트를 선택하여 스타일을 적용한다.
+                    사용형식 ex) #아이디값
+        클래스선택자: class속성의 특정 값을 사용하는 태그엘리먼트를 선택하여 스타일을 적용한다.
+                    사용형식 ex) .클래스값
+        속성 선택자: 특정 속성,특정속성의 값을 사용하는 태그 엘리먼트를 선택하여 스타일을 적용한다.
+                ex) [속성명] 또는 [속성명=속성값]
+
+        자손선택자 : 태그엘리먼트 간의 상하관계(종속관계)를 이용하여 태그 엘리먼트를 선택하여
+                 스타일을 적용한다. (부모자식관계에서만의 자식만을 선택)
+                ex)선택자>선택자
+
+        후손선택자 :  태그엘리먼트 간의 상하관계(종속관계)를 이용하여 태그 엘리먼트를 선택하여
+                 스타일을 적용한다.  (부모 자식 후손 관계에서 자식과 후손을 모두선택)
+                ex)선택자 선택자    (공백만있으면 된다.)
+
+        형제선택자 : 태그 엘리먼트 간의 동위관계를 이용하여 태그 엘리먼트를 선택하고
+                스타일을 적용한다.
+                ex) 선택자 +선택자 (바로 옆에 이웃한 형제)
+                ex) 선택자 ~ 선택자 (바로옆에 선택된 형제 이후의 모든 형제)
+
+
+        의사클래스 선택자 :가상의 클래스를 사용하여 태그 엘리먼트를 선택하고 스타일을 적용한다
+                        주로 사용자 행동에 따라 적용되는 가상 클래스를 이용하여 스타일을 적용
+                        사용자 행동에는 특정 엘리먼트를 클릭하거나 드래그 및 마우스커서를 위치하는 등의 행동이 있다
+                ex)
+                
+
+     -->
+
+     <h1>태그선택자</h1>
+     <h2>태그선택자</h2>
+     <h3>태그선택자</h3>
+     <h4 id="title1">id선택자</h4>
+     <h5 class="bg-gray">제목5</h5>
+     <h6 class="fg-black">제목6</h6>
+
+     <hr>
+
+     <input type="text"><br>
+     <input type="password"><br>
+     <input type="number"><br>
+     <input type="number"><br>
+
+     <hr>
+     
+     <table>
+        <thead>
+            <tr>
+                <td class="s-child">제목1</td>
+                <td>제목2</td>
+                <td>제목3</td>
+                <td>제목4</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>데이터1</td>
+                <td class="s-child">데이터2</td>
+                <td>데이터3</td>
+                <td>데이터4</td>
+            </tr>
+            <tr>
+                
+                <td>데이터5</td>
+                <td > 데이터6</td>
+                <td class="s-child">데이터7</td>
+                <td>데이터7</td>
+            </tr>
+            <tr>
+                <td>데이터7</td>
+                <td>데이터8</td>
+                <td>데이터9</td>
+                <td>데이터10</td>
+            </tr>
+        </tbody>
+     </table>
+
+
+     <table class="t1">
+        <thead>
+            <tr>
+                <td class="s-child">제목1</td>
+                <td>제목2</td>
+                <td>제목3</td>
+                <td>제목4</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>데이터1</td>
+                <td class="s-child">데이터2</td>
+                <td>데이터3</td>
+                <td>데이터4</td>
+            </tr>
+            <tr>
+                
+                <td>데이터5</td>
+                <td > 데이터6</td>
+                <td class="s-child">데이터7</td>
+                <td>데이터7</td>
+            </tr>
+            <tr>
+                <td>데이터7</td>
+                <td>데이터8</td>
+                <td>데이터9</td>
+                <td>데이터10</td>
+            </tr>
+        </tbody>
+     </table>
+    
+     <hr>
+
+     <div>
+        <a href="#1">하이퍼링크</a>
+     </div>
+
+
+     <ol>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+     </ol>
+
+
+     <hr>
+
+     <div class="parent1">
+        <h1>AAAAA</h1>
+        <h2>BBBBB</h2>
+        <h2>CCCCC</h2>
+        <h3>DDDDD</h3>
+        <h3>EEEEE</h3>
+        <h3>FFFFF</h3>
+     </div>
+<hr>
+     <div class="parent2">
+        <h1>AAAAA</h1>
+        <h2>BBBBB</h2>
+        <h2>CCCCC</h2>
+        <h3>DDDDD</h3>
+        <h3>EEEEE</h3>
+        <h3>FFFFF</h3>
+     </div>
+    </body>
+</html>
