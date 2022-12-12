@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/attribute3.css">
+</head>
+<body class="background-attachment">
+    <div class="background-color">
+        배경색을 지정하기 위한 속성
+    </div>
+    
+    <hr>
+    <!-- content >padding > border> margin 영역 순으로 외곽 -->
+
+    <div class="background-clip">
+        <!-- 아래와같이 한칸띄어서 적으면 두 개의클래스를 적용할수있다.
+            background-color 와 border-box 
+            .background-color{} 로 적용시키고
+            .border-box{} 로도 적용시키고 할수 있는것
+         -->
+        <div class="background-color border-box">
+            배경색의 적용 범위 (border-box)
+
+        </div>
+        <hr>
+        <div class="background-color padding-box">
+            배경색의 적용 범위 (padding-box)
+
+        </div>
+
+        <hr>
+        
+        <div class="background-color content-box">
+            배경색의 적용 범위(content-box)
+        </div>
+
+    </div>
+<hr>
+    <div class="background-image">
+        배경이미지
+    </div>
+
+    <hr>
+    <div class="background-position">
+        배경이미지위치
+    </div>
+
+    
+</body>
+</html>

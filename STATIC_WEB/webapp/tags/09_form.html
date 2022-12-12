@@ -29,17 +29,21 @@
 
      <!-- textarea, select, option태그를 사용한 입력폼 
     input text는 한줄만입력가능하나 textarea는 여러줄입력가능,크기조절가능-->
-    
+    <hr>
+    <h3>text area</h3>
     <textarea name="" id="" cols="30" rows="10"></textarea>
+    
     <br>
-    <!-- 콤보박스,선택박스라고도 함 -->
+    <hr>
+
+    <h3>콤보박스/선택박스</h3>
     <select name="" id="">
         <option value="">옵션1</option>
         <option value="">옵션2</option>
         <option value="">옵션3</option>
     </select>
 
-
+<hr><br><br>
      <!-- form태그를 사용하여 입력폼을 묶고 서버에 전송 
         서버페이지는 jsp /servlet  spring 을 지정
         action : "데이터를 전송할 서버 페이지 주소"
@@ -51,6 +55,7 @@
         submit으로 제출버튼
         hidden:숨기기
 
+        value = 초기값설정
         placeholder는 워터마크같은개념
         readonly : 읽기만가능(전송함)
         required:필수입력
@@ -87,6 +92,8 @@
 
      </form>
      
+     <br><br><hr>
+     
      <!-- checkbox,radio 
     체크박스는 여러개선택 
     라디오는 하나만 선택가능 
@@ -97,7 +104,8 @@
     radio는 주소창에 뭘 입력했는지 안나오니까 value값으로 구분해줌
     ex)?c1=on&r1=3
 
-    checked: 초기선택-->
+    checked: 초기선택
+-->
 
      <h3>checkbox ,radio 예시</h3>
      <form action="./server.jsp" method="get">
@@ -106,16 +114,21 @@
             <input type="checkbox" name="c2">
             <input type="checkbox" name="c3">
         </div>
+        <br>
+        <hr>
         <div>
             <input type="radio"  name="r1" value="1">
             <input type="radio"  name="r1" value="2">
             <input type="radio"  name="r1" value="3" checked>
         </div>
+        <br>
+        <hr>
+
         <div>
             <button type="submit">전송</button>
         </div>
      </form>
-
+<br><hr><br>
 
      <!-- select ,option 사용예시 
     
@@ -134,6 +147,9 @@
             <option value="2" selected>옵션2</option>
             <option value="3">옵션3</option>
         </select>
+
+        <br><hr><br>
+        
         <div>
             <textarea name="txt" cols="30" rows="10" style="resize:none;" ></textarea>
         </div>

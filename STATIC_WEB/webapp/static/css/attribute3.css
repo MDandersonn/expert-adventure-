@@ -1,0 +1,64 @@
+.background-color{
+    height: 80px;
+    background-color: rgb(15, 29, 109);
+}
+.background-clip > .border-box{
+    background-clip: border-box;
+    padding:20px;
+    border-style: solid;
+    border-width:20px;
+    border-color:rgba(255, 192, 192, 0.5);
+}
+
+.background-clip > .padding-box{
+    background-clip: padding-box;
+    padding:20px;
+    border-style: solid;
+    border-width:20px;
+    border-color:rgba(255,192,192,0.5);
+}
+
+.background-clip > .content-box{
+    background-clip: content-box;
+    padding:20px;
+    border-style: solid;
+    border-width:20px;
+    border-color:rgba(255,192,192,0.5);
+}
+/* rgba 맨끝숫자는 투명도임 */
+/* 영역을 이미지로 채울려고 하는것 
+background-repeat:no-repeat;한번만반복
+background-repeat: repeat-x;x축만반복
+background-repeat: repeat-y; y 축만반복
+
+background-size: 300px 160px; 너비 높이 
+background-size: auto 160px;
+background-size: contain; 잘리지않고 들어가게 해줌(여백이생길수있따.)
+background-size: cover; 배경설정한영역에 다들어가게해줌 (짤릴수있다)
+*/
+
+.background-image{
+    height:80px;
+    background-image:url("https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
+/* background-position: right하면 오른쪽중간 center하면 가운데  top 하면 위쪽중간 bottom 아래중간. left top 하면 왼쪽상단 left center :왼쪽가운데*/
+.background-position{
+    height:320px;
+    background-image:url("https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+    background-repeat:no-repeat;
+    background-position: 100px 50px;
+}
+
+/* 뒷배경붙이기 
+background-attachment: fixed 하고 스크롤내리면 브라우저에 고정되어있음
+scroll 하면 스크롤하면 안보임
+
+*/
+.background-attachment{
+    background-image:url("https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+    background-attachment: fixed;
+    background-repeat:repeat-x;
+}

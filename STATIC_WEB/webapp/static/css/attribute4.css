@@ -1,0 +1,105 @@
+.width-height{
+    width:120px;
+    height:120px;
+    background-color: rgb(192,192,192);
+
+}
+/* padding :10px; 로 공통적으로 4방향 적용가능 */
+/* margin:10px 20px 30px 40px top right bottom left 순설정 */
+.padding-margin{
+    width: 240px;
+    padding-top:10px;
+    padding-bottom:20px;
+    padding-left :30px;
+    padding-right:40px;
+    
+    margin:10px 20px 30px 40px;
+    border-style: solid;
+}
+
+.display > .block{
+    display:block;
+
+}
+
+.display > .inline{
+    display:inline;
+    
+}
+
+
+.display > .none{
+    display:none;
+    
+}
+.visibility > .hidden{
+    visibility: hidden;
+    
+}
+/* 마진까지 */
+.box-sizing > .border-box{
+    width:120px ; height:120px;
+    background-color:rgb(192,192,192);
+    border-style:solid;
+    padding: 20px; margin:20px;
+    box-sizing:border-box;
+}
+/* 내부의 content영역이 120이라는 것} */
+.box-sizing > .content-box{
+
+width:120px; height :120px;
+    background-color:rgb(192,192,192);
+    border-style:solid;
+    padding: 20px; margin:20px;
+    box-sizing:content-box;
+    
+}
+/*이부분 강의 다시듣기 */
+
+
+.display.border{
+    border-style: solid;
+}
+.display .inline.area{
+    border-style: solid;
+    border-color:red;
+    /* width: 180px; */
+    padding :20px;
+    /* margin :20px; */
+
+}
+/* 마진은 위아래가적용안됨 . */
+/* area가 앞에와도 될까? area만있어도 적용이될까? */
+
+/* 인라인은 높이, 너비가 적용이안된다. */
+
+
+.display .block.area{
+    border-style: solid;
+    border-color:red;
+    width: 180px;
+    padding :20px;
+    margin :20px;
+
+}
+/* 블럭은 다 잘들어감. */
+
+.display .inline-block{
+    display: inline-block;
+}
+.display .inline-block.area{
+    border-style: solid;
+    border-color:red;
+    width: 180px;
+    padding :20px;
+    margin :20px;
+
+}
+
+
+.border > .border-style{
+    margin:40px; padding:40px
+    border-style:solid dashed dotted double;
+    border-width:thin;
+    border-color: brown;
+}
