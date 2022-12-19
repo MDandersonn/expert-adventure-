@@ -1,0 +1,115 @@
+.top-nav > .menu {
+    list-style-type: none;
+    background-color: darkblue;
+}
+.top-nav .menu-item,
+.top-nav .menu-link {
+    display: inline-block;
+}
+.top-nav .menu-link {
+    text-decoration: none;
+    padding: 8px 16px 8px 16px;
+    color: white;
+    background-color: darkblue;
+}
+.top-nav .menu-link:hover {
+    background-color: rgb(78, 78, 179);
+    color: white;
+}
+
+.side-menu .menu {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    background-color: rgb(36, 36, 36);
+    width: 200px;
+}
+.side-menu .menu-link {
+    text-decoration: none;
+    padding: 0.5em 1em 0.5em 1em;
+    display: inline-block;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+.side-menu .menu-link:hover {
+    background-color: rgb(96, 96, 96);
+}
+.side-menu .action {
+    background-color: rgb(128, 128, 128);
+}
+
+
+.dropdown-nav .dropdown-menu {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    background-color: rgb(36, 36, 36);
+}
+.dropdown-nav .dropdown-menu .menu-item,
+.dropdown-nav .dropdown-menu .menu-link {
+    display: inline-block;
+}
+.dropdown-nav .dropdown-menu .menu-link {
+    text-decoration: none;
+    padding: 0.5em 1em 0.5em 1em;
+    color: white;
+}
+.dropdown-nav .dropdown-menu .menu-link:hover {
+    background-color: rgb(96, 96, 96);
+}
+.dropdown-nav .sub-menu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+.dropdown-nav .menu-item:hover .sub-menu {
+    display: block;
+    background-color: white;
+    box-shadow: 3px 3px 6px 0px gray;
+}
+.dropdown-nav .sub-menu .sub-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: .5em 1em .5em 1em;
+    color: black;
+}
+.dropdown-nav .sub-menu .sub-link:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+
+.side-dropdown-nav .side-dropdown-menu {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    width: 200px;
+    background-color: rgb(36, 36, 36);
+}
+.side-dropdown-nav .side-dropdown-menu .menu-link {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: .5em 1em .5em 1em;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+.side-dropdown-nav .side-dropdown-menu .menu-link:hover {
+    background-color: rgb(128, 128, 128);
+}
+.side-dropdown-nav .sub-menu {
+    display: none;
+    list-style-type: none;
+}
+.side-dropdown-nav .menu-item:hover .sub-menu {
+    display: block;
+}
+.side-dropdown-nav .sub-menu .sub-link {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: .5em 1em .5em 1em;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+.side-dropdown-nav .sub-menu .sub-link:hover {
+    color: rgb(192, 192, 192);
+}

@@ -1,0 +1,86 @@
+button {
+    box-sizing: border-box;
+    border-style: none;
+    padding: .5em 1em .5em 1em;
+}
+button:hover {
+    cursor: pointer;
+}
+.btn-ok {
+    background-color: rgb(37, 124, 212);
+    color: white;
+}
+.btn-ok:hover {
+    background-color: rgb(14, 105, 196);
+}
+.btn-cancel {
+    background-color: rgb(194, 22, 22);
+    color: white;
+}
+.btn-cancel:hover {
+    background-color: rgb(169, 3, 3);
+}
+.block {
+    display: block;
+    width: 100%;
+}
+.round {
+    border-radius: 5px;
+}
+.txt-input {
+    box-sizing: border-box;
+    background-color: rgb(248, 248, 248);
+    padding: .5em;
+    border-style: solid;
+    border-color: rgb(248, 248, 248);
+    border-width: 2px;
+}
+.txt-input:hover {
+    border-style: solid;
+    border-color:rgb(0, 67, 134);
+}
+.txt-input:focus {
+    outline-style: none;
+    background-color: rgb(228, 228, 228);
+}
+textarea {
+    resize: none;
+    border-width: 2px;
+    height: 5em;
+}
+
+.chk-input, .rdo-input {
+    display: inline-block;
+    margin: 0px; padding: 0px;
+    width: 2em; height: 2em;
+    vertical-align: middle;
+}
+.chk-input + label, .rdo-input + label {
+    display: inline-block;
+    margin: 0px; padding: 0px;
+    line-height: 2em;
+    vertical-align: middle;
+}
+.chk-color-ok[type=checkbox], .chk-color-ok[type=radio] {
+    accent-color: rgb(37, 124, 212);
+}
+.chk-color-cancel[type=checkbox], .chk-color-cancel[type=radio] {
+    accent-color: rgb(194, 22, 22);
+}
+.opt-main {
+    border-style: solid;
+    border-color: rgb(248, 248, 248);
+    border-width: 2px;
+    background-color: rgb(248, 248, 248);
+    box-sizing: border-box;
+    padding: .5em;
+    padding-right: 1.5em;
+}
+.opt-main:focus {
+    outline-style: none;
+    background-color: rgb(228, 228, 228);
+}
+.opt-main:hover {
+    border-style: solid;
+    border-color:rgb(0, 67, 134);
+}
