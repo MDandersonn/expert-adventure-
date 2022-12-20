@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const pet ={
+            name:'구름',
+            age:23,
+            eat:function(food){
+                console.log(this.name + '은 '+food+ `를 먹는다.`)
+            },
+
+            bark (person) {
+                console.log('이것은 메서드 간단 선언문입니다.')
+            }
+        }
+        console.log(pet.age);
+        console.log(pet.eat("바나나"));
+        console.log(pet['age']);
+
+
+        const student={}
+        student.name='kimie';
+        student.age=30;
+
+        delete student.age;
+
+        console.log(JSON.stringify(student,null,2))
+        console.log(pet.bark('na'))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

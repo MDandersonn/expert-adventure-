@@ -1,0 +1,97 @@
+fieldset{
+    height:300px;
+    width: 800px;
+    padding:10px;
+    padding-left: 15px;
+}
+
+.container{
+    height:400px;
+    width: 360px;
+
+}
+input{
+    margin:10px;
+}
+
+
+
+.title{
+    margin-left: 10px;
+    font-weight: bold;
+    /* background-color: antiquewhite; */
+}
+[type="text"]{
+    width: 225px;
+    margin-left: 33px;
+}
+
+.area{
+    height: 160px;
+    font-weight: bold;
+    
+    /* background-color: yellow; */
+}
+.area>div{
+    height: 160px;
+    width: 50px;
+    float:left;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+textarea{
+    margin-left: 25px;
+}
+
+.file{
+    font-weight: bold;
+    /* background-color: aquamarine; */
+}
+.sub{
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+      
+}
+
+thead{
+    height: 50px;
+}
+
+table{
+    
+    width: 800px;
+    height: 250px;
+    background-color:beige;
+}
+thead,tfoot{
+    background-color: darkorange;
+    color:white;
+    font-weight: bold;
+}
+
+.t0{
+    width: 35px;
+}
+.t1{
+    width: 400px;
+}
+
+.t5{
+    width:50px;
+}
+tfoot{
+    text-align: center;
+}
+
+.t2{
+
+    width: 0px;
+}
+td>input{
+    margin: 0;
+    width: 100%;
+}
