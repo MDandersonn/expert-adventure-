@@ -31,6 +31,53 @@
         console.log(JSON.stringify(student,null,2))
         console.log(pet.bark('na'))
 
+        // 기본자료형은 속성을 만들수없다
+       
+        const a =10;
+        a.att=100;
+        console.log(a.att)
+       
+         //객체자료형은 속성을 만들 수 있다.
+        const arr =[];
+        arr.att=101;
+        console.log(arr.att)
+
+        //기본자료형을 객체로선언
+        const b = new Number(55);
+        b.att=102;
+        console.log(b.att);
+        
+
+        //기본자료형도 메서드,속성을 일시적승급 으로 사용가능
+        const c= "안녕하세요";
+        console.log(c.length);
+
+        //프로토타입으로 메소드추가
+        // n=2로하면 기본값을 2로하라는 말.
+        Number.prototype.power = function(n=2){
+            return this.valueOf()**n;
+        }
+        const d=3;
+        console.log(d.power(3));
+
+        // 둘째자리까지 반올림해서표현
+        const e=34.235235;
+        console.log(e.toFixed(2));
+        
+        console.log(Number.isNaN(e))
+        console.log(Number.isNaN(c))
+        console.log(Number.isNaN(d))
+        const m= Number('숫자로 변환할수없는경우')
+        console.log(Number.isNaN(m))
+        console.log(Number.isNaN(b))
+
+        // 자바스크립트를 JSON으로
+        const json= JSON.stringify(student,null,2);
+        console.log(json);
+        // JSON을 다시 자바스크립트로
+        console.log(JSON.parse(json));
+
+
     </script>
 </head>
 <body>

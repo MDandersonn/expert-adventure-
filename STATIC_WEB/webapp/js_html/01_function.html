@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../static/js/01_function.js"></script>
+</head>
+<body>
+    <div id="result1"></div>
+    <div>
+        <button type="button" onclick="fn1('매개변수');">fn1실행</button>
+        <button type="button" onclick="fn2();">fn2 document실행</button>
+        <button type="button" onclick="fn3(10);">fn3(x,y) document실행</button>
+        <button type="button" onclick="fn3(10,20);">fn3(x,y) document실행</button>
+        <button type="button" onclick="fn3_1(15);">fn3_1(x,y) document실행</button>
+        <button type="button" onclick="fn4(11,12,13);">fn4(...x) document실행</button>
+        <button type="button" onclick="fn5();">fn5익명함수  document실행</button>
+        <button type="button" onclick="fn6();">fn6 화살표함수  document실행</button>
+    </div>
+    <script type="text/javascript">
+        console.log("js실행")
+
+        var arr= [1,7,8,4,2,45,3,2,3,1];
+        // 익명함수 이용하기.
+        const arr2=arr.sort(function(x,y){
+            return x>y ? 1 :-1
+        });
+        console.log(arr2)
+        
+        //sort하면 저장되서바뀌는구나.
+        // 화살표함수
+        var arr= [1,7,8,4,2,45,3,2,3,1];
+        arr.sort((x,y) => x>y ? 1 :-1 );
+        console.log(arr)
+        
+    </script>
+</body>
+</html>

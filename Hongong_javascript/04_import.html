@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="test.js"></script>
+    <script src="lodash.js"></script>
+    <script>
+        console.log("내부 스크립트");
+
+        const books =[{
+            name:"혼자공부하는파이썬",
+            price:5000
+        },{
+            name:"혼자공부하는자바",
+            price :8000
+
+        },{
+            name:"혼자공부하는자바스크립트",
+            price:4000
+        }]
+
+        const output=_.sortBy(books,(x)=>x.price)
+        console.log(JSON.stringify(output,null,2))
+
+        if(books.publisher){
+            console.log("publisher속성이 존재합니다")
+        }else{
+            console.log("존재하지않습니다.")
+        }
+        if(books.name){
+            console.log("name속성이 존재합니다")
+        }else{
+            console.log("존재하지않습니다.")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src ="../static/js/03_sample.js"></script>
+    
+    <!-- 위엣것을 작동시키는데 programList태그를 찾아야한다 그런데
+    body내용이 나오기도 전에 찾고있으니 에러가 나는것. 그래서 함수로감싸서 
+클릭했을때는 작동이 잘되는것이고 바로 console로 출력하려고하면 못찾는거이다. 
+해결법은 script를 body의 맨아래로 내린다. -->
+</head>
+<body>
+    <ul id="programList" class="top-menu">
+        <li class ="menu-item" name="java">java</li>
+        <li class ="menu-item" name="oracle">oracle</li>
+        <li class ="menu-item">html</li>
+        <li class ="menu-item">css</li>
+        <li class ="menu-item">javascript</li>
+    </ul>
+    <hr>
+    <ul class="menu">
+        <li class="menu-item">java1</li>
+        <li class="menu-item">oracle1</li>
+        <li class="menu-item">html1</li>
+        <li class="menu-item">css1</li>
+        <li class="menu-item">javascript1</li>
+    </ul>
+    <div id="r1"></div>
+
+    <div>
+        <button type="button" onclick="toUpper()">대문자로변경</button>
+        <button type="button" onclick="toLower()">소문자로변경</button>
+        <button type="button" onclick="my()">작동</button>
+    </div>
+
+    
+</body>
+</html>
