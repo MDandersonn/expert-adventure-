@@ -25,12 +25,13 @@
         const output=_.sortBy(books,(x)=>x.price)
         console.log(JSON.stringify(output,null,2))
 
-        if(books.publisher){
+        if(books[0].publisher){
             console.log("publisher속성이 존재합니다")
         }else{
             console.log("존재하지않습니다.")
         }
-        if(books.name){
+        console.log(books[0].name)
+        if(books[0].name){
             console.log("name속성이 존재합니다")
         }else{
             console.log("존재하지않습니다.")

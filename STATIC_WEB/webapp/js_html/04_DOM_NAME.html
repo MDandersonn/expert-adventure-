@@ -8,12 +8,18 @@
     
 </head>
 <body>
-    <form>
+    <!-- <form action="server.jsp" onsubmit="return validCheck();"> -->
+    <form action="server.jsp" onsubmit="return validCheck(this);">
+    <!-- this는 나자신인데 여기서 this는 form이라는 말. -->
         <div>
             <input type="text" name ="username" placeholder="아이디">
         </div>
         <div>
             <input type="password" name ="password" placeholder="패스워드">
+        </div>
+        <div>
+            <input type="password" name ="passwordcheck" placeholder="패스워드 확인">
+            <span id="r1"></span>
         </div>
         <div>
             <select name="gender" >
@@ -36,9 +42,10 @@
             <input type="radio" name="rdoHobby" value="애니메이션"><label>애니메이션</label>
             <input type="radio" name="rdoHobby" value="유투브"><label>유투브</label>
         </div>
+        <input type="submit">
     </form>
 
     
-    <script type ="text/javascript" src="../static/js/04_sample.js"></script>
+    <script type ="text/javascript" src="../static/js/04_DOM_NAME.js"></script>
 </body>
 </html>

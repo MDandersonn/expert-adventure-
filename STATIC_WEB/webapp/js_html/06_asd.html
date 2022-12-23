@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li id="r0">목록1</li>
+    </ul>
+    <form>
+        <div>
+            <input type="text" name="item">
+            <select name="item2">
+                <option value="f">앞</option>
+                <option value="e">뒤</option>
+            </select>
+            <button type ="button" onclick="addItem();">추가</button>
+            
+        </div>
+    </form>
+
+    <hr>
+    <form action="server.jsp" onsubmit="return validCheck2(this);">
+            <div>
+                <input type="text" name ="username" placeholder="아이디">
+            </div>
+            <div>
+                <input class="form-control" type="password" name ="password" id="id_pass1" placeholder="패스워드">
+            </div>
+            <div>
+                <input class="form-control" type="password" name ="passwordcheck" id= "id_pass2" placeholder="패스워드 확인">
+                
+            </div>
+            <div>
+                <select name="gender" >
+                    <option value="m">남자</option>
+                    <option value="w">여자</option>
+                </select>
+            </div>
+            <input type="submit">
+        </form>
+    
+    <script src = "../static/js/06_asd.js"></script>
+</body>
+</html>
