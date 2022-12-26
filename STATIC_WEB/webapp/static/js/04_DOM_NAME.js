@@ -4,7 +4,7 @@ document.getElementsByName("username")[0];
 
 // document.forms;
 // document.forms[0];
-// //위document.getElementsByName 방식을 쓰기보다 이렇게하면 폼을찾을수있따.
+// //위document.getElementsByName 방식을 쓰기보다  form.네임명 이렇게하면 폼을찾을수있따.
 // var form = document.forms[0];
 // form.username
 // form.password
