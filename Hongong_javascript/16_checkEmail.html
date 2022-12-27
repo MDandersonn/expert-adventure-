@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <p></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            var selectI= document.querySelector('input');
+            var selectP= document.querySelector('p');
+
+            const checkEmail = (value)=>{
+                
+                if (value.indexOf("@")<1){
+                    return false;
+                }
+                else if (value.split('@')[1].indexOf('.')<1){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            
+
+            selectI.addEventListener('keyup',(event)=>{
+                var word=event.currentTarget.value;
+                if(checkEmail(word)){
+                    selectP.textContent=`이메일 형식입니다:${word}`;
+                    selectP.style.color='green';
+                }else{
+                    selectP.style.color='red';
+                    selectP.textContent=`이메일 형식이 아닙니다:${word}`;
+                }
+
+            })
+        })
+
+    </script>
+</body>
+</html>

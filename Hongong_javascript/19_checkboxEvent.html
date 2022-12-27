@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox">
+    <span>타이머 활성화</span>
+    <h1></h1>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            var selectI=document.querySelector('input');
+            var selectS=document.querySelector('span');
+            var selectH=document.querySelector('h1');
+            count=0;
+            selectI.addEventListener('change',()=>{
+                if(selectI.checked){
+                    id=setInterval(()=>{
+                    selectH.textContent=`${count}초`; 
+                    console.log(`${count}초 지남`)
+                    count++;
+                    },1*1000);
+                }else{
+                    clearInterval(id);
+                }
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>

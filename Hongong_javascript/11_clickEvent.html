@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            var h1= document.createElement('h1');
+            h1.textContent="클릭횟수: 0"
+            document.body.appendChild(h1);
+            
+            var button1 = document.createElement('button')
+            button1.textContent="이벤트 연결";
+            document.body.appendChild(button1);
+            var button2 = document.createElement('button')
+            button2.textContent="이벤트 제거";
+            document.body.appendChild(button2);
+
+            var count=1;
+            var sw=null;
+            let selectH1 = document.querySelector('h1');
+            let selectB1 = document.querySelectorAll('button')[0];
+            let selectB2 = document.querySelectorAll('button')[1];
+
+            selectB1.addEventListener("click",()=>{
+                sw=true;
+                if(document.querySelector('#rr1')){
+                    var temp=document.querySelector('#rr1')
+                    document.body.removeChild(temp);
+                }
+                var div1= document.createElement('div');
+                div1.id="rr1";
+                div1.textContent="연결 성공";
+                document.body.appendChild(div1);
+
+            })
+            selectB2.addEventListener("click",()=>{
+                sw=false;
+                if(document.querySelector('#rr1')){
+                    var temp=document.querySelector('#rr1')
+                    document.body.removeChild(temp);
+                }
+                var div1= document.createElement('div');
+                div1.id="rr1";
+                div1.textContent="연결 해제";
+                document.body.appendChild(div1);
+
+            })
+            selectH1.addEventListener("click",()=>{
+                if(sw===true){
+                    selectH1.textContent =`클릭횟수: ${count++}`;
+                }
+            })
+
+
+        })
+    </script>
+</body>
+</html>

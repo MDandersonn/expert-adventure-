@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img class="rect">
+    <img class="rect">
+    <img class="rect">
+    <img class="rect">
+    <script>
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            var rect=document.querySelectorAll(".rect");
+            
+            //idx는 0,1,2,3..이 반복됨
+            rect.forEach( (item,idx)=>{
+                var width=(idx+1)*100
+                var src= `http://placekitten.com/${width}/${250}`;
+                // item.setAttribute('src',src);
+                // 아래와 같이 해도됨
+                item.src=src;
+            })
+        })
+    </script>
+</body>
+</html>

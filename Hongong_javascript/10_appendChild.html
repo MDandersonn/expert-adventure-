@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first">첫번째 div</div>
+    <div id="second">두번쨰 div</div>
+    
+    <script>
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            var first= document.querySelector("#first");
+            var second= document.querySelector("#second");
+            var h1= document.createElement('h1');
+            h1.textContent="이동하는 h1태그";
+
+            function firstf(){
+                console.log("첫번째작동");
+                first.appendChild(h1);
+                setTimeout(secondf,1000);
+            }
+            function secondf(){
+                console.log("두번째작동");
+                second.appendChild(h1);
+                setTimeout(firstf,1000);
+
+            }
+            firstf();
+
+        })
+    </script>
+</body>
+</html>
