@@ -19,18 +19,23 @@
             var selectI=document.querySelector('input');
             var selectS=document.querySelector('span');
             var selectA=document.querySelector('a');
+            
             selectI.addEventListener("change",(event)=>{
                     status= event.currentTarget.checked;
                     console.log(status);
                 })
-            
+                
+            //check가 false이면(체크가꺼져있을때)
+            // if문이 여기로 빠져나오면 페이지가로드될때 바로 if문 안으로 들어와서
+            //아래의 이벤트가 작동한다. 그래서 항상 click할때는 반응없도록 이벤트가 시작되는것
+            //
+
                 selectA.addEventListener("click",(event)=>{
                     if(!status){
-                        event.preventDefault();
+                        event.preventDefault();// 클릭해도반응없게
                     }
                 })
             
-        
         })
     </script>
 </body>

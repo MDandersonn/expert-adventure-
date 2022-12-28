@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <ul class="bookmark-list">
+
+        <li><a href="https://naver.com">네이버</a> <span>위</span> | <span>아래</span></li>
+        <li><a href="https://naver.com">구글</a> <span>위</span> | <span>아래</span></li>
+        <li><a href="https://naver.com">다음</a> <span>위</span> | <span>아래</span></li>
+        <li><a href="https://naver.com">네이트</a> <span>위</span> | <span>아래</span></li>
+
+    </ul>
+
+    <script>
+
+        // 위를 눌렀을때
+        $('li>span').even().on("click",(event)=>{
+            // console.log(event.target.parentElement);
+            // console.log($('li')[0]);
+            // console.log($('li')[1]==event.target.parentElement);
+
+
+            $('li').after(function(index){
+                if($('li')[index]==event.target.parentElement&& index>0){
+                    // console.log($('li')[index]);
+                    return $("li").eq(index-1);
+                }
+    
+            })
+        })
+
+        // 아래눌렀을때
+        $('li>span').odd().on("click",(event)=>{
+
+            $('li').before(function(index){
+                if($('li')[index]==event.target.parentElement){
+                    console.log($('li')[index])
+
+                    return $("li").eq(index+1);
+                }
+    
+            })
+        })
+            
+            
+
+
+        // $('th,td').after(function(index){
+        //     if(index%5===2){
+        //         return $("th,td").eq(index-1);
+        //     }
+        // })
+
+    </script>
+    
+</body>
+</html>

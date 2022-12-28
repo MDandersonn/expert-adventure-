@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script
+    
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <hr>
+    <h3>즐겨찾기 목록 만들기</h3>
+    <form >
+        <div>
+            <input type="text" name='url' placeholder="URL 주소 입력">
+            <input type="text" name='name' placeholder="이름 입력">
+            <!-- 방법1 -->
+            <!-- <button type="button" onclick="addBookmark();">저장 </button> -->
+
+            <!-- 방법2 -->
+            <button type="button" onclick="addBookmark(this.form);">온클릭활용</button>
+            <!-- 폼안에있는 사용자양식들은 form이라는 속성(자기가속한form) 을 가지고있다. 
+                그래서 자기자신의 속성중하나인 form을 불러들인것
+            -->
+            <hr>
+
+            <button type="button" id="r1">r1이벤트함수활용 </button>
+
+            <input type="button" id="r2" value="r2매개변수없는이벤트함수로">
+        </div>
+    </form>
+    <ul>
+        <li>
+            <a href="https://naver.com">네이버</a>
+        </li>
+    </ul>
+
+    <script>
+
+        console.log($("input").eq(0).val())
+        
+        // value입력
+        // $("input").eq(0).val("사용자 입력값");
+        // $("input").eq(1).val("별칭입력");
+
+        // 온클릭방법@@@@@@
+
+        function addBookmark(){
+            var url= $('form [name=url]').val()
+            var name= $('input').eq(1).val()
+
+            var a= $('<a>').attr('href',url).text(name);
+
+            var input=$('<input>').attr("type","button").val("삭제");
+
+            // var li= $('<li>').append(a);
+            // html로 내부에 자식처럼적용하는게되네
+            var li= $('<li>').html(a);
+            li.append(input);
+
+            $('ul').append(li);
+
+            $('li>input').on("click", (event)=>{
+                $(event.target).parent().remove();
+                // event.currentTarget.parentElement.remove();
+                
+            })
+            
+        }
+
+        // this.form 을 jQuery로 
+
+
+        // r1방법@@@@@@@@
+        function addBookmark1(form){
+            var url= $(form.url).val()
+            var name= $(form.name).val()
+
+            var a= $('<a>').attr('href',url).text(name);
+
+            var input=$('<input>').attr("type","button").val("삭제");
+
+            var li= $('<li>').append(a);
+            li.append(input);
+
+            $('ul').append(li);
+            // $('ul').html(li);
+
+            $('li>input').on("click", (event)=>{
+                $(event.target).parent().remove();
+                // event.currentTarget.parentElement.remove();
+                
+            })
+        }
+
+        /*
+        window.onload=function(){
+
+        }과 똑같은 것이다.
+        */
+        $(document).ready(function(){
+            // on메서드 : .on("이벤트명",함수명/익명함수)
+
+            // 매개변수가있어서 함수명만 딱 쓸수없기때문에 아래처럼해준다
+            $('form #r1').on("click", function(e){
+                addBookmark1(e.target.form);
+                // addBookmark1(this.form);//이거도 가능
+                
+                })
+
+        })
+
+
+// r2방법 @@@@@@@매개변수없이 쓸거면 아래처럼 바꿔준다
+        $(document).ready(function(){
+            // $('form #r2').on("click",  addBookmark2)
+
+            
+// off:등록한 이벤트 해지하는거
+        // $('form #r2').off("click",  addBookmark2)
+
+// 클릭이벤트에 등록된 모든함수가 제거
+            // $('form #r2').off("click")
+
+//one:  딱 1번만 동작하고 동작안함.
+            $('form #r2').one("click",  addBookmark2)
+
+//hover:2개의 이벤트를 등록함 앞꺼는 마우스엔터일때 뒤에는 마우스리브일때 동작할거
+            $('form #r2').hover(addBookmark2,  addBookmark2)
+            
+        })
+
+        function addBookmark2(event){
+            var url= $(event.target.form.url).val()
+            var name= $(event.target.form.name).val()
+
+            var a= $('<a>').attr('href',url).text(name);
+
+            var input=$('<input>').attr("type","button").val("삭제");
+
+            var li= $('<li>').append(a);
+            li.append(input);
+
+            $('ul').append(li);
+            // $('ul').html(li);
+
+            $('li>input').on("click", (event)=>{
+                $(event.target).parent().remove();
+                // event.currentTarget.parentElement.remove();
+                
+            })
+        }
+
+
+    </script>
+    
+</body>
+</html>

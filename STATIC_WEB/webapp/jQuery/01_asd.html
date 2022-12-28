@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Jquery검색 -> CDN 들어가기 > uncompressed 클릭 -->
+    <script
+    
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+        
+</head>
+<body>
+    <!-- 
+        $("선택자").메서드();
+        $("선택자").메서드("속성명");
+        $("선택자").메서드("속성명","속성값");
+        $("선택자").메서드(익명함수/함수명);
+        제이쿼리의 메서드를 통해 실행한 후에는 제이쿼리 객체가 다시 반환되기 떄문에
+        연속적인 메서드의 나열을 통한 실행이 가능하다.
+        $('선택자').메서드A().메서드B().메서드C();
+    
+    -->
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="title">제목입니다</td>
+                <td>tester</td>
+                <td>2022-12-28</td>
+                <td class="until">1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>테스트중입니다</td>
+                <td>admin</td>
+                <td>2022-12-28</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        console.log($("td"))
+        console.log($("tbody tr"))
+
+        // DOM엘리먼트객체로 반환
+        console.log($("tbody tr")[0])
+
+        // 제이쿼리오브젝트로 반환됨.그래서 계속이어서 메서드를 체인 할수있음
+        console.log($("tbody tr").eq(1))
+        console.log($("tbody tr").first())
+        console.log($("tbody tr").last())
+        console.log($("th,td"))
+        // 선택된th,td들중에서 th만 필터링.
+        console.log($("th,td").filter('th'))
+        // th,td들 중에서 th가 아닌것들만 가져오기
+        console.log($("th,td").not('th'))
+
+        // 부모만
+        console.log($("td").parent())
+
+        // 위에 모든조상 (HTML까지)
+        console.log($("td").parents())
+
+        console.log($("td").parentsUntil());
+        console.log("------------")
+
+        // tbody전까지의 조상들
+        console.log($("td").parentsUntil("tbody"));
+        
+        // table전까지의 조상들
+        console.log($("td").parentsUntil("table"));
+
+        // td의 조상중 table만 선택.
+        console.log($("td").parents("table"));
+        console.log("------------")
+
+        // 이것은 $("table").children() 와 같다.
+        console.log($("td").parents("table").children());
+        
+        // 바로 밑 자손
+        console.log($("table").children());
+
+        // 자식의 자식
+        console.log($("table").children().children());
+
+        // table선택후 후손중 td를 찾음
+        console.log($('table').find('td'));
+
+        // 다음형제
+        console.log($('.title').next());
+        
+        // 이전형제
+        console.log($('.title').prev());
+        
+        // 다음모든형제
+        console.log($('.title').nextAll());
+
+        // 이전모든형제
+        console.log($('.title').prevAll());
+
+        //.title부터 .until전까지 다음방향으로
+        console.log($('.title').nextUntil(".until")); 
+
+        // .until부터 .title까지 이전방향으로
+        console.log($('.until').prevUntil(".title")); 
+
+        // td태그들중에서 .title을 갖는게 있는지 ?
+        console.log($("td").is(".title"));
+        console.log($("td").is(".tasdasdle"));
+
+        // $("td").each(메서드)
+        $("td").each(function(index,element){
+            console.log(index,element);
+            element.style.color='red';
+
+
+        });
+
+        $('td').css('background-color','yellow');
+
+        // 클래스이름 추가
+        $('td').addClass("class-name");
+        // 클래스 삭제
+        $('td').removeClass("class-name");
+
+        // 있으면 제거하고 없으면 추가해줌
+        // $('td').toggleClass("class-name");
+
+        $('td').addClass(function(index){
+            if(index%2===0){
+                return "class-name";
+            }
+        });
+
+        $('td').removeClass(function(index){
+            if(index%2===0){
+                return "class-name";
+            }
+        });
+
+        $('td').toggleClass(function(index){
+            if(index%2===0){
+                return "class-name";
+            }
+        });
+
+        // 속성설정
+        // 맨 앞에있는거만 
+        $('th').attr("style","color:green;");
+        $("th").eq(0).nextAll().attr("style","color:blue;");
+        console.log($("th").attr('style'));
+
+        $('th').attr("style",function(index,value){
+            if(value===undefined){
+                value="";
+            }
+            return value + "background-color:gray;";
+            
+        })
+
+
+        // 값을 대체한다
+        // $('th').attr("style",function(index,value){
+        //     return "font-size:24px;";
+        // })
+        
+        // 삭제
+        // $('th').removeAttr("style");
+
+
+        // $('th').css('background-color','yellow');
+         // $('th').css('font-size','24px');
+         console.log($('th').css("color"));
+
+        //  remove가 따로없고 이렇게 "" 공란으로 처리하면 삭제됨
+         $('td').css("background-color","")
+         
+         $('td').css("font-size",function(index,value){
+            if(index%2===0){
+                return "24px";
+            }
+         })
+
+         console.log($('th').html()); //0번인덱스만 나온거
+         console.log($('th').text()); //다 나온거
+
+        //  태그정보까지나옴
+         console.log($('thead tr').html());
+
+        //  텍스트만나옴
+         console.log($('thead tr').text());
+
+        //  $('th').html("<a href='#'>링크</a>");
+
+        //  $('th').text("<a href='#'>링크</a>");
+
+         $('th').html(function(index,value){
+
+            return "<a href='#'>"+ value+"</a>"});
+        
+            // 태그 만들기!!!!!!!!!!!!!@!!!!!!@!@!@!@
+        console.log($("<tr>"))
+        console.log($("<tr>")[0]);
+        console.log($("<input>").attr('type','password')[0]);
+        console.log($("<input>").attr('type','password').attr("name",'pass')[0]);
+
+        // 태그만들어서 저장한후
+        var input =$("<input>").attr('type','password').attr("name",'pass');
+
+        // body의 맨마지막자식으로 들어감.
+        $('body').append(input);
+        // body의 첫번째 자식으로 이동한다.(같은 객체 위의 객체가  이동을 하는것.)
+        $('body').prepend(input);
+
+        // 테이블뒤에
+        $('table').after(input);
+        
+        // 테이블앞에
+        $('table').before(input);
+
+
+        // $('th').append($("<a>").attr('href',"#").text("링크"))
+
+        var temp=$("<a>").attr('href',"#").text("링크");
+        // $('th').append(temp);
+
+        $('th').append(function(index){
+            if(index%2===0){
+                return $("<a>").attr('href',"#").text('링크');
+            }
+        })
+
+        var a= $("<a>").attr('href',"#").text('에이');
+            // 뒤에다가 기준을 설정하는방법
+            // th에 붙임.
+
+        // append와 다르게 이동이아니라 쓸때마다 복사가됨
+        // a.appendTo("th");
+        // a.prependTo("th");
+
+        
+        // a.appendTo($("th"));
+        // a.prependTo($("th"));
+
+        // 하나만선택되어있으면 이동인데 여러개선택되어있으면 추가시켜줌
+
+        // 하나선택했을때,
+
+        // 2개이상이선택되었으면 추가.
+
+        // 하나선택되었을때 동일한태그에 두번쓴다고 추가되지않음
+        // 이동의개념
+        a.appendTo($("th")[0]);
+        a.appendTo($("th")[0]);
+        a.prependTo($("th")[0]);
+        // a.appendTo($("th")[1]);
+
+
+        // 자식이아니라 형제로 th뒤에 붙여라
+        // a.insertAfter('th');
+
+
+        // 형제로 th앞에 붙여라
+        // a.insertBefore('th');
+
+        a.after('th');
+
+        // a를 th뒤에 형제로 붙이기.
+        // $('th').after(a);
+
+        $('th,td').after(function(index){
+            if(index%5===2){
+                return $("th,td").eq(index-1);
+            }
+        })
+
+        // 선택한 객체애대해서 제거
+        // $('a').remove();
+
+        // 삭제하고 삭제한거 저장해놓기.
+        var d= $('table > thead').remove();
+        console.log(d);
+
+        // 삭제한거 다시 붙이기
+        $('table').prepend(d);
+
+
+
+
+
+
+
+
+         
+
+
+
+    </script>
+</body>
+</html>
