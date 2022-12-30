@@ -15,20 +15,20 @@
             border:1px solid;
         }
         header{
-            display:flex;
-            flex-wrap: wrap;
-            justify-content:center;
             margin-top:10px;
             margin-bottom:10px;
+            overflow:hidden;
         }
-        /* flex를 일부만 적용받지않게 ? */
-        header > span{
-            display:inline;
-            margin :0px;
-            padding:0px;
-            text-align: left;
+        /* flex를 일부만 적용받지않게x ? */
+
+        header > h2{
+            width:40%;
+            float:left;
         }
-        
+        header > nav{
+            /* float:right; */
+            width: 60%;
+        }
         
         ul{ 
             display:inline;
@@ -44,6 +44,7 @@
             padding-right: 20px;
             
         }
+
       section{
         display:flex;
         flex-wrap: wrap;
@@ -73,7 +74,8 @@
 </head>
 <body>
     <header>
-        <span>로고이미지</span>
+        <!-- 오버플로우 -->
+        <h2>로고이미지</h2>
         <nav>
             
             <ul>
