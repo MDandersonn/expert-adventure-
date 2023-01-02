@@ -10,6 +10,8 @@ function sideMenuActive(event) {
 }
 
 function pagingActive(event) {
+    // console.log(event.target);          실제 클릭이 발생된 타겟 객체
+    // console.log(event.currentTarget);   클릭으로 인해 실제 이벤트가 발생한 객체(클릭 이벤트가 등록된 객체)
     if(event.currentTarget == $(event.currentTarget).parent().children()[0]) {
         let active = $(event.currentTarget).siblings(".active");
         if(event.currentTarget != active.prev()[0]) {
