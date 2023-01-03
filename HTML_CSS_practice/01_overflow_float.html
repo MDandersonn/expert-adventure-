@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .left{
+            /* 플록을 먹이면 부모의 보더 밖으로 삐져나올수있다. 독립적으로 움직임 */
+            float:left;
+            /*이미지는 인라인영역 */
+            border:1px solid blue;
+            width:200px;
+            margin-left:40px;
+        }
+
+        .right{
+            float:right;
+            /*이미지는 인라인영역 */
+            border:1px solid blue;
+            width:200px;
+            margin-right:40px;
+
+        }
+        p{
+            border:1px solid red;
+        }
+        
+        div{
+            border: 1px solid green;
+            width :600px;
+            /* overflow:hidden하면 삐져나간 플롯영역들이 부모범위안으로 들어옴
+             */
+            overflow:hidden; 
+            /* body는 Block Formatting Context라는 성격을 가지고 있음 이것을 div에 적용하는것 */
+
+            /*
+✨overflow가 부여된 요소는 독립적인 문서가 시작된다. 이를 BFC Block Formatting Context라고 부른다.
+즉 새로운 BFC가 시작된다. 우리가 원래 알고있던 BFC영역은 body영역이라고 볼 수 있다.
+그 body요소 안에 overflow속성이 지정된 요소는 새로운 BFC가 된다.
+즉, float된 요소까지도 온전히 포함하고 있는 새로운 block formatting context를 생성해준다.
+overflow의 기본값인 visible이 아니면 새로운 bfc가 생성되는 것이 원칙이다
+
+            */
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <img class="left" src="./logo.png" alt="반 잘린 레몬 단면">
+        <img class="right" src="./logo.png" alt="반 잘린 레몬 단면">
+        <p> Lorem ipsum vero.  s, qcesam est, aspernatur quam nihil quod recusandae! Quam officiis ipsum iusto qui! Dolorum, facilis aliquam quibusdam expedita possimus, voluptatem distinctio, praesentium dignissimos nostrum voluptate esse.</p>
+     </div>
+</body>
+</html>

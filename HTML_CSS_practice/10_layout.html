@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #wrapper{
+        border:1px solid red;
+        width: 96%;
+
+        /* 넓이가정해진 블록영역 자기자신한테 적용 */
+        margin:0 auto;
+    }
+    header{
+        border:1px solid gray;
+        margin: 10px;
+        padding:10px;
+        /* float된 자식들이 빠져나가지않게 */
+        overflow: hidden;
+        
+    }
+
+    header h1{
+        width:40%;
+        border:1px solid green;
+        float:left;
+
+
+
+    }
+    
+    nav ul{
+        border:1px solid blue;
+
+        /* ul에적용해도되고 li에적용해도된다. */
+        list-style-type: none;
+        /* margin-top:30px; */
+
+
+        /* li가float일경우 적용하고 display:inline이면 적용안해도됨 */
+        /* overflow: hidden; */
+        
+       
+    }
+    nav ul li{
+        border:1px solid red;
+        /* float대신 inline으로 적용하면되는구나 */
+        display:inline;
+        
+        /* padding-top:10px;
+        margin-right:20px; */
+        
+        /* float:left; */
+        
+        margin:20px;
+    }
+
+    header nav{
+        border:1px solid green;
+        width:59%;
+        float:right;
+
+    }
+
+    section{
+        overflow: hidden;
+    }
+
+    article,main{
+        border:1px solid gray;
+        width:28%;
+        float:left;
+
+        margin:20px auto;
+        
+        margin-right:1.5%;
+        padding:0.5%;
+        border-radius: 10px;
+    }
+
+    #left{
+        margin-left:2%;
+    }
+    main{
+    }
+    #right{
+    }
+    aside{
+        border:1px solid gray;
+        clear:both;
+        width:93.75%;
+        border-radius: 10px;
+        margin: 10px auto;
+        padding:10px;
+
+    }
+    footer{
+        border-radius: 10px;
+        border:1px solid gray;
+        width:93.75%;
+        margin: 10px auto;
+        padding:10px;
+        text-align: right;
+    }
+
+</style>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>애완견종류</h1>
+            <nav>
+                <ul>
+                    <li>목록1</li>
+                    <li>목록2</li>
+                    <li>목록3</li>
+                    <li>목록4</li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <article id="left">
+                <h1>활당한강아지</h1>
+                Lorem ipsum dipsum dolor, sit amet consectetur adipsum dolor, sit amet consectetur adipsum dolor, sit amet consectetur adolor, sit amet consectetur adipisicing elit. Corporis nobis rerum incidunt. Repudiandae, sit nostrum modi totam error quo assumenda hic quas. Mollitia accusamus ea non facere magni aspernatur! Laudantium impedit cupiditate obcaecati mollitia? Quos deleniti quia dolor expedita unde impedit. Atque aspernatur optio iste, omnis culpa nisi unde natus necessitatibus eligendi odit placeat sit cupiditate, neque reiciendis totam assumenda pariatur. Esse distinctio tempora vero illum autem excepturi optio dolorum adipisci commodi voluptates porro at maiores odit debitis cum natus, nihil dolor quos, accusantium laborum nostrum quisquam culpa! Ea quae doloremque voluptatem minus quidem quis hic enim, libero porro dicta.
+            </article>
+            <main>
+                
+                <h1>활당한강아지</h1>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis nobis rerum incidunt. Repudiandae, sit nostrum modi totam error quo assumenda hic quas. Mollitia accusamus ea non facere magni aspernatur! Laudantium impedit cupiditate obcaecati mollitia? Quos deleniti quia dolor expedita unde impedit. Atque aspernatur optio iste, omnis culpa nisi unde natus necessitatibus eligendi odit placeat sit cupiditate, neque reiciendis totam assumenda pariatur. Esse distinctio tempora vero illum autem excepturi optio dolorum adipisci commodi voluptates porro at maiores odit debitis cum natus, nihil dolor quos, accusantium laborum nostrum quisquam culpa! Ea quae doloremque voluptatem minus quidem quis hic enim, libero porro dicta.
+            </main>
+            <article id="right">
+                <h1>활당한강아지</h1>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis nobis rerum incidunt. Repudiandae, sit nostrum modi totam error quo assumenda hic quas. Mollitia accusamus ea non facere magni aspernatur! Laudantium impedit cupiditate obcaecati mollitia? Quos deleniti quia dolor expedita unde impedit. Atque aspernatur optio iste, omnis culpa nisi unde natus necessitatibus eligendi odit placeat sit cupiditate, neque reiciendis totam assumenda pariatur. Esse distinctio tempora vero illum autem excepturi optio dolorum adipisci commodi voluptates porro at maiores odit debitis cum natus, nihil dolor quos, accusantium laborum nostrum quisquam culpa! Ea quae doloremque voluptatem minus quidem quis hic enim, libero porro dicta.
+            </article>
+            
+        </section>
+        <aside>
+            <h1>활당한강아지</h1>
+                Lorem ipsum dolor, sit amet consectetur adip
+            
+        </aside>
+        <footer>
+
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, quas.
+        </footer>
+    </div>
+</body>
+</html>

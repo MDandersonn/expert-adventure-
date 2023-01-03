@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        border:1px solid;
+        width :400px;
+        /* margin:0 auto; */
+        
+    }
+    #r1{  
+        /* display:inline; */
+        border: 1px solid red;     
+        /* 위아래30  좌우 50 */
+        /* margin:30px 50px; */
+
+
+            /* 위 좌우 아래 (3개면 우측이빠지니까 좌측값을 대신사용하는개념) */
+        /* margin:30px 40px 60px; */
+
+
+        /* 상 우 하 좌 (시계방향순서) */
+        /* margin:30px 40px 50px 60px; */
+
+
+        /* display:inline; */
+        /* width: 80px; */
+        width :50%;
+        
+
+        /* 
+        margin:0 auto;이 적용되려면
+            width가 자동설정이아닌 적용되어있어야함
+            (폭의 연산이 불가능하면 가운데 정렬을 할 수 없다.
+            해결책: overflow:hidden;)
+        inline이면 안됨(너비설정이안먹힘):해결책:display:block
+        inline 속성은 자신만큼 영역값만을 가지기 때문임
+
+
+        즉 넓이가정해진 블록영역만가능(자기자신한테씀)
+            
+        */
+        margin:0 auto;
+        /* text-align: center; */
+
+
+        /* margin:auto; */
+    }
+</style>
+<body>
+    <!-- margin의 크기
+
+        백분율:부모요소를 기준으로 너비나 높이값을 지정함
+        auto: display속성에서 지정한 값에 맞게 적절한 값을 자동으로지정;
+     -->
+     <div>
+        <div id="r1">안녕하세요</div>
+    </div>
+</body>
+</html>

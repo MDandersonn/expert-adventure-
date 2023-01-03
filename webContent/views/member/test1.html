@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    ​
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <button onclick="alert('hi');">버튼</button>
+    <h1 class="testClass">hello</h1>
+    <script>
+
+        var e = document.getElementsByClassName('testClass')[0]
+        console.log(e)
+    </script>
+
+
+    <!-- <button id="btn">클릭하세요</button>
+
+    <script>
+    
+        var button = document.getElementById('btn');
+    
+        button.addEventListener('click', function(){
+    
+            console.log('버튼이 클릭되었습니다.');
+    
+        });
+    
+    </script> -->
+
+
+    <ul id="menu">
+
+        <li>불고기버거</li>
+
+        <li>치즈버거</li>
+
+        <li>치킨버거</li>
+
+    </ul>
+
+    <script>
+
+        $("#menu").click(function () {
+
+            $("#menu").css('background', 'gray');
+
+        });
+
+    </script>
+
+
+
+    <button id="btn">클릭 전</button>
+
+    <script>
+
+        var button = document.getElementById('btn');
+
+        button.addEventListener('click', function () {
+
+            button.innerText = '클릭 후';
+
+            button.style.color = 'red';
+
+        });
+
+    </script>
+</body>
+
+</html>

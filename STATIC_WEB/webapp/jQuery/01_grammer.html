@@ -234,21 +234,28 @@
         $('table').before(input);
 
 
-        // $('th').append($("<a>").attr('href',"#").text("링크"))
+        $('th').append($("<a>").attr('href',"#").text("첫번째"))
 
-        var temp=$("<a>").attr('href',"#").text("링크");
+        // var temp=$("<a>").attr('href',"#").text("두번째");
         // $('th').append(temp);
 
         $('th').append(function(index){
             if(index%2===0){
-                return $("<a>").attr('href',"#").text('링크');
+                console.log(index)
+                return $("<a>").attr('href',"#").text('짝수');
+                
             }
         })
+
 
         var a= $("<a>").attr('href',"#").text('에이');
             // 뒤에다가 기준을 설정하는방법
             // th에 붙임.
 
+        // $('th').append(function(index,value){
+        //     return a;
+        // })
+        
         // append와 다르게 이동이아니라 쓸때마다 복사가됨
         // a.appendTo("th");
         // a.prependTo("th");

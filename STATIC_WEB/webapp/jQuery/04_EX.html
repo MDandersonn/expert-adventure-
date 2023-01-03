@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+    <style>
+        header,aside,footer{
+            border:1px solid;
+        }
+        header{
+            margin-top:10px;
+            margin-bottom:10px;
+            overflow:hidden;
+        }
+        /* flex를 일부만 적용받지않게x ? */
+
+        header > h2{
+            width:40%;
+            float:left;
+        }
+        header > nav{
+            /* float:right; */
+            width: 60%;
+        }
+        
+        ul{ 
+            display:inline;
+            padding:0px;
+            /* margin-left: 100px; */
+
+            
+        }
+        nav li{
+            list-style: none;
+            display:inline-block;
+            padding-left: 20px;
+            padding-right: 20px;
+            
+        }
+
+      section{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
+      }
+      main div{
+        border:1px solid;
+        display:flex;
+        justify-content: center;
+        
+      }
+      main li{
+            list-style: none;
+            display:inline-block;
+            border:1px solid;
+            margin-left:0;
+            margin-right:0;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin:0;
+            padding:0;
+
+      }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- 오버플로우 -->
+        <h2>로고이미지</h2>
+        <nav>
+            
+            <ul>
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <aside id='left'>
+            <h4>구역1</h4>
+            <li>분류 1</li>
+            <li>분류 2</li>
+            <li>분류 3</li>
+            <li>분류 4</li>
+            <li>분류 5</li>
+            <li>분류 6</li>
+            <li>분류 7</li>
+
+        </aside>
+        <main>
+            <h4>분류1</h4>
+            <input type="text" placeholder="검색어">
+            <button>검색</button>
+            <select>
+                <option>10개</option>
+                <option>50개</option>
+                <option>100개</option>
+            </select>
+            <div>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+            </div>
+
+        </main>
+        <aside id="right">
+            <h4>구역2</h4>
+            <li>분류 A</li>
+            <li>분류 B</li>
+            <li>분류 C</li>
+            <li>분류 D</li>
+            <li>분류 E</li>
+            <li>분류 F</li>
+            <li>분류 G</li>
+
+        </aside>
+    </section>
+    <footer>
+        Copyright 2022. xxxx Co. all rights reserved.
+    </footer>
+    
+</body>
+</html>

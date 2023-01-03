@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .left{
+            /* 플록을 먹이면 부모의 보더 밖으로 삐져나올수있다. 독립적으로 움직임 */
+            float:left;
+            /*이미지는 인라인영역 */
+            border:1px solid blue;
+            width:200px;
+            margin-left:40px;
+        }
+
+        .right{
+            float:right;
+            /*이미지는 인라인영역 */
+            border:1px solid blue;
+            width:200px;
+            margin-right:40px;
+
+        }
+        p{
+            border:1px solid red;
+
+            /* 블록영역이라 적용잘됨 */
+            /* clear:both; */
+        }
+        
+        div{
+            border: 1px solid green;
+            width :1000px;
+            /* overflow: hidden; */
+
+        }
+        ul{
+            float:left;
+            border: 1px solid skyblue;
+        }
+        span{
+            border: 1px solid orange;
+            /* 인라인영역이라의미가없음 */
+            /* clear:both;  */
+        }
+        li{
+            float:left;
+            border: 1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+        </ul>
+        <img class="left" src="./logo.png" alt="반 잘린 레몬 단면">
+        <img class="right" src="./logo.png" alt="반 잘린 레몬 단면">
+        <span>인라인영역</span>
+        
+        <p> Lorem ipsum vero.  s, ur quam nihil quod recusiciis ipsum iusto qui! Dolorum, fao,sse.</p>
+     </div>
+</body>
+</html>

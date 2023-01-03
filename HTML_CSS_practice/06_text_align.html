@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Document</title>
+
+    <style>
+        .container{
+            border:1px solid red;
+            margin:10px;
+            /* 부모에서 적용시켜야 인라인영역인span이 정렬됨*/
+            text-align: center;
+        }
+        #r1{
+            border:1px solid green;
+            /* text-align: center; */
+        }
+
+        /* span영역 */
+        #r2{
+            /* display: inline; */
+            border:1px solid green;
+
+            /* 이건span내부에있는 글자를 정렬하겠다는말(불가능) */
+            text-align: center;
+        }
+
+        /* text-align:
+        block요소에만 text-align적용가능
+        block안에있는 inline요소만 정렬가능
+
+        
+        */
+        #r3{
+            /* display: inline; */
+            width:500px;
+            border:1px solid green;
+            text-align: center;
+        }
+
+
+
+        /* 부모에 align적용해놓으면 그 밑 자손 모두에 적용된다. */
+        #test1{
+            border:1px solid red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class ='container'>
+        <div id="r1">안녕하세요</div>
+    </div>
+    <div class='container'>
+        <span id="r2">안녕하세요</span>
+        <div id="r3">안녕하세요</div>
+    </div>
+
+
+    <div id ='test1'>
+        <div style="border:1px solid green;">
+            <div style="border:1px solid blue;">
+                <div style="border:1px solid violet;">
+                    <span>안녕하세요</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

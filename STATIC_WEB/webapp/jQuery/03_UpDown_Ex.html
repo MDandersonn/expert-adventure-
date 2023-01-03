@@ -15,10 +15,10 @@
 <body>
     <ul class="bookmark-list">
 
-        <li><a href="https://naver.com">네이버</a> <span>위</span> | <span>아래</span></li>
-        <li><a href="https://naver.com">구글</a> <span>위</span> | <span>아래</span></li>
-        <li><a href="https://naver.com">다음</a> <span>위</span> | <span>아래</span></li>
-        <li><a href="https://naver.com">네이트</a> <span>위</span> | <span>아래</span></li>
+        <li><a href="https://naver.com">네이버</a>   <span>▲</span>    |    <span>▼</span></li>
+        <li><a href="https://naver.com">구글</a>    <span>▲</span>    |    <span>▼</span></li>
+        <li><a href="https://naver.com">다음</a>    <span>▲</span>    |    <span>▼</span></li>
+        <li><a href="https://naver.com">네이트</a>    <span>▲</span>    |    <span>▼</span></li>
 
     </ul>
 
@@ -32,8 +32,9 @@
 
 
             $('li').after(function(index){
+                console.log('작동')
                 if($('li')[index]==event.target.parentElement&& index>0){
-                    // console.log($('li')[index]);
+                    console.log($('li')[index]);
                     return $("li").eq(index-1);
                 }
     
@@ -42,12 +43,14 @@
 
         // 아래눌렀을때
         $('li>span').odd().on("click",(event)=>{
-
+            let sw=false;
             $('li').before(function(index){
-                if($('li')[index]==event.target.parentElement){
+                console.log('작동');
+                if(sw===false  && $('li')[index]==event.target.parentElement && index+1<=$('li').length){
                     console.log($('li')[index])
-
+                    sw=true;
                     return $("li").eq(index+1);
+                    // 이런경우는 return나왔다고 함수가 종료되지않는다..
                 }
     
             })

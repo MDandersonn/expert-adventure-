@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 화면 중앙에위치 */
+        /* margion:0 auto; */
+        /* align-items :세로정렬 */
+        /* justify-content :가로정렬 */
+        /* align-self:개별요소 세로정렬 */
+        /* align-content를 사용하여 여러 줄 사이의 간격을 지정
+            align-content는 여러 줄들 사이의 간격을 지정하며,
+            align-items는 컨테이너 안에서 어떻게 모든 요소들이 정렬하는지를 지정합니다. 
+            한 줄만 있는 경우, align-content는 효과를 보이지 않습니다.
+        */
+        div{
+            border:1px solid red;
+            /* 자식이 float이고 부모안에 채울려면 부모에 hidden을 준다. */
+            /* overflow: hidden; */
+            height:300px;
+
+            /* padding-left: 0; */
+            /* 부모에플렉스를 주고 */
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            
+            
+        }
+        li{
+            height :30px;
+            border:1px solid ;
+            /* float:left; */
+            margin :0 20px;
+            
+            
+        }
+        span{ 
+        
+            height :30px;
+            border:1px solid ;
+            /* margin-right: auto; */
+            /* 플렉스엔 적용되지않음 justify-self: left ; */
+            
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>이미지로고</span>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+    </div>
+    
+</body>
+</html>
