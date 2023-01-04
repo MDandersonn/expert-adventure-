@@ -14,16 +14,26 @@
     <input type="text">
 
     <script>
+        
+        // $('input').on('keyup', (event) => {
+        //     console.log(this)
+        // })
+    /*
 
-        $('input').on('keyup', (event) => {
-            console.log(this)
+    화살표 함수의 경우 function 키워드를 사용하는 함수와 다르게 this 객체에 대한 재정의 작업을 수행하지 않는다고 합니다.
+그래서 화살표 함수에서 사용한 this 는 전역 this 를 가리키고 해당 객체에는 window 객체가 담겨 있어서 window 객체 정보가 나오게 됩니다.
+
+그래서 위의 이벤트에서는 window 객체의 value 속성에 접근을 하는 것인데 window 객체에는 value 속성이 없어서 undefined 라고 나온 겁니다.
+    */
+        $('input').on('keyup', function(event){
+            console.log(this.value)
         })
 
 
-        $("input").keyup(function () {
+        // $("input").keyup(function () {
 
-            console.log(this.value)
-        }).keyup();
+        //     console.log(this.value)
+        // }).keyup();
     </script>
 
 </body>
