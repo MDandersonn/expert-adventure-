@@ -210,7 +210,6 @@
         //  $('th').text("<a href='#'>링크</a>");
 
          $('th').html(function(index,value){
-
             return "<a href='#'>"+ value+"</a>"});
         
             // 태그 만들기!!!!!!!!!!!!!@!!!!!!@!@!@!@
@@ -225,36 +224,72 @@
         // body의 맨마지막자식으로 들어감.
         $('body').append(input);
         // body의 첫번째 자식으로 이동한다.(같은 객체 위의 객체가  이동을 하는것.)
-        $('body').prepend(input);
+        // $('body').prepend(input);
 
         // 테이블뒤에
-        $('table').after(input);
+        // $('table').after(input);
         
         // 테이블앞에
-        $('table').before(input);
+        // $('table').before(input);
 
 
-        $('th').append($("<a>").attr('href',"#").text("첫번째"))
+        // $('th').append($("<a>").attr('href',"#").text("첫번째"))
 
-        // var temp=$("<a>").attr('href',"#").text("두번째");
+        
+        // /하나만선택되어있으면 이동인데 여러개선택되어있으면 추가시켜줌
+        var temp=$("<a>").attr('href',"#").text("temp");
         // $('th').append(temp);
 
-        $('th').append(function(index){
-            if(index%2===0){
-                console.log(index)
-                return $("<a>").attr('href',"#").text('짝수');
+        var a= $("<a>").attr('href',"#").text('A');
+        
+
+    //    $('th').append(function(index,value){
+    //         return a;
+    //     })
+
+        //이것과 같다  1개선택은 이동의개념
+        
+            // $('th').eq(0).append(a)
+            // $('th').eq(1).append(a)
+            // $('th').eq(2).append(a)
+            // $('th').eq(3).append(a)
+            // $('th').eq(4).append(a)
+            // $('th').eq(5).append(a)
+        
+        // 이것을 피할려면 a객체를 계속 생성해주면서 추가시켜야한다.
+        // $('th').append(function(index,value){
+        //     var a= $("<a>").attr('href',"#").text('A');
+        //     return a;
+        // })
+
+        $('th').eq(0).append($("<a>").attr('href',"#").text('A'));
+        $('th').eq(1).append($("<a>").attr('href',"#").text('A'));
+        $('th').eq(2).append($("<a>").attr('href',"#").text('A'));
+        $('th').eq(3).append($("<a>").attr('href',"#").text('A'));
+        $('th').eq(4).append($("<a>").attr('href',"#").text('A'));
+        $('th').eq(5).append($("<a>").attr('href',"#").text('A'));
+            
+            
+
+
+
+
+        // $('th').prepend(temp);
+
+        // $('th').append(function(index){
+        //     if(index%2===0){
+        //         console.log(index)
+        //         return $("<a>").attr('href',"#").text('짝수');
                 
-            }
-        })
+        //     }
+        // })
 
 
-        var a= $("<a>").attr('href',"#").text('에이');
+        
             // 뒤에다가 기준을 설정하는방법
             // th에 붙임.
 
-        // $('th').append(function(index,value){
-        //     return a;
-        // })
+ 
         
         // append와 다르게 이동이아니라 쓸때마다 복사가됨
         // a.appendTo("th");
@@ -272,9 +307,9 @@
 
         // 하나선택되었을때 동일한태그에 두번쓴다고 추가되지않음
         // 이동의개념
-        a.appendTo($("th")[0]);
-        a.appendTo($("th")[0]);
-        a.prependTo($("th")[0]);
+        // a.appendTo($("th")[0]);
+        // a.appendTo($("th")[0]);
+        // a.prependTo($("th")[0]);
         // a.appendTo($("th")[1]);
 
 
@@ -285,26 +320,26 @@
         // 형제로 th앞에 붙여라
         // a.insertBefore('th');
 
-        a.after('th');
+        // a.after('th');
 
         // a를 th뒤에 형제로 붙이기.
         // $('th').after(a);
 
-        $('th,td').after(function(index){
-            if(index%5===2){
-                return $("th,td").eq(index-1);
-            }
-        })
+        // $('th,td').after(function(index){
+        //     if(index%5===2){
+        //         return $("th,td").eq(index-1);
+        //     }
+        // })
 
         // 선택한 객체애대해서 제거
         // $('a').remove();
 
         // 삭제하고 삭제한거 저장해놓기.
-        var d= $('table > thead').remove();
-        console.log(d);
+        // var d= $('table > thead').remove();
+        // console.log(d);
 
         // 삭제한거 다시 붙이기
-        $('table').prepend(d);
+        // $('table').prepend(d);
 
 
 
