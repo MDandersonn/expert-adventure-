@@ -1,5 +1,7 @@
 package model.service;
 
+import model.dao.VisitDAO;
+
 public class VisitService {
 	
 	public boolean add(String context) {
