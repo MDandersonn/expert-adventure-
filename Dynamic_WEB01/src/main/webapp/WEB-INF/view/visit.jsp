@@ -10,6 +10,9 @@
 	<h2>방명록</h2>
 	<form action="./visit" method="post">
 		<div>
+			<input type="text" name="nickname">
+		</div>
+		<div>
 			<textarea rows="3" cols="25" name="context"></textarea>
 		</div>
 		<div>

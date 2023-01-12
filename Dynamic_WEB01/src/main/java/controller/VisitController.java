@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.dto.VisitDTO;
 import model.service.VisitService;
 
 public class VisitController extends HttpServlet{
@@ -35,9 +36,15 @@ public class VisitController extends HttpServlet{
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //			super.doPost(req, resp);
 			String context = req.getParameter("context");
+			String nickname=req.getParameter("nickname");
 			System.out.println(context);
+			
+			VisitDTO dto= new VisitDTO();
+			dto.setContext(context);
+			dto.setNickname(nickname);
+			
 			VisitService service= new VisitService();
-			boolean result= service.add(context);
+			boolean result= service.add(dto);//서비스는 추가되서 추가된결과를 알려줌
 			if(result) {
 				System.out.println("추가 됨 ");
 				

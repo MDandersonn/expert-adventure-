@@ -47,10 +47,6 @@ public class MainController extends HttpServlet{
 		
 //		flush: 버퍼남아있는데이터까지다 비워서  다보내라라는뜻
 		
-		
-		
-	
-		
 	}
 	
 //	이건지금안쓰니까 빼고
