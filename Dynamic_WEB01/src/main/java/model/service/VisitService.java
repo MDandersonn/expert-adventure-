@@ -1,5 +1,7 @@
 package model.service;
 
+import java.util.List;
+
 import model.dao.VisitDAO;
 import model.dto.VisitDTO;
 
@@ -20,5 +22,14 @@ public class VisitService {
 		dao.close();
 		return false;
 	}
+
+	public List<VisitDTO> getAll() {
+		VisitDAO dao = new VisitDAO();
+		List<VisitDTO> data = dao.selectAll();
+		dao.close();
+		return data;
+	}
+
+
 
 }

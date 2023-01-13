@@ -20,4 +20,11 @@
 	<insert id="insert" parameterType="model.dto.VisitDTO">
 		insert into visit_t values(#{context}, #{nickname})
 	</insert>
+	
+	<select id="selectAll" resultType="model.dto.VisitDTO">
+		select nickname,context from VISIT_T
+	</select>
+	
+	
+	
 </mapper>

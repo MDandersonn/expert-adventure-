@@ -1,28 +1,19 @@
 package model.dao;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import database.connect.OracleConnection;
 import model.dto.VisitDTO;
 
 
+
 public class VisitDAO {
 	private SqlSession session= OracleConnection.getSqlSession();
 	
 	public int insert(VisitDTO dto) {
-//		원래는 String context
-		
-//		오라클연결해서 
-//		String res= session.selectOne("visitMapper.connectTest");
-//		System.out.println(res);
-//		return 0;
-		
-		
-		
-//		전달해주는게 context
-//		int count= session.insert("visitMapper.insert",context);
-//		return count;
-		
-		int count= session.insert("visitMapper.insert",dto);
+
+		int count= session.insert("VisitMapper.insert",dto);
 		return count;
 	}
 
@@ -31,11 +22,17 @@ public class VisitDAO {
 	}
 
 	public void close() {
-		session.rollback();
+		
+		session.close();
 	}
 
 	public void rollback() {
-		session.close();
+		session.rollback();
+	}
+
+	public List<VisitDTO> selectAll() {
+		List<VisitDTO> data = session.selectList("visitMapper.selectAll");
+		return data;
 	}
 
 }
