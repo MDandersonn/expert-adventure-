@@ -1,19 +1,38 @@
-create table VISIT_T(
-	context varchar2(500 char)
-);
+
 
 select * from visit_t;
 
 
 drop table visit_t;
 
+delete from visit_t;
 
 create table VISIT_T(
 	context varchar2(500 char),
 	nickname varchar2(25 char)
 );
 
-insert into visit_t values('context','nickname');
+create sequence visit_s;
+
+select visit_s.nextval from dual;
+
+insert into visit_t values(1,'context','nickname');
+insert into visit_t values(2,'context','nickname');
+insert into visit_t values(3,'context','nickname');
+create table VISIT_T(
+	id number primary key,
+	context varchar2(500 char),
+	nickname varchar2(25 char)
+);
+
+
+
+commit;
+
+
+
+
+
 
 create table bookmark_T(
 	url varchar2(50 char),
@@ -52,3 +71,10 @@ insert into BOOKMARK_T values(3,'https://nate.com','네이트');
 
 select * from BOOKMARK_T ;
 commit;
+
+select max(id) from BOOKMARK_T;
+
+create sequence BOOKMARK_S;
+
+select BOOKMARK_S.NEXTVAL from dual;
+drop sequence bookmark_S;
