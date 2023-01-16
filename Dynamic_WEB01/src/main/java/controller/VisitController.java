@@ -21,7 +21,6 @@ public class VisitController extends HttpServlet{
  * JSP페이지는 /WEB-INF/view/visit.jsp이다
  * 
  */
-	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,9 +42,10 @@ public class VisitController extends HttpServlet{
 //			super.doPost(req, resp);
 			String context = req.getParameter("context");
 			String nickname=req.getParameter("nickname");
-			System.out.println(context);
+//			System.out.println(context);
 			
 			VisitDTO dto= new VisitDTO();
+			
 			dto.setContext(context);
 			dto.setNickname(nickname);
 			

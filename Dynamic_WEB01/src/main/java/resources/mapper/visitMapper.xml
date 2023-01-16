@@ -18,13 +18,34 @@
 
 <!-- { } 안에 들어가는 것과 DTO멤버변수 명칭은 같아야한다. 순서는 안중요함. -->
 	<insert id="insert" parameterType="model.dto.VisitDTO">
-		insert into visit_t values(#{context}, #{nickname})
+		insert into visit_t values(#{id} ,#{context}, #{nickname})
 	</insert>
 	
 	<select id="selectAll" resultType="model.dto.VisitDTO">
-		select nickname,context from VISIT_T
+		select id,nickname,context from VISIT_T
 	</select>
 	
+	<select id="getId" resultType="int">
+		select visit_s.nextval from dual
+	</select>
+	
+	<select id="selectId" parameterType="model.dto.VisitDTO" resultType="model.dto.VisitDTO">
+		select id,nickname,context 
+		from visit_T
+		where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="model.dto.VisitDTO" >
+		update visit_t
+		set nickname= #{nickname},
+			context= #{context}
+		where id= #{id}
+	</update>
+	
+	<delete id="delete" parameterType="model.dto.VisitDTO">
+		delete from visit_T
+		where id=#{id}
+	</delete>
 	
 	
 </mapper>

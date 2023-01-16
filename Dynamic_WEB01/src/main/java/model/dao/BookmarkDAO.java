@@ -56,6 +56,23 @@ public class BookmarkDAO {
 		int count= session.update("bookmarkMapper.update",dto);
 		return count;
 	}
+
+	public int delete(BookmarkDTO dto) {
+		int count= session.delete("bookmarkMapper.delete",dto);
+		return count;
+	}
+
+	public int getId() {
+//		if (session.selectOne("bookmarkMapper.getId")==null) {
+//			return 1;
+//		}
+		int count =session.selectOne("bookmarkMapper.getId");
+		return count;
+		
+		
+	}
+
+
 	
 	
 

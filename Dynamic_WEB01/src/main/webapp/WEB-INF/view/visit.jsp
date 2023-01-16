@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ page import="java.util.List, model.dto.VisitDTO" %>
+<%@ page import="java.util.List, model.dto.VisitDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,16 @@
 	</form>
 	<ul>
 		<%for(VisitDTO d: (List<VisitDTO>)request.getAttribute("data") ){ %>
-			<li><%=d.getNickname() %> | <%=d.getContext() %></li>
+			<li>
+				<%=d.getNickname() %> | <%=d.getContext() %>
+				<button onclick="location.href='./visit/update?id=<%=d.getId()%>'">수정</button>
+				
+				<button type ="submit" form="deleteForm<%=d.getId()%>">삭제</button>
+				<form id="deleteForm<%=d.getId()%>" action="./visit/delete" method="post">
+					<input type="hidden" name="id" value="<%=d.getId()%>">
+				</form> 
+			
+			</li>
 		<%} %>
 	</ul>
 <!-- 
