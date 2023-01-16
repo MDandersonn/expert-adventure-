@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.util.Random"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%!
 	//선언부
@@ -41,6 +44,37 @@
 	</ul>
 	
 	
+	
+	<h3>EL-expression language</h3>
+	<!--EL 오류원래못잡는다 무시해도된다.  -->
+	<%="값" %> -> ${"값"}
+	<br>
+	${10+20 }<br>
+	${10 div 3} <br>
+	
+	<!--  10%3-->
+	${10 mod 3} <br>
+	${10 eq 10} <br>
+	${11 ne 10} <br>
+	${20 gt 10} <br>
+	${10 ge 10} <br>
+	${5 lt 10} <br>
+	${true and true} <br>
+	${true or true} <br>
+	${not true} <br>
+	
+	<!--  null또는 빈문자열일때-->
+	${empty x} <br>
+	<!--  3항연산-->
+	${empty x ? "없음":"있음" }<br>
+	<%-- ${"문자열"+ "문자열" }<br> 숫자랑 문자열합한것도 에러남  그냥 붙여서 아래처럼쓰면됨--%>
+	${"문자열"}${"문자열"}
+	
+	<h4>EL 로 request.getAttribute()사용</h4>
+	${requestScope.number} <br>
+	
+	<h4> EL로 request.getParameter()사용 </h4>
+	${param.num } <br>
 		
 	
 </body>
