@@ -8,31 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>방명록수정</title>
+<title>홈화면</title>
 <c:url var="staticUrl" value="/static" />
 <link type="text/css" rel="stylesheet" href="${staticUrl}/bs5/css/bootstrap.min.css">
 <script type="text/javascript" src="${staticUrl}/bs5/js/bootstrap.bundle.min.js"></script> 
 </head>
 <body>
-	<div>
-		<a href="../visit">돌아가기</a>
-	</div>
+	<c:url var="mainUrl" value="/" />
+	<h1>hello jsp/servlet (index.html 파일입니다.)</h1>
+	<a href="./visit">방명록</a>
+	<a href="./bookmark"> 즐겨찾기 링크 모음</a>
 	
-	
-	<form action="./update" method="post">
-		<div>
-		<input type="hidden" name="id" value="<%=((VisitDTO)request.getAttribute("data")).getId()%>">
-		</div>
-		<div>
-		<input type="text" name="nickname" value="<%=((VisitDTO)request.getAttribute("data")).getNickname()%>">
-		</div>
-		<div>
-		<textarea rows="3" cols="25" name="context"><%=((VisitDTO)request.getAttribute("data")).getContext()%></textarea>
-		</div>
-		<div>
-		<input type="submit">저장
-		</div>
-	</form>
-
+	<a href="${mainUrl}visit">방명록</a>
+	<a href="${mainUrl}bookmark"> 즐겨찾기 링크 모음</a>
+	<a href="${mainUrl}join">회원가입</a>
 </body>
 </html>

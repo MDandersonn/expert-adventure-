@@ -19,6 +19,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:url var="staticUrl" value="/static" />
+<link type="text/css" rel="stylesheet" href="${staticUrl}/bs5/css/bootstrap.min.css">
+<script type="text/javascript" src="${staticUrl}/bs5/js/bootstrap.bundle.min.js"></script> 
 </head>
 <body>
 	<h2>JSP파일(main.jsp)이 실행되었습니다.dd</h2>
@@ -75,7 +78,216 @@
 	
 	<h4> EL로 request.getParameter()사용 </h4>
 	${param.num } <br>
+	
+	
+	
+	<h3>JSTL-core</h3>
+	<h4>변수 설정</h4>
+	<c:set var="변수명" value="값"/>
+	<c:set var="name" value="10"/>
+	<!-- 출력문 -->
+	${name }<br>
+	
+	<h4>변수 삭제</h4>
+	<c:remove var="name" />
+	${empty name ? "없음" : "있음" } <br>
+	
+	<h4>조건문</h4>
+	<%-- <c:if test="조건식"> --%>
+	<c:set var="num" value="10" />
+	
+	<c:if test="${num eq 10 }">
+		num에 저장된 값은 10입니다.
+	</c:if>
+	<br>
+	
+	<c:if test="${true}">
+		조건식이 참일 때 출력할 내용
+	</c:if>
+	<br>
+	
+	<c:choose>
+	<%--	<c:when test="조건식1">  --%>
+		<c:when test="${true}">
+			조건식이 참일때 출력
 		
+		</c:when>
+		
+		<c:when test="${false}">
+			첫번째 조건식이 거짓이고 두번째 조건식이 참일때 출력
+		</c:when>
+		
+		<c:otherwise>
+			<!--else문 생략가능  -->
+			모든 조건식이 거짓일때 출력
+		</c:otherwise>
+	</c:choose>
+	
+	
+	
+	
+	<h4>반복문</h4>
+	<%--<c:forEach var ="변수명" begin="시작값" end="종료값">  --%>
+	<c:forEach var ="i" begin="0" end="5">
+		${i },
+	
+	</c:forEach>
+	<br>
+	<c:forEach var ="i" begin="0" end="5" step="2">
+		${i },
+	
+	</c:forEach>
+	<br>
+	<!--  배열생성-->
+	<!--  안에 내용물이 있을때는 /> 로 끝내지않는다.-->
+	<c:set var="arr">
+		a,b,c,d,e,f
+	</c:set>
+	<br>
+	<!--  items="배열또는 리스트컬렉션" -->
+	
+
+	<c:forEach var="i" items="${arr }">
+		${i } /
+	</c:forEach>
+	<br>
+	
+		<!--0번부터시작하는건 인덱스 1번부터시작하는건 count
+		첫번째반복이냐 마지막반복이냐 이거를 확인하는 기능도있다.	
+	  -->
+	<c:forEach var="i" items="${arr }" varStatus="loop">
+		값: ${i } | index: ${loop.index } | count: ${loop.count } | first: ${loop.first }  |  last:${loop.last }<br>
+	</c:forEach>
+	
+	<!-- var="변수명" items="문자열" delims="구분문자" -->
+	<c:forTokens  var ="s" items="010-1234-5678" delims="-" >
+		${s }<br>
+	</c:forTokens>
+	<br>
+	
+	<h4>URL주소생성</h4>
+	
+	<!-- 
+	알아서 url주소앞에 contextpath를 앞에 붙여줌
+	var="변수명" value="URL주소" 
+	value앞에 contextpath가 자동으로 붙는다.
+	기본경로는  설정 프로퍼티스-> web project settings가면 변경가능 
+	-->
+	<c:url var="myUrl" value="/home" />
+	
+	${myUrl }<br>
+	
+	<!-- 파라미터 작성하기. -->
+	<c:url var="myUrl" value= "/home">
+		<c:param name="name" value="value" />
+		<c:param name="key" value="context" />
+	</c:url>
+	${myUrl }<br>
+	
+	
+	
+	
+	
+	<h3>JSTL-Function</h3>
+	<!--문자열관련된 기능제공 EL에다가 적용해서사용  -->
+	<h4>contains(전체문자열, 일부문자열)</h4>
+	
+	<!-- true/false로 반환 포함되어있으면 true (대소문자구분함)  -->
+	${fn:contains("Hello JSTL Tag Library", "JSTL")}
+	
+	<br>
+	${fn:containsIgnoreCase("Hello JSTL Tag Library", "jstl")}
+	<br>
+	
+	<h4>replace(전체문자열,변경전문자열,변경후문자열)</h4>
+	${fn:replace("Hello JSTL Tag Library","Tag","태그") }
+	
+	
+	<h4>split(전체문자열,분리구분문자)<h4>
+	<!--배열주소반환  -->
+	${fn:split("Hello JSTL Tag Library", " ") }
+	
+	<c:forEach var="s" items="${fn:split('Hello JSTL Tag Library',' ') }">
+		${s }<br>
+	</c:forEach>
+	
+	<h4>toUpperCase(전체문자열)</h4>
+	${fn:toUpperCase("    Hello JSTL Tag Library") }
+	<h4>toLowerCase(전체문자열)</h4>
+	${fn:toLowerCase("     Hello JSTL Tag Library") }
+	
+	<h4>trim(전체문자열)</h4>
+	${fn:trim("    Hello JSTL Tag Library     ") }
+	
+	<h4>length(전체문자열)</h4>
+	${fn:length("Hello JSTL Tag Library") }
+	
+	<h4>substring(전체문자열,시작위치,끝위치)</h4>
+	${fn:substring("Hello JSTL Tag Library",6,10 ) }
+	
+	
+	<h3>JSTL-Formatting</h3>
+	<h4>숫자 포멧</h4>
+	
+	<c:set var="num1" value="123456789" />
+	<c:set var="num2" value="12345.6789" />
+	<c:set var="num3" value="0.1234" />
+	<fmt:formatNumber value="${num1 }" type="number" /><br>
+	<fmt:formatNumber value="${num2 }" type="number" /><br>
+	
+	<fmt:formatNumber value="${num1 }" type="number" groupingUsed="false"/><br>
+	<fmt:formatNumber value="${num2 }" type="number" groupingUsed="false"/><br>
+	
+	
+	<fmt:setLocale value="en_US" />
+	<fmt:formatNumber value="${num1 }" type="currency"/><br>
+	
+	<fmt:setLocale value="ko_KR" />
+	<fmt:formatNumber value="${num2 }" type="currency"/><br>
+	<fmt:formatNumber value="${num2 }" type="currency" currencySymbol="원"/><br>
+	<fmt:formatNumber value="${num2 }" type="currency" pattern="###,###,###원"/><br>
+	
+	
+	<fmt:formatNumber value="${num3 }" type="percent"/><br>
+	<fmt:formatNumber value="${num3 }" type="percent" maxFractionDigits="2"/><br>
+	
+	<h4>날짜 포멧</h4>
+	<c:set var="now" value="<%=new java.util.Date() %>" />
+	
+	<%-- <fmt:setLocale value ="en_US" />--%>
+	<%--기본값이 medium --%>
+	
+	<fmt:formatDate value="${now }" type = "date" /><br>
+	<fmt:formatDate value="${now }" type = "date" dateStyle="short"/><br>
+	<fmt:formatDate value="${now }" type = "date" dateStyle="long"/><br>
+	<fmt:formatDate value="${now }" type = "date" dateStyle="medium"/><br>
+	
+	
+<%-- <fmt:setLocale value ="en_US" />--%>
+	<fmt:formatDate value="${now }" type = "time" timeStyle="short"/><br>
+	<fmt:formatDate value="${now }" type = "time" timeStyle="long"/><br>
+	<fmt:formatDate value="${now }" type = "time" timeStyle="medium"/><br>
+	
+	
+	<fmt:formatDate value="${now }" type = "both" /><br>
+	<fmt:formatDate value="${now }" type = "both" dateStyle="short" timeStyle="long"/><br>
+	<fmt:formatDate value="${now }" type = "both" dateStyle="long" timeStyle="medium"/><br>
+	<fmt:formatDate value="${now }" type = "both" pattern="yyyy-MM-dd a hh:mm:ss E요일 "/><br>
+	
+	<fmt:parseDate var="pDate" value="2023-01-17" pattern="yyyy-MM-dd" />
+	<fmt:formatDate value="${pDate }" type="date" />
+	<br>
+	
+	<fmt:setTimeZone value="GMT-1" />
+	<fmt:formatDate value="${now }" type="both" dateStyle="long" timeStyle="medium" /><br>
+	
+	<fmt:setTimeZone value="GMT+1" />
+	<fmt:formatDate value="${now }" type="both" dateStyle="long" timeStyle="medium" /><br>
+	<fmt:setTimeZone value="GMT" />
+	<fmt:formatDate value="${now }" type="both" dateStyle="long" timeStyle="medium" /><br>
+	<fmt:setTimeZone value="GMT+9" />
+	<fmt:formatDate value="${now }" type="both" dateStyle="long" timeStyle="medium" /><br>
+	
 	
 </body>
 </html>

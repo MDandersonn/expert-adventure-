@@ -8,30 +8,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>방명록수정</title>
+<title>회원가입</title>
 <c:url var="staticUrl" value="/static" />
 <link type="text/css" rel="stylesheet" href="${staticUrl}/bs5/css/bootstrap.min.css">
-<script type="text/javascript" src="${staticUrl}/bs5/js/bootstrap.bundle.min.js"></script> 
+<script type="text/javascript" src="${staticUrl}/bs5/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<div>
-		<a href="../visit">돌아가기</a>
-	</div>
-	
-	
-	<form action="./update" method="post">
+	<h1>회원가입</h1>
+	<c:url var="joinUrl" value="/join" />
+	<form action="${joinUrl }" method="post">
 		<div>
-		<input type="hidden" name="id" value="<%=((VisitDTO)request.getAttribute("data")).getId()%>">
+			<label>아이디</label>
+			<input type="text">
 		</div>
 		<div>
-		<input type="text" name="nickname" value="<%=((VisitDTO)request.getAttribute("data")).getNickname()%>">
+			<label>패스워드</label>
+			<input type="password">
 		</div>
 		<div>
-		<textarea rows="3" cols="25" name="context"><%=((VisitDTO)request.getAttribute("data")).getContext()%></textarea>
+			<label>이메일</label>
+			<input type="email">
 		</div>
-		<div>
-		<input type="submit">저장
-		</div>
+		<button type= "submit"> 가입</button>
 	</form>
 
 </body>
