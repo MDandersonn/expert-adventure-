@@ -79,10 +79,22 @@ create sequence BOOKMARK_S;
 select BOOKMARK_S.NEXTVAL from dual;
 drop sequence bookmark_S;
 
+
+
 create table user_T(
 	USERID varchar2(20) primary key,
-	password varchar2(20) ,
+	password varchar2(20),
 	email varchar2(100)
 
-	
 );
+select * from user_t;
+commit;
+
+
+
+
+
+
+
+
+
