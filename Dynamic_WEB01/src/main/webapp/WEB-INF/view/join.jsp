@@ -10,8 +10,8 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <c:url var="staticUrl" value="/static" />
-<link type="text/css" rel="stylesheet" href="${staticUrl}/bs5/css/bootstrap.min.css">
-<script type="text/javascript" src="${staticUrl}/bs5/js/bootstrap.bundle.min.js"></script>
+<link type="text/css" rel="stylesheet" href="${staticUrl }/bs5/css/bootstrap.min.css">
+<script type="text/javascript" src="${staticUrl }/bs5/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 	<h1>회원가입</h1>
@@ -19,18 +19,20 @@
 	<form action="${joinUrl }" method="post">
 		<div>
 			<label>아이디</label>
-			<input type="text">
+			<input type="text" name="userId">
+			<c:if test="${not empty requestScope.error }">
+				<span style="color: red;">${requestScope.error }</span>
+			</c:if>
 		</div>
 		<div>
 			<label>패스워드</label>
-			<input type="password">
+			<input type="password" name="password">
 		</div>
 		<div>
 			<label>이메일</label>
-			<input type="email">
+			<input type="email" name="email" value="${param.email }">
 		</div>
-		<button type= "submit"> 가입</button>
+		<button type="submit">가입</button>
 	</form>
-
 </body>
 </html>
