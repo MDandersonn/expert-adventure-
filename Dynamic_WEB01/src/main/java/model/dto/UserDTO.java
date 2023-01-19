@@ -1,11 +1,7 @@
 package model.dto;
 
-import jakarta.servlet.http.HttpSessionBindingEvent;
-import jakarta.servlet.http.HttpSessionBindingListener;
 
-
-
-public class UserDTO implements HttpSessionBindingListener {
+public class UserDTO{
 
 	private String userId;
 	private String password;
@@ -38,15 +34,5 @@ public class UserDTO implements HttpSessionBindingListener {
 	@Override
 	public String toString() {
 		return "UserDTO [userId=" + userId + ", password=" + password + ", email=" + email + "]";
-	}
-	
-	@Override
-	public void valueBound(HttpSessionBindingEvent event) {
-		HttpSessionBindingListener.super.valueBound(event);
-	}
-	
-	@Override
-	public void valueUnbound(HttpSessionBindingEvent event) {
-		HttpSessionBindingListener.super.valueUnbound(event);
 	}
 }
