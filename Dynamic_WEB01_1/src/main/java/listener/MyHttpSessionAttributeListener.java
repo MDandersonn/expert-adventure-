@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSessionBindingEvent;
 
 @WebListener
 public class MyHttpSessionAttributeListener implements HttpSessionAttributeListener {
+//	세션에다가 setAttribute, removeAttribute할때 아니면 변경할때,
 
 	@Override
 	public void attributeAdded(HttpSessionBindingEvent event) {

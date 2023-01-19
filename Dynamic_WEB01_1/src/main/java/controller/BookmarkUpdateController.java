@@ -22,18 +22,18 @@ public class BookmarkUpdateController extends HttpServlet {
 			return;
 		}
 		
-		UserDTO userData = (UserDTO)session.getAttribute("user");
+		UserDTO userData = (UserDTO)session.getAttribute("user");//유저로그인정보
 		
 		String id = req.getParameter("id");
 		
 		BookmarkDTO dto = new BookmarkDTO();
 		dto.setId(Integer.parseInt(id));
-		dto.setUserId(userData.getUserId());
+		dto.setUserId(userData.getUserId());//유저아이디도 dto에 넘겨줌
 		
 		BookmarkService service = new BookmarkService();
-		BookmarkDTO data = service.getId(dto);
-		
-		if(data == null) {
+		BookmarkDTO data = service.getId(dto);//접속한 유저아이디에 맞고 수정클릭한 북마크 id(일련번호)에 해당하는 데이터를 끌어오기
+		//(다른유저아이디에 해당하는 북마크id(일련번호)에 /update?id=21 이렇게접속하는것을 방지하기위함
+		if(data == null) {//끌어온 데이터가 존재하지않으면
 			resp.sendRedirect(req.getContextPath() + "/error");
 		} else {
 			req.setAttribute("data", data);

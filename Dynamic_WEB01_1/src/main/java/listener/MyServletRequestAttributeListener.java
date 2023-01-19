@@ -26,7 +26,7 @@ public class MyServletRequestAttributeListener implements ServletRequestAttribut
 	public void attributeReplaced(ServletRequestAttributeEvent srae) {
 		ServletRequestAttributeListener.super.attributeReplaced(srae);
 		HttpServletRequest req = (HttpServletRequest)srae.getServletRequest();
-		System.out.printf("Replace: %s - %s - %s\n", req.getRequestURI(), srae.getName(), srae.getValue());
-		System.out.println("New Data: " + req.getAttribute(srae.getName()));
+		System.out.printf("Replace: %s - %s - %s\n", req.getRequestURI(), srae.getName(), srae.getValue());//이전데이터
+		System.out.println("New Data: " + req.getAttribute(srae.getName()));//바뀐데이터
 	}
 }

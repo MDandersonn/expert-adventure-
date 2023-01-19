@@ -6,6 +6,11 @@ import jakarta.servlet.annotation.WebListener;
 
 @WebListener
 public class MyServletContextAttributeListener implements ServletContextAttributeListener {
+/* ServletContext의 속성이
+ * setattribute할때(속성이 설정될때)
+ * 변경될때(다시설정할때)
+ * remove할때 마다 작동함.
+ */
 
 	@Override
 	public void attributeAdded(ServletContextAttributeEvent event) {

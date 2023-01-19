@@ -27,10 +27,17 @@ public class VisitController extends HttpServlet {
 		VisitService service = new VisitService();
 		List<VisitDTO> data = service.getAll();
 		
-		req.setAttribute("data", "Hello");
-		req.setAttribute("data", data);
+		//리스너테스트
+		req.setAttribute("data", "Hello"); //추가add
+		
+//		jsp에다가 데이터 넘길려고 visitdto조회해서 set설정한거 (New Data로 출력됨)
+		req.setAttribute("data", data); //수정
+		
+
 		req.getRequestDispatcher("/WEB-INF/view/visit.jsp").forward(req, resp);
-		req.removeAttribute("data");
+		
+		//리스너테스트
+		req.removeAttribute("data"); //삭제
 	}
 	
 	/**

@@ -17,7 +17,8 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
-		if((boolean)session.getAttribute("login")) {
+		if((boolean)session.getAttribute("login")) {//         세션만들때부터 "login"-false 를 넣어줌 그래서 null값으로비교할필요가없음
+			//로그인값이 true일때 돌려보내라는말
 			resp.sendRedirect(req.getContextPath());
 			return;
 		}
@@ -49,7 +50,10 @@ public class LoginController extends HttpServlet {
 		
 		if(userData != null) {
 			HttpSession session = req.getSession();
-			session.setAttribute("user", userData);
+//			session.setAttribute("login",true); //리스너쓰기전 원래상태  --->바인딩리스너에서 설정해주기로함
+//         세션만들때부터 "login"-false 를 넣어줌
+			
+			session.setAttribute("user", userData);//이게 바인드이게 userData가 DTO임.
 			
 			if(remember != null) {
 				cookie.setMaxAge(60 * 60 * 24 * 5);
