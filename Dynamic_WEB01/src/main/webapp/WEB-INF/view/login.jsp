@@ -18,6 +18,7 @@
 	<!-- ${sessionScope.sessionName} -->
 		<div>
 			<label>아이디</label>
+			<!--  req.setAttribute("remember", c.getValue());로 받은거 초기속성값으로 적용-->
 			<!--  <input type="text" name="userId" value="${requestScope.remember }">
 				이렇게해도되고 아래처럼해도됨. 쿠키객체 사용하는 방법이다.
 			-->

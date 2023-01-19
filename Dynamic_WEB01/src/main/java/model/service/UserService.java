@@ -27,15 +27,18 @@ public class UserService {
 		UserDAO dao = new UserDAO();
 		UserDTO data =dao.selectUser(dto);
 		if(data==null) {
+			//유저id가 존재하지않을때
 			dao.close();
 			return null;
 			
-		}else {
+		}else {//유저id가 존재할떄
 			if(data.getPassword().equals(dto.getPassword())) {
+				//비번일치할때
 				dao.close();
 				return data;
 			}
 		}
+//		유저id가 존재는하지만 비번이다를떄
 		dao.close();
 		return null;
 	}
@@ -44,14 +47,14 @@ public class UserService {
 		UserDAO dao = new UserDAO();
 		
 		UserDTO data= dao.selectUser(userData);
-		if(data==null) {
+		if(data==null) {//id가 없는경우
 			dao.close();
 			return false;
 			
-		}else {
-			if(data.getPassword().equals(password)) {
+		}else {//id가 존재하는경우
+			if(data.getPassword().equals(password)) {//id와 비번도 일치하는경우
 				dto.setUserId(data.getUserId());
-				if(dto.getPassword().isEmpty()) {
+				if(dto.getPassword().isEmpty()) {//
 					dto.setPassword(data.getPassword());//기존패스워드그대로
 				}
 				int count= dao.update(dto);
@@ -59,10 +62,11 @@ public class UserService {
 					dao.commit(); dao.close();
 					return true;
 				}
-				;
 			}
 			
 		}
+		dao.rollback();
+		dao.close();
 		return false;
 	}
 

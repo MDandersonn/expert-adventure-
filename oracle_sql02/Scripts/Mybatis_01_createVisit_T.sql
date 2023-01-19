@@ -60,9 +60,11 @@ delete from BOOKMARK_T ;
 drop table BOOKMARK_T ;
 create table bookmark_T(
 	id number primary key,
+	USERID varchar2(20) references USER_T(USERID),
 	url varchar2(50 char),
 	name varchar2(25 char)
 );
+select * from bookmark_T;
 
 
 insert into BOOKMARK_T values(1,'https://naver.com','네이버');
