@@ -25,12 +25,17 @@ public class VisitController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //		super.doGet(req, resp);
+		System.out.println(req.getServletContext().getAttribute("hello"));
+		
 //		데이터베이스에저장된 내용을 조회하기위함
 		VisitService service = new VisitService();
 		List <VisitDTO> data =service.getAll();
 		
+		
+		req.setAttribute("data", "hello");//추가된거
 		req.setAttribute("data", data);
 		req.getRequestDispatcher("/WEB-INF/view/visit.jsp").forward(req, resp);
+		req.removeAttribute("data");//추가된거
 	}
 	/*
 	 * 사용자가 방명록을 작성후 저장 요청을 하면 해당 데이터를

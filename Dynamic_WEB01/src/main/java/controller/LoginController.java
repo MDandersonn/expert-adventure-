@@ -86,7 +86,7 @@ public class LoginController extends HttpServlet {
 		Cookie cookie= new Cookie("remember",userId);
 //		로그인할때 쿠키명은 remember  쿠키값은userid로 설정
 		
-//		로그인성공했을때만 쿠키 만듦
+//		쿠키 만듦 근데 로그인성공했을때만 쿠키를 전송함
 		if(userData !=null) {//유저아이디가 존재하고 비번이 맞는경우
 			HttpSession session =req.getSession();
 //			로그인정보저장
