@@ -27,4 +27,17 @@
   <select id="getId" resultType="int">
   	SELECT VISIT_S.NEXTVAL FROM DUAL
   </select>
+  
+  <select id ="selectPage" parameterType="map" resultType="model.dto.VisitDTO" >
+  	select *
+	from(select rownum as num,id,nickname,context
+			from (select * from visit_t order by id)
+		)
+	where num between #{start} and #{end}	
+  </select>
+  
+  <select id="totalRowCount" resultType="int">
+  	select count(*) from visit_t
+  </select>
+  
 </mapper>

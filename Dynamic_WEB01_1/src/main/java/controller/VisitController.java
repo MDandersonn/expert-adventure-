@@ -1,9 +1,11 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,17 +25,82 @@ public class VisitController extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String p= req.getParameter("p");//p의 id값에 아무것도 안넣어주니가 null에러
+		
+		
+		if(p==null) {
+			p= "1";
+		}else {
+////			visit?p=하고 값이없을경우 p="" 가 되는듯 널이 아니라.
+			System.out.println("##p:"+p);
+			if(p.isEmpty()) {
+				p="1";
+			}
+		}
+		
+		
+		//쿠키찾기
+		Cookie cookie =null;
+		Cookie[] cookies =req.getCookies();
+		for(Cookie c: cookies) {
+			if(c.getName().equals("cnt")) {//cnt라는 쿠키가있으면
+				cookie=c;//cookie에 저장
+			}
+		}
+		//한페이지 목록수가 쿠키와 파라미터로 전달. 
+		//쿠키없고 파라미터없으면 기본 10개
+		//쿠키있고 파라미터없으면 쿠키값사용
+		//쿠키있는데 파라미터도있으면 파라미터를 쓸것,쿠키도 재설정하고
+		//쿠키없고 파라미터있으면 위와 같음
+		String c= req.getParameter("c");
+		
+		int cnt = 10;//Integer.parseInt(c);
+		if(cookie !=null) {
+			if(req.getParameter("c") !=null) {
+				if(!req.getParameter("c").isEmpty()) {
+					cnt=Integer.parseInt(req.getParameter("c"));
+					cookie= new Cookie("cnt", String.valueOf(cnt));
+					cookie.setMaxAge(60*60*24*5);
+					resp.addCookie(cookie);
+				}
+			}else {
+				cnt=Integer.parseInt(cookie.getValue());
+			}
+		}else {
+			if(req.getParameter("c") !=null) {
+				if(!req.getParameter("c").isEmpty()) {
+					cnt=Integer.parseInt(req.getParameter("c"));
+					cookie= new Cookie("cnt", String.valueOf(cnt));
+					cookie.setMaxAge(60*60*24*5);
+					resp.addCookie(cookie);
+				}
+			}
+			
+		}
+		//리스너테스트
 		System.out.println(req.getServletContext().getAttribute("hello"));
 		VisitService service = new VisitService();
-		List<VisitDTO> data = service.getAll();
+//		List<VisitDTO> data = service.getAll();
+		List<VisitDTO> data = service.getPage(Integer.parseInt(p),cnt);
+		int totalRow= service.totalRow();
+		int lastPageNumber= (totalRow/cnt)+(totalRow%cnt == 0 ? 0 : 1);
 		
 		//리스너테스트
 		req.setAttribute("data", "Hello"); //추가add
 		
+
+		List<Integer> pageList= new ArrayList<Integer>();
+		for(int i=1 ; i<=lastPageNumber; i++) {
+			pageList.add(i);
+		}
+		
+		
 //		jsp에다가 데이터 넘길려고 visitdto조회해서 set설정한거 (New Data로 출력됨)
 		req.setAttribute("data", data); //수정
-		
-
+		req.setAttribute("lastPageNumber", lastPageNumber);
+		req.setAttribute("pageList", pageList);
+		req.setAttribute("cnt", cnt);
 		req.getRequestDispatcher("/WEB-INF/view/visit.jsp").forward(req, resp);
 		
 		//리스너테스트

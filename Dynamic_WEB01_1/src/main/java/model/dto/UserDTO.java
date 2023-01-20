@@ -58,7 +58,5 @@ public class UserDTO implements HttpSessionBindingListener {
 //		제거할때, 세션무효화시킬떄
 		HttpSessionBindingListener.super.valueUnbound(event);
 		System.out.println("session unbinding: "+event.getName()+ "-"+ event.getValue());
-		HttpSession session = event.getSession();
-		session.setAttribute("login", false);
 	}
 }
