@@ -114,4 +114,13 @@ where num between 6 and 10;
 
 select * from visit_t order by id;
 
+select *
+	from (select rownum as num,id,userid,url,name
+		from (select * from bookmark_T where userId='kaka' order by id)
+		)
+where num between 4 and 5;
 
+
+select count(*) from bookmark_T where userId='abcd';
+
+select * from BOOKMARK_T;
