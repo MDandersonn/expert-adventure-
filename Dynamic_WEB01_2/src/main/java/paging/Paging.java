@@ -13,8 +13,7 @@ public class Paging {
 	private int listLimit = 5;         // 화면에 출력 할 페이지 번호 제한 수
 	
 	public Paging(Object data, int lastPageNumber) {
-		this.data = data;
-		this.lastPageNumber = lastPageNumber;
+		this(data,1,lastPageNumber);
 		setPageList();
 	}
 
@@ -22,14 +21,10 @@ public class Paging {
 		this.data = data;
 		this.lastPageNumber = lastPageNumber;
 		this.currentPageNumber = currentPageNumber;
-		setPageList();
-		
 	}
 	
 	public Paging(Object data, int currentPageNumber, int lastPageNumber, int pageLimit, int listLimit) {
-		this.data = data;
-		this.lastPageNumber = lastPageNumber;
-		this.currentPageNumber = currentPageNumber;
+		this(data,currentPageNumber,lastPageNumber);
 		this.pageLimit=pageLimit;
 		this.listLimit=listLimit;
 		setPageList();
