@@ -9,7 +9,9 @@
 <meta charset="UTF-8">
 <title>홈 화면</title>
 <%@ include file="/WEB-INF/view/module/bootstrap.jsp" %>  
-<%-- <jsp:include page="/WEB-INF/view/module/bootstrap.jsp"/> --%> 
+<%-- <jsp:include page="/WEB-INF/view/module/bootstrap.jsp"/> 
+이걸로하면 <c: ~를 인식을 못해서 경로가 제대로 인식안됨
+--%> 
 </head>
 <body>
 	<div>
