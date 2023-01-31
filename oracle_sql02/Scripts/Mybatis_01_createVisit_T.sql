@@ -188,3 +188,16 @@ SELECT id, btype, title, writer, createDate, viewCnt
   )
  WHERE NUM BETWEEN 16 AND 30;
  commit;
+ 
+
+drop table board;
+CREATE TABLE board(
+    boardnum NUMBER,
+    boardwriter VARCHAR2(20) NOT NULL,
+    boardtitle VARCHAR2(50) NOT NULL,
+    boardcontent VARCHAR2(2000) NOT NULL,
+    boarddate DATE DEFAULT SYSDATE,
+    CONSTRAINT board_pk PRIMARY KEY(boardnum)
+);
+
+create sequence board_s;
