@@ -18,9 +18,11 @@
 		<td><textarea cols="50" rows="7" name="boardContent"></textarea></td></tr>
 		<tr><td colspan="2">
 		<input type ="submit" value="등록하기">
-		<a href="<%request.getContextPath(); %>/boardList"> 목록으로</a> </td></tr>
+		<a href="<%=request.getContextPath() %>/boardList"> 목록으로</a> </td></tr>
 	</table>
 	</form>
-		
+	1번<%=request.getContextPath() %>
+	<br>
+	2번<%request.getContextPath(); %>
 </body>
 </html>

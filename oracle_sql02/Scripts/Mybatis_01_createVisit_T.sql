@@ -201,3 +201,6 @@ CREATE TABLE board(
 );
 
 create sequence board_s;
+commit;
+
+select * from board;

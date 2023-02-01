@@ -18,12 +18,12 @@ import model.service.BoardService;
 @WebServlet("/boardInsert")
 public class BoardInsertController extends HttpServlet {
 	
-	private SqlSession session= OracleConnection.getSqlSession();
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.sendRedirect("./index.jsp");
+//		resp.sendRedirect("./index.jsp");
+		System.out.println("dd");
+		req.getRequestDispatcher("./index.jsp").forward(req, resp);
 	
 	}
 	
