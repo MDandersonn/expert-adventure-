@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array= [2773,'String',true,function(){},{},[273,103]];
+        
+        array.push("추가된요소");
+        console.log(array);
+        
+        array[10]="인덱스10요소";
+        console.log(array);
+        
+        const items=['사과','배','바나나','귤','귤'];
+        
+        items1=items.filter( (a)=>a !=="귤" );
+        console.log(items1);
+
+        console.log(items);
+        for(let idx in items){
+            console.log(`${idx} , ${items[idx]}`)
+        }
+
+        for(let tem of items){
+            console.log(`${tem}`);
+        }
+
+        //익명함수
+        func2= function(){
+            console.log("func2")
+        }
+        func2();
+
+
+        //선언적함수
+        function func3(){
+            console.log("func3");
+        }
+        func3();
+        
+        function sample(...items){
+            console.log(items)
+        }
+        sample(1,2,3,4,5);
+
+        const arr=[1,3,5,7];
+        console.log("전개연산자=============")
+        sample(arr);
+        sample(...arr);
+
+        //자료형에따라 다르게동작하기
+        // 배열이면 first부터 배열로입력됨
+        // 숫자나열이면 첫번쨰는 숫자로, 그뒤부터는 배열로
+
+        function min(first,...rests){
+            let output
+            let items
+            if(Array.isArray(first)){
+                output=first[0];
+                items=first;
+
+            }else if(typeof(first)=="number"){
+                output=first
+                items=rests;
+            }
+            for(const a of items){
+                if(output>a){
+                    output=a;
+                }
+            }
+            return output;
+        }
+        console.log(min([55,275,533,12,35,6,74,2223]));
+        console.log(min(55,275,533,12,35,6,74,2223));
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

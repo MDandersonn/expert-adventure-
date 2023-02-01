@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        const pet ={
-            name:'구름',
-            age:23,
-            eat:function(food){
-                console.log(this.name + '은 '+food+ `를 먹는다.`)
+        const pet = {
+            name: '구름',
+            age: 23,
+            eat: function (food) {
+                console.log(this.name + '은 ' + food + `를 먹는다.`)
             },
 
-            bark (person) {
+            bark(person) {
                 console.log('이것은 메서드 간단 선언문입니다.')
             }
         }
-        console.log(pet.age);
-        console.log(pet.eat("바나나"));
-        console.log(pet['age']);
+        const student = {}
+        student.name = 'kimie';
+        student.age = 30;
 
 
-        const student={}
-        student.name='kimie';
-        student.age=30;
 
-        delete student.age;
-
-        console.log(JSON.stringify(student,null,2))
-        console.log(pet.bark('na'))
-
+        console.log(JSON.stringify(student, null, 2));
+        console.log(student);
+        console.log(pet.bark('na'));
         // 기본자료형은 속성을 만들수없다
-       console.log("----------")
-        const a =10;
-        a.att=100;
+        console.log("----------")
+        const a = 10;
+        a.att = 100;
         console.log(a.att)
-       
-         //객체자료형은 속성을 만들 수 있다.
-        const arr =[];
-        arr.att=101;
+        //객체자료형은 속성을 만들 수 있다.
+        const arr = [];
+        arr.att = 101;
         console.log(arr.att)
+        console.log(arr);
 
         //기본자료형을 객체로선언
         const b = new Number(55);
-        b.att=102;
+        b.att = 102;
         console.log(b.att);
-        
+        console.log(b);
 
         //기본자료형도 메서드,속성을 일시적승급 으로 사용가능
-        const c= "안녕하세요";
+        const c = "안녕하세요";
         console.log(c.length);
 
         //프로토타입으로 메소드추가
@@ -71,16 +67,22 @@
         console.log(Number.isNaN(m))
         console.log(Number.isNaN(b))
 
-        // 자바스크립트를 JSON으로( 객체명,특정속성선택, 들여쓰기칸)
+        // 자바스크립트를 JSON으로()
         const json= JSON.stringify(student,null,2);
         console.log(json);
         // JSON을 다시 자바스크립트로
         console.log(JSON.parse(json));
 
 
+
+
+
+
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

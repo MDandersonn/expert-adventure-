@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select>
+        <option >떡볶이</option>
+        <option >순대</option>
+        <option >오뎅</option>
+        <option >튀김</option>
+    </select>
+    <p>선택:떡볶이</p>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            var selectS = document.querySelector('select');
+            var selectP = document.querySelector('p');
+            selectS.addEventListener('change',()=>{
+                
+                
+                const op = event.currentTarget.options;
+                const idx = event.currentTarget.options.selectedIndex;
+                const seop = event.currentTarget.selectedOptions[0];
+                
+                selectP.textContent=`선택:${selectS.value} ,
+                 options[idx]: ${op[idx].textContent} ,
+                 selectedIndex :${idx},
+                 selectedOptions : ${seop.textContent} `;
+                
+
+            })
+          
+            
+
+        })
+
+
+    </script>
+</body>
+</html>

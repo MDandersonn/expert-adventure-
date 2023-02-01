@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="pet", value="강아지">
+    <span>강아지</span>
+    <input type="radio" name="pet", value="고양이">
+    <span>고양이</span>
+    <input type="radio" name="pet", value="햄스터">
+    <span>햄스터</span>
+    <input type="radio" name="pet", value="기타">
+    <span>기타</span>
+    <hr>
+    <h3 id="output"></h3>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            var selectI=document.querySelectorAll('[name=pet]');
+            var selectS=document.querySelector('span');
+            var selectH=document.querySelector('h3');
+           
+            selectI.forEach((item)=>{
+                item.addEventListener('change',()=>{
+                if(item.checked){
+                    selectH.textContent=`좋아하는 동물은 ${item.value}이군요`;
+                }else{
+                }
+            })
+
+
+
+            })
+
+
+            
+        })
+    </script>
+    
+</body>
+</html>

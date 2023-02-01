@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <input id="todo">
+    <button id ='add-button'>추가하기</button>    
+    <div id ="todo-list"></div>
+
+
+</body>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', ()=>{
+            var div =document.querySelector('#todo-list');
+            var button =document.querySelector('#add-button');
+            var input =document.querySelector('#todo');  
+            input.autofocus=true;
+            
+            addTodo=()=>{
+                if(input.value.trim()==''){
+                    alert("할일을 입력하세요");
+                    return
+                }
+                var li=document.createElement('li');
+                li.setAttribute('style','list-style:none;')
+                var input2=document.createElement('input');
+                var button2=document.createElement('button');
+                var span=document.createElement('span');
+                button2.textContent='제거하기';
+                input2.setAttribute('type','checkbox');
+                span.textContent=input.value;
+                li.appendChild(span)
+                li.prepend(input2);
+                li.appendChild(button2);
+                div.appendChild(li);
+
+                input.value='';
+                input2.addEventListener('change',()=>{
+                    if(input2.checked){
+                        input2.nextSibling.setAttribute('style','text-decoration:line-through;')
+
+                    }else{
+                        input2.nextSibling.setAttribute('style','')
+                    }
+                })
+                button2.addEventListener('click',()=>{
+                    button2.parentElement.remove();
+                })
+
+            
+            }
+
+            button.addEventListener('click',addTodo)
+
+            input.addEventListener('keyup',(event)=>{
+                    
+                    if(event.keyCode===13){
+                        addTodo();
+                        
+                    }
+                })
+            
+
+
+        })
+
+    </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>#</h1>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+
+            var selectH1= document.querySelector('h1');
+
+            // ??
+            selectH1.style.position='absolute';
+            let[x,y]=[0,0];
+           const print= ()=>{
+                selectH1.style.left=`${x*20}px`
+                selectH1.style.top=`${y*20}px`
+
+           } 
+        //    첫위치잡기
+           print()
+
+        //    keyCode의 숫자값지정
+            const [left,up,right,down]=[37,38,39,40];
+            document.addEventListener('keydown',(event)=>{
+
+                switch(event.keyCode){
+                    case left:
+                        x-=1;
+                        break;
+                    case up:
+                        y-=1;
+                        break;
+                    case right:
+                        x+=1;
+                        break;
+                    case down:
+                        y+=1;
+                        break;
+                }
+                // x,y값을바꾼후 적용시키기
+                print()
+            })
+        })
+    </script>
+</body>
+</html>

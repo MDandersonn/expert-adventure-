@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">cm=
+    <span></span>
+    <select >
+        <option value="10">mm</option>
+        <option value="0.01">m</option>
+        <option value="0.393701">inch</option>
+    </select>
+
+        
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            var selectSP = document.querySelector('span');
+            var selectI = document.querySelector('input');
+            var selectS = document.querySelector('select');
+            nowValue=Number(selectI.value);
+            변환상수=10;
+           
+            selectI.addEventListener('keyup',(event)=>{
+                nowValue=Number(selectI.value);
+                check1();
+
+            })
+            selectS.addEventListener('change',(event)=>{
+
+                var idx =selectS.options.selectedIndex;
+                변환상수=Number(selectS.options[idx].value);
+                check1();
+
+            })
+            function check1(){
+                    if(isNaN(nowValue)){
+                        selectSP.textContent="숫자를 입력해주세요";
+                        return;
+                    }
+                    
+                    selectSP.textContent=변환상수*nowValue;
+
+                }
+            
+
+        })
+    </script>
+</body>
+</html>
