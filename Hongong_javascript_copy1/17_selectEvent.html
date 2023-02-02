@@ -26,11 +26,15 @@
                 const op = event.currentTarget.options;
                 const idx = event.currentTarget.options.selectedIndex;
                 const seop = event.currentTarget.selectedOptions[0];
-                
-                selectP.textContent=`선택:${selectS.value} ,
+                console.log(event.currentTarget);
+                console.log(event.currentTarget.options);
+                console.log(event.currentTarget.selectedOptions);
+                selectP.textContent=`selectS.value:${selectS.value} ,
+                 options:${op},
                  options[idx]: ${op[idx].textContent} ,
-                 selectedIndex :${idx},
-                 selectedOptions : ${seop.textContent} `;
+                 options.selectedIndex :${idx},
+                 selectedOptions:${seop},
+                 selectedOptions[0].textContent : ${seop.textContent} `;
                 
 
             })

@@ -32,6 +32,9 @@
 
             selectI.addEventListener('keyup',(event)=>{
                 var word=event.currentTarget.value;
+                console.log(event);
+                console.log(event.currentTarget);
+                console.log(word);
                 if(checkEmail(word)){
                     selectP.textContent=`이메일 형식입니다:${word}`;
                     selectP.style.color='green';

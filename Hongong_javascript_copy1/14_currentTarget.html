@@ -12,18 +12,18 @@
     <textarea name="" id="" cols="30" rows="10"></textarea>
     <script>
 
-        var listener= (event)=>{
+        const listener= (event)=>{
             console.log(event)
-            var e=event.currentTarget
+            const e=event.currentTarget
             
-            var wordNumber=e.value.length;
+            const wordNumber=e.value.length;
             selectH1.textContent=`글자수: ${wordNumber}`;
         }
 
-        document.addEventListener("DOMContentLoaded",(event)=>{
-            var selectH1= document.querySelector('h1');
-            var selectT= document.querySelector('textarea');
-            var cnt=1;
+        document.addEventListener("DOMContentLoaded",()=>{
+             selectH1= document.querySelector('h1');//const쓰면안되나?
+            const selectT= document.querySelector('textarea');
+            const cnt=1;
             selectT.addEventListener("keyup",listener)
 
         })
