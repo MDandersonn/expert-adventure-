@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let i=0
+        for (i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        // 전역스코프에서 선언한 변수 i 는 존재하지 않음으로 아래에서 ReferenceErrer을 일으킨다.
+        console.log(i); // ReferenceErrer
+
+
+        console.log('a'*1)//NaN =not a number
+        console.log(typeof('a'*1))
+        console.log(isNaN(undefined))
+        console.log(isNaN("asd"))
+
+        console.log("Number.isNaN사용")
+        console.log(Number.isNaN('a'*3));
+        console.log(Number.isNaN(undefined));
+        console.log(Number.isNaN("asd"));
+        console.log(typeof(null))
+        console.log(typeof(undefined))
+        
+
+        let hh;
+        console.log(hh);
+
+        let kk=null;
+        console.log(kk)
+        console.log(kk === null); // true
+// undefined는 자바스크립트 엔진이 사용하는 자료형이다.
+// 그렇기 때문에, '언제 undefined를 써야 하나요?' 라는 질문에는 '쓰지 마세요.'가 적절할 수 
+//있겠다.그렇지만 변수에 값이 없다는 것을 명시하고 싶다면, null을 쓰는 것이 맞다.
+// null은 개발자가 '값이 없음'을 명시하기 위해 사용하는 자료형이기 때문이다.
+
+    </script>
+</body>
+</html>

@@ -6,28 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<script>
+
+
+// 안되지이건
+    const listener= (event)=>{
+        const h1= document.querySelector('h1');//const쓰면안되나?
+        // console.log(event)
+        // const e=event.currentTarget
+        // console.log(e)
+        const wordNumber=event.currentTarget.value.length;
+        h1.textContent=`글자수: ${wordNumber}`;
+    }
+    document.addEventListener("DOMContentLoaded",()=>{
+        const textarea= document.querySelector('textarea');
+        // const h1= document.querySelector('h1');//const쓰면안되나?
+        textarea.addEventListener("keyup",listener)
+
+    })
+
+  
+
+</script>
+
 <body>
     
     <h1></h1>
     <textarea name="" id="" cols="30" rows="10"></textarea>
-    <script>
-
-        const listener= (event)=>{
-            console.log(event)
-            const e=event.currentTarget
-            
-            const wordNumber=e.value.length;
-            selectH1.textContent=`글자수: ${wordNumber}`;
-        }
-
-        document.addEventListener("DOMContentLoaded",()=>{
-             selectH1= document.querySelector('h1');//const쓰면안되나?
-            const selectT= document.querySelector('textarea');
-            const cnt=1;
-            selectT.addEventListener("keyup",listener)
-
-        })
-
-    </script>
+    
 </body>
 </html>

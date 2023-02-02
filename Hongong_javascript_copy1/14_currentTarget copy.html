@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1></h1>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <script>
+
+    
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const selectH1 = document.querySelector('h1');//const쓰면안되나?
+            const selectT = document.querySelector('textarea');
+            const cnt = 1;
+            selectT.addEventListener("keyup", () => {
+                console.log(event)
+                const e = event.currentTarget
+                console.log(e)
+                const wordNumber = e.value.length;
+                selectH1.textContent = `글자수: ${wordNumber}`;
+
+            })
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
