@@ -32,11 +32,13 @@
                 return <div>
                     <h1> 클릭한 횟수:{this.state.count} </h1>
                     <button onClick={this.func}>방법1클릭</button>
-                    <button onClick={(e)=> this.func(e)}>방법2클릭</button>
+                   <button onClick={(e)=> this.func(e)}>방법2클릭</button>
                     <button onClick={this.func3}>방법3클릭</button>
                 </div>
             }
+//방법2는 bind(this)를 안해도됨
 
+            //방법1,2
             func(event) {
                 this.setState({
                     count: this.state.count+1
