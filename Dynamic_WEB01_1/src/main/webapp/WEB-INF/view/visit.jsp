@@ -64,6 +64,7 @@
 		</c:forEach>
 	</ul>
 	<div>
+		param.p: ${param.p }<br>
 		<c:set var="pageNumber" value="${empty param.p ? 1 :param.p}" />
 		<c:choose>
 			<c:when test="${pageNumber eq 1 }">

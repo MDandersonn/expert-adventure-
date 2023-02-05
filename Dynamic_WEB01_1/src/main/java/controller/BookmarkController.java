@@ -17,7 +17,7 @@ public class BookmarkController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-
+//		필터에서 이과정을해서 지워도 상관없다. 필터에서 걸러내서 doget으로 들어오지도않고 막힌다.
 //		if(session.getAttribute("login")==null)로 해도됨.   //로그인을 안했을경우
 		if(!(boolean)session.getAttribute("login")) {//로그인을 안했을 경우
 			resp.sendRedirect(req.getContextPath() + "/login");//로그인페이지로 돌려보냄

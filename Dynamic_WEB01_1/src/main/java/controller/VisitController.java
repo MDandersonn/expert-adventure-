@@ -25,7 +25,7 @@ public class VisitController extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		//p는 현재 페이지넘버
 		String p= req.getParameter("p");//p의 id값에 아무것도 안넣어주니가 null에러
 		
 		
@@ -50,41 +50,52 @@ public class VisitController extends HttpServlet {
 		}
 		//한페이지 목록수가 쿠키와 파라미터로 전달. 
 		//쿠키없고 파라미터없으면 기본 10개
+		//쿠키없고 파라미터있으면  파라미터를 쓸것,쿠키도 재설정하고
 		//쿠키있고 파라미터없으면 쿠키값사용
 		//쿠키있는데 파라미터도있으면 파라미터를 쓸것,쿠키도 재설정하고
-		//쿠키없고 파라미터있으면 위와 같음
+		
+		//c는 jsp파일에서 submit하여서 보낸 select의 value값. (한페이지의 목록수)
 		String c= req.getParameter("c");
 		
+		
+		//쿠키가있다는 말은 이전에 설정해놓은 값이 있다는얘기고
+		//쿠키가 없다는말은 처음 접속하는경우.
+		// request에 c가 있다는말은   select에서 submit으로값을 바꾼요청이 있었느냐 라는의미
+		//cnt는 한페이지 목록수(c에서 유래 기본값은10)
 		int cnt = 10;//Integer.parseInt(c);
-		if(cookie !=null) {
-			if(req.getParameter("c") !=null) {
+		if(cookie !=null) {//쿠키가 있을때 
+			if(req.getParameter("c") !=null) {//쿠키가 있는상황에서 onchange로 submit되어 요청이 들어왔을때
 				if(!req.getParameter("c").isEmpty()) {
 					cnt=Integer.parseInt(req.getParameter("c"));
 					cookie= new Cookie("cnt", String.valueOf(cnt));
 					cookie.setMaxAge(60*60*24*5);
 					resp.addCookie(cookie);
 				}
-			}else {
+			}else {//쿠키가있는상황인데 c가 null( submit요청은 없는경우)  
+				//딴데 갔다가 다시 방명록을 방문했을때
+				//있는 쿠키에서 c값을뽑아내서 cnt로 사용한다.
 				cnt=Integer.parseInt(cookie.getValue());
 			}
-		}else {
-			if(req.getParameter("c") !=null) {
+		}else {//쿠키가 없을때
+			if(req.getParameter("c") !=null) {//쿠키가없는데 c가 있을떄.
+				//(처음으로 jsp에서 onchange에 의해 submit되어서 요청이 들어왔을때 처음으로 쿠키를만듦 
+				
 				if(!req.getParameter("c").isEmpty()) {
 					cnt=Integer.parseInt(req.getParameter("c"));
 					cookie= new Cookie("cnt", String.valueOf(cnt));
 					cookie.setMaxAge(60*60*24*5);
 					resp.addCookie(cookie);
 				}
-			}
+			}//쿠키가없고, c가 null일때, ( 처음접속했을경우
 			
 		}
 		//리스너테스트
-		System.out.println(req.getServletContext().getAttribute("hello"));
+		System.out.println(req.getServletContext().getAttribute("context객체"));
 		VisitService service = new VisitService();
-//		List<VisitDTO> data = service.getAll();
+//		List<VisitDTO> data = service.getAll();//page로 전환되면서 필요없어짐
 		List<VisitDTO> data = service.getPage(Integer.parseInt(p),cnt);
-		int totalRow= service.totalRow();
-		int lastPageNumber= (totalRow/cnt)+(totalRow%cnt == 0 ? 0 : 1);
+		int totalRow= service.totalRow();//전체목록수
+		int lastPageNumber= (totalRow/cnt)+(totalRow%cnt == 0 ? 0 : 1);//마지막페이지넘버
 		
 		//리스너테스트
 		req.setAttribute("data", "Hello"); //추가add
@@ -97,7 +108,7 @@ public class VisitController extends HttpServlet {
 		
 		
 //		jsp에다가 데이터 넘길려고 visitdto조회해서 set설정한거 (New Data로 출력됨)
-		req.setAttribute("data", data); //수정
+		req.setAttribute("data", data); //리스너테스트 수정
 		req.setAttribute("lastPageNumber", lastPageNumber);
 		req.setAttribute("pageList", pageList);
 		req.setAttribute("cnt", cnt);

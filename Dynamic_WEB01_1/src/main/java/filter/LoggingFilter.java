@@ -25,21 +25,20 @@ public class LoggingFilter implements Filter{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd a KK:mm:ss.SSS");
 		//KK : 01~12 SSS:밀리초
 		
-		
 		String path= request.getRequestURI();
 		String method = request.getMethod();
 		String query = request.getQueryString();
 		
-		System.out.printf("[%s] -%s: %s",df.format(new Date()),method,path);
+		System.out.printf("df.format(new Date()):[%s], request.getMethod():%s,  request.getQueryString(): %s",df.format(new Date()),method,path);
 		if(query!=null) {
 			System.out.println("?"+query);
 		}
 		
 		//임포트안하기떄문에 new Date() 가 아니라 new java.util.Date()이라 한거.
 		System.out.println(df.format(new java.util.Date()));
-		System.out.println("@@@path:"+path);
-		System.out.println("@@@method:"+method);
-		System.out.println("@@@query:"+query);
+		System.out.println("request.getRequestURI():"+path);
+		System.out.println("request.getMethod():"+method);
+		System.out.println("request.getQueryString()"+query);
 		
 		
 		chain.doFilter(req, resp); //다음필터를 호출함 계속연계됨
@@ -50,17 +49,15 @@ public class LoggingFilter implements Filter{
 		//이 과정은 응답이다.
 		
 		
-		
 //		요청에 대한 응답과정
 		
 		//http상태코드이다 200:정상 302:redirect 404:잘못된요청(페이지찾을수없음)
 		//500: 서버오류(코드가잘못되었다생각)
 		int code=response.getStatus();
 		
-		
 		String redirect = response.getHeader("Location");
 		
-		System.out.printf("[%s] - %s:", df.format(new Date()),code);
+		System.out.printf("df.format(new Date()): [%s],  response.getStatus(): %s", df.format(new Date()),code);
 		
 		switch(code/100) {
 			case 2:
@@ -79,8 +76,8 @@ public class LoggingFilter implements Filter{
 		System.out.println();
 		
 		System.out.println(df.format(new Date()));
-		System.out.println("@@code :"+code);
-		System.out.println("@@redirect :"+redirect);
+		System.out.println("response.getStatus() :"+code);
+		System.out.println("response.getHeader(\"Location\") :"+redirect);
 		
 		
 		

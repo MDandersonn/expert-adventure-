@@ -15,7 +15,7 @@ public class MyServletContextListener implements ServletContextListener {
 		
 		
 		ServletContext context =sce.getServletContext();
-		context.setAttribute("hello", "안녕하세요");
+		context.setAttribute("context객체", "서블릿컨텍스트에 바인딩되었다");
 //		이것을 아래처럼 한번에 쓰면  된다.
 //		sce.getServletContext().setAttribute("hello", "안녕하세요.");
 		
