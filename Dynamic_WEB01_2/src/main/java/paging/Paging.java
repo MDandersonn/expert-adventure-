@@ -4,27 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paging {
+//	여러페이지에 쓰기위해 클래스로 만들어준다.
 
+	
 	private Object data;               // 화면에 출력할 페이지 데이타(TopN 조회 쿼리로 조회한 데이타)
+//	어떠한 DTO든 사용할수있도록 Object객체로 설정한다.
+	
 	private List<Integer> pageList;    // 전체 페이지 번호가 있는 리스트
-	private int currentPageNumber = 1; // 현재   페이지 번호
+	private int currentPageNumber = 1; // 현재   페이지 번호(초기값1)
 	private int lastPageNumber;        // 마지막 페이지 번호
-	private int pageLimit = 10;        // 화면에 출력 할 목록 제한 수
-	private int listLimit = 5;         // 화면에 출력 할 페이지 번호 제한 수
+	private int pageLimit = 10;        // 화면에 출력 할 목록 제한 수(초기값은 10)
+	private int listLimit = 5;         // 화면에 출력 할 페이지 번호 제한 수(초기값은5)
+	private int t1= 500;//test requestScope테스트
+	public int t2=200;//test requestScope테스트
 	
 	public Paging(Object data, int lastPageNumber) {
 		this(data,1,lastPageNumber);
 		setPageList();
+		//쓸경우를대비해서 만들어놓는것 pagelimit listlimit은 기본값으로 쓸때.
 	}
 
 	public Paging(Object data, int currentPageNumber, int lastPageNumber) {
 		this.data = data;
-		this.lastPageNumber = lastPageNumber;
 		this.currentPageNumber = currentPageNumber;
+		this.lastPageNumber = lastPageNumber;
+		
 	}
 	
 	public Paging(Object data, int currentPageNumber, int lastPageNumber, int pageLimit, int listLimit) {
-		this(data,currentPageNumber,lastPageNumber);
+		this(data, currentPageNumber,lastPageNumber);
 		this.pageLimit=pageLimit;
 		this.listLimit=listLimit;
 		setPageList();
@@ -66,7 +74,7 @@ public class Paging {
 	
 	public int getPrevPageNumber() {
 		// 현재 페이지 3, 이전 페이지 2
-		// 현재 페이지 1, 이전 페이지 0 -> -1 로 변경하여 반환
+		// 현재 페이지 1, 이전 페이지 0 -> -1 로 변경하여 반환(0으로해도되는데 오류라는걸 확실하게 -1 맘대로)
 		int prevPage = currentPageNumber - 1;
 		return prevPage == 0 ? -1 : prevPage;
 	}
@@ -84,5 +92,9 @@ public class Paging {
 	
 	public int getPageLimit() {
 		return pageLimit;
+	}
+	public int getPaa() {
+//		출력 테스트하기위함 
+		return 55;
 	}
 }

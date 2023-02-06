@@ -28,7 +28,6 @@ public class VisitController extends HttpServlet {
 		//p는 현재 페이지넘버
 		String p= req.getParameter("p");//p의 id값에 아무것도 안넣어주니가 null에러
 		
-		
 		if(p==null) {
 			p= "1";
 		}else {
@@ -56,7 +55,6 @@ public class VisitController extends HttpServlet {
 		
 		//c는 jsp파일에서 submit하여서 보낸 select의 value값. (한페이지의 목록수)
 		String c= req.getParameter("c");
-		
 		
 		//쿠키가있다는 말은 이전에 설정해놓은 값이 있다는얘기고
 		//쿠키가 없다는말은 처음 접속하는경우.
@@ -99,13 +97,11 @@ public class VisitController extends HttpServlet {
 		
 		//리스너테스트
 		req.setAttribute("data", "Hello"); //추가add
-		
 
 		List<Integer> pageList= new ArrayList<Integer>();
 		for(int i=1 ; i<=lastPageNumber; i++) {
 			pageList.add(i);
 		}
-		
 		
 //		jsp에다가 데이터 넘길려고 visitdto조회해서 set설정한거 (New Data로 출력됨)
 		req.setAttribute("data", data); //리스너테스트 수정

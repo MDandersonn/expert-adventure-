@@ -32,7 +32,7 @@ public class LoggingFilter implements Filter{
 		
 		System.out.printf("[%s] -%s: %s",df.format(new Date()),method,path);
 		if(query!=null) {
-			System.out.println("?"+query);
+			System.out.println("query:"+query);
 		}
 		
 		//임포트안하기떄문에 new Date() 가 아니라 new java.util.Date()이라 한거.

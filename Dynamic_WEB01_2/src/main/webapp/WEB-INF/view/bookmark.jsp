@@ -35,14 +35,28 @@
 			<c:url var="bookmarkUpdateUrl" value="/bookmark/update">
 				<c:param name="id" value="${d.id }" />
 			</c:url>
-			<c:set var="formId" value="deleteForm${d.id }" />
+			<%-- <c:set var="formId" value="deleteForm${d.id }" />--%>
 			<li>
 				<a href="${d.url }">${d.name }</a>
 				<button type="button" onclick="location.href='${bookmarkUpdateUrl }'">수정</button>
+				<button type="submit" form="DeleteForm${d.id }">삭제</button>
+				<%--<button type="submit" form="DeleteForm" > 으로 하면 이것을 눌렀을때
+				해당 삭제버튼의  <form id="DeleteForm" action="${bookmarkUrl }/delete" method="post">가
+				작동하는게아니라 맨위에있는 삭제버튼의 <form id="DeleteForm" action="${bookmarkUrl }/delete" method="post">
+				가 작동해서 맨위에꺼 부터 지워진다.
+				
+				즉, 같은 id의 form태그가 여러개가 존재하기때문에 form태그별로 다른id를 써야한다.
+				 --%>
+				<form id="DeleteForm${d.id }" action="${bookmarkUrl }/delete" method="post">
+					<input type="hidden" name="id" value="${d.id }"> 
+				</form>
+				
+				<%--
 				<button type="submit" form="${formId }">삭제</button>
 				<form id="${formId }" action="${bookmarkUrl }/delete" method="post">
 					<input type="hidden" name="id" value="${d.id }">
 				</form>
+				--%>
 			</li>
 		</c:forEach>
 	</ul>

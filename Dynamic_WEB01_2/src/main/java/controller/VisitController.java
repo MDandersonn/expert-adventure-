@@ -16,7 +16,6 @@ import paging.Paging;
  * 맵핑된 URL 주소는 /visit 이다.
  */
 public class VisitController extends HttpServlet {
-
 	/**
 	 * 사용자가 방명록 페이지를 요청하면 방명록을 작성할 수 있는
 	 * 폼을 담은 JSP 페이지를 실행하여 제공한다.
@@ -25,9 +24,7 @@ public class VisitController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String p= req.getParameter("p");//p의 id값에 아무것도 안넣어주니가 null에러
-		
-		
+		String p= req.getParameter("p");
 		if(p==null) {
 			p= "1";
 		}else {
@@ -37,8 +34,6 @@ public class VisitController extends HttpServlet {
 				p="1";
 			}
 		}
-		
-		
 		//쿠키찾기
 		Cookie cookie =null;
 		Cookie[] cookies =req.getCookies();
@@ -47,13 +42,13 @@ public class VisitController extends HttpServlet {
 				cookie=c;//cookie에 저장
 			}
 		}
-		//한페이지 목록수가 쿠키와 파라미터로 전달. 
-		//쿠키없고 파라미터없으면 기본 10개
-		//쿠키있고 파라미터없으면 쿠키값사용
-		//쿠키있는데 파라미터도있으면 파라미터를 쓸것,쿠키도 재설정하고
-		//쿠키없고 파라미터있으면 위와 같음
-		String c= req.getParameter("c");
+		//한페이지 목록수(c)가 쿠키와 파라미터로 전달되는데 여기서, 
+		//쿠키없고 파라미터없으면(처음접속) 기본 c=10개
+		//쿠키없고 파라미터있으면(처음접속하여 select를 변경했을때) 파라미터를 쓸것,쿠키도 재설정(파라미터를 쿠키값으로 재설정)하고
+		//쿠키있고 파라미터없으면(위에서 쿠키를 만들어논후 나중에 다시 게시판 접속했을때) 쿠키값사용
+		//쿠키있는데 파라미터도있으면 파라미터를 쓸것,쿠키도 재설정(파라미터를 쿠키값으로 재설정) (다시 게시판접속해서 select를 변경했을떄)
 		
+		String c= req.getParameter("c");
 		int cnt = 10;//Integer.parseInt(c);
 		if(cookie !=null) {
 			if(req.getParameter("c") !=null) {
@@ -75,19 +70,15 @@ public class VisitController extends HttpServlet {
 					resp.addCookie(cookie);
 				}
 			}
-			
 		}
 		//리스너테스트
 		System.out.println(req.getServletContext().getAttribute("hello"));
 		VisitService service = new VisitService();
 		Paging data= service.getPage(Integer.parseInt(p), cnt);
-		
+		//cnt를 paging데이터에 pageLimit으로입력     p를 currentPageNumber로 입력
 		
 		//리스너테스트
 		req.setAttribute("data", "Hello"); //추가add
-		
-
-		
 		
 //		jsp에다가 데이터 넘길려고 visitdto조회해서 set설정한거 (New Data로 출력됨)
 //		req.setAttribute("data", data.getData()); //수정
@@ -96,10 +87,8 @@ public class VisitController extends HttpServlet {
 //		req.setAttribute("cnt", cnt);
 //		data안에 있는정보들이라서 이거위에 다 필요없음
 		
-		
 		req.setAttribute("paging", data);
 		req.getRequestDispatcher("/WEB-INF/view/visit.jsp").forward(req, resp);
-		
 		//리스너테스트
 		req.removeAttribute("data"); //삭제
 	}

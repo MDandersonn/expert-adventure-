@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="paging.Paging" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -63,10 +64,26 @@
 			</li>
 		</c:forEach>
 	</ul>
-	<div>
-		<c:set var="pageNumber" value="${empty param.p ? 1 :param.p}" />
+	<ul class="pagination">
+		<%--<c:set var="pageNumber" value="${empty param.p ? 1 :param.p}" /> 이건이제 필요없다.--%>
+		<%= ((Paging)request.getAttribute("paging")).getPrevPageNumber() %>   <%-- 이러면 출력이 잘된다 .--%> 
+		<%--.getprevPageNumber() --%>
+		${requestScope.paging}
+		${requestScope.paging.paa}<br>
+		
+		<%--
+		${requestScope.paging.t1}<br>에러
+		${requestScope.paging.t2}<br>에러
+		결론: 멤버변수를 가져오는게아니라 게터에있는 메서드리턴값을 가져오는거였구나.
+		 --%>
+		<%-- get을빼고 맨앞소문자로바꿔서 메서드명을 적으면 return값을 반환하네.  --%>
+		<%--${requestScope.paging.Paa}<br>에러
+		${requestScope.paging.pAA}<br>에러
+		${requestScope.paging.getPaa}<br>에러
+		${requestScope.paging.getpaa}<br>에러--%>
 		<c:choose>
 			<c:when test="${requestScope.paging.prevPageNumber eq -1 }">
+			<%--이렇게  get빼고 메서드명(첫소문자) 써주면 메서드가 작동되서 return값이 반환되나? 응--%>
 				<li class="page-item disabled"><a class="page-link">prev</a></li>
 			</c:when>
 			<c:otherwise>
@@ -76,7 +93,7 @@
 		<c:forEach var="num" items="${requestScope.paging.pageList}">
 			<li class="page-item ${requestScope.paging.currentPageNumber eq num ? 'active' : '' }"><a class="page-link" href="${visitUrl }?p=${num }">${num }</a></li>
 		</c:forEach>
-	
+
 		<!--  마지막페이지번호몇번? : 전체행수/목록수 몫이얼마냐 
 			나머지가 있냐없냐에따라서/
 		-->
@@ -85,10 +102,9 @@
 				<li class="page-item disabled"><a class="page-link">next</a></li>
 			</c:when>
 			<c:otherwise>
-				li class="page-item"><a class="page-link" href="./visit?p=${requestScope.paging.nextPageNumber }">next</a></li>
+				<li class="page-item"><a class="page-link" href="./visit?p=${requestScope.paging.nextPageNumber }">next</a></li>
 			</c:otherwise>
 		</c:choose>
-		
-	</div>
+	</ul>
 </body>
 </html>
