@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
 		if(userData != null) {
 			HttpSession session = req.getSession();
 			Role role = service.getRole(userData);
-			session.setAttribute("role", role);
+			session.setAttribute("role", role);//역할부여!!( 리스너에서 기본값은 guest로 설정했음)
 			session.setAttribute("user", userData);
 			
 			if(remember != null) {

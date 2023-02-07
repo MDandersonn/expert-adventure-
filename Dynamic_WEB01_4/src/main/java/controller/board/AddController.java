@@ -42,8 +42,8 @@ public class AddController extends HttpServlet {
 		dto.setContext(context);
 		dto.setWriter(((UserDTO)session.getAttribute("user")).getUserId());
 		dto.setBtype("B");
-		if(req.getParameter("notice") != null) {
-			if(req.getParameter("notice").equals("yes")) {
+		if(req.getParameter("notice") != null) {//공지사항체크가 되어있다면
+			if(req.getParameter("notice").equals("yes")) {//공지사항체크가 되어있다면
 				dto.setBtype("N");
 			}
 		}

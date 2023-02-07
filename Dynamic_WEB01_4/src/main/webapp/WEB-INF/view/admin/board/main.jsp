@@ -7,10 +7,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 목록 페이지</title>
+<title>관리자용 게시글 목록 페이지</title>
 <%@ include file="/WEB-INF/view/module/bootstrap.jsp" %>
 </head>
 <body>
+	관리자로 접속하셨습니다<br>
 	<div>
 		<%@ include file="/WEB-INF/view/module/topnav.jsp" %>
 	</div>

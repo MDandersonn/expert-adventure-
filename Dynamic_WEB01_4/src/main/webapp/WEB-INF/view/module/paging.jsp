@@ -6,6 +6,7 @@
 			<li class="page-item disabled"><a class="page-link">prev</a></li>
 		</c:when>
 		<c:otherwise>
+		<%-- <c:set var="pagingUrl" value="${visitUrl }" /> 라고 각각 jsp마다 설정해놓는다. --%>
 			<li class="page-item"><a class="page-link" href="${pagingUrl }?p=${requestScope.paging.prevPageNumber }">prev</a></li>
 		</c:otherwise>
 	</c:choose>

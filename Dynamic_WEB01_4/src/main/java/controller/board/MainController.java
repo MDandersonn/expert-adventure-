@@ -53,7 +53,7 @@ public class MainController extends HttpServlet {
 		
 		req.setAttribute("paging", data);
 		
-		if(((Role)session.getAttribute("role")).isAdmin()) {
+		if(((Role)session.getAttribute("role")).isAdmin()) {//관리자접속이라면
 			req.getRequestDispatcher("/WEB-INF/view/admin/board/main.jsp").forward(req, resp);
 		} else {
 			req.getRequestDispatcher("/WEB-INF/view/board/main.jsp").forward(req, resp);

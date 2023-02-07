@@ -2,7 +2,7 @@ package model.dto;
 
 public class Role {
 
-	private String type;
+	private String type;//쿼리문에서 select rtype AS type 으로 일치시켜야함
 	
 	public Role(String type) {
 		this.type = type;
