@@ -95,8 +95,16 @@ create table user_T(
    email varchar2(100)
 
 );
+
 select * from user_t;
 commit;
+
+ALTER TABLE USER_T ADD pImg VARCHAR2(250) DEFAULT '/static/img/profile/default.png';
+SELECT * FROM USER_T;
+UPDATE USER_T
+   SET pImg = '/static/img/profile/images.jfif'
+ WHERE userId = 'abcd';
+
 
 select rownum,id,nickname,context
 from (select * from visit_t order by id)
@@ -143,6 +151,9 @@ CREATE TABLE BOARD_T(
      , updateDate DATE DEFAULT(SYSDATE)
      , viewCnt NUMBER DEFAULT(0)
 );
+
+ALTER TABLE BOARD_T ADD recCnt NUMBER DEFAULT 0;
+ALTER TABLE BOARD_T ADD nrecCnt NUMBER DEFAULT 0;
 CREATE SEQUENCE BOARD_S;
 
 select * from user_t;
@@ -189,6 +200,37 @@ SELECT id, btype, title, writer, createDate, viewCnt
  WHERE NUM BETWEEN 16 AND 30;
  commit;
  
+
+CREATE TABLE ROLE_T(
+       ID NUMBER PRIMARY KEY
+     , USERID VARCHAR2(20) REFERENCES USER_T(USERID)
+     , RTYPE VARCHAR2(50) CHECK(RTYPE IN ('ADMIN', 'STAFF', 'USER'))
+);
+CREATE SEQUENCE ROLE_S NOCACHE;
+select * from user_T;
+select * from user_T;
+insert into user_T values('aaaa','1234','aaaa@naver.com','/static/img/profile/default.png');
+INSERT INTO ROLE_T VALUES(ROLE_S.NEXTVAL, 'abcd', 'ADMIN');
+INSERT INTO ROLE_T VALUES(ROLE_S.NEXTVAL, 'aaaa', 'USER');
+INSERT INTO USER_T VALUES('staff_a', '1234', 'staff_a@example.com');
+INSERT INTO ROLE_T VALUES(ROLE_S.NEXTVAL, 'staff_a', 'STAFF');
+
+SELECT * FROM ROLE_T;
+
+SELECT * FROM BOARD_T ORDER BY ID DESC;
+
+
+
+CREATE TABLE BOARD_IMG_T(
+       id NUMBER PRIMARY KEY
+     , boardId NUMBER REFERENCES BOARD_T(id)
+     , path VARCHAR2(500)
+     , name VARCHAR2(250)
+);
+
+CREATE SEQUENCE BOARD_IMG_S NOCACHE;
+
+SELECT * FROM BOARD_IMG_T;
 
 drop table board;
 CREATE TABLE board(
