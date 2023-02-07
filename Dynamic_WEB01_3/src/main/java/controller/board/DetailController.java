@@ -20,7 +20,7 @@ public class DetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
-		List<Integer> history = (List<Integer>)session.getAttribute("boardViewHistory");
+		List<Integer> history = (List<Integer>)session.getAttribute("boardViewHistory");//세션리스너에서 바인딩
 		
 		String id = req.getParameter("id");
 		
@@ -28,16 +28,16 @@ public class DetailController extends HttpServlet {
 		dto.setId(Integer.parseInt(id));
 		
 		BoardService service = new BoardService();
-		if(!history.contains(Integer.valueOf(id))) {
-			service.incViewCnt(dto);
-			history.add(Integer.valueOf(id));
+		if(!history.contains(Integer.valueOf(id))) {//히스토리리스트에 id값이 없으면
+			service.incViewCnt(dto);//조회수를 1증가시킨다.
+			history.add(Integer.valueOf(id));//히스토리리스트에 id값 추가.
 			session.setAttribute("boardViewHistory", history);
 		}
 		
 		BoardDTO data = service.getData(dto);
 		
 		if(data != null) {
-			req.setAttribute("data", data);
+			req.setAttribute("data", data); 
 			req.getRequestDispatcher("/WEB-INF/view/board/detail.jsp").forward(req, resp);
 		} else {
 			resp.sendRedirect(req.getContextPath() + "/error");

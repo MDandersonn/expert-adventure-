@@ -13,6 +13,7 @@
 <script type="text/javascript" src="${staticUrl }/bs5/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+	<a href="./">메인으로</a>
 	<c:url var="boardUrl" value="/board" />
 	<div>
 		<h1>게시글 목록 페이지</h1>

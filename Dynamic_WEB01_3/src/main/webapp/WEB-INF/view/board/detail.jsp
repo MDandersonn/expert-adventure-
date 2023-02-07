@@ -13,6 +13,7 @@
 <script type="text/javascript" src="${staticUrl }/bs5/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<a href="../">메인으로</a>
 	<div>
 		<h1>${requestScope.data.title }</h1>
 	</div>
@@ -30,8 +31,8 @@
 	<div>
 		<c:url var="boardUrl" value="/board" />
 		<button onclick="location.href='${boardUrl }'">목록</button>
-		<c:if test="${sessionScope.login }">
-			<c:if test="${sessionScope.user.userId eq requestScope.data.writer }">
+		<c:if test="${sessionScope.login }"><%--로그인이 되어있다면 --%>
+			<c:if test="${sessionScope.user.userId eq requestScope.data.writer }"><%--로그인아이디가 작성자와 같다면--%>
 				<button onclick="location.href='${boardUrl }/update?id=${requestScope.data.id }'">수정</button>
 				<button onclick="location.href='${boardUrl }/delete?id=${requestScope.data.id }'">삭제</button>
 			</c:if>

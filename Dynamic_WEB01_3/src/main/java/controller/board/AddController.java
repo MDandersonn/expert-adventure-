@@ -17,6 +17,7 @@ public class AddController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		로그인되어야접근가능 로그인체크필터에서 걸러줌
 		req.getRequestDispatcher("/WEB-INF/view/board/add.jsp").forward(req, resp);
 	}
 	

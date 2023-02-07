@@ -45,19 +45,19 @@ public class VisitController extends HttpServlet {
 		}
 		
 		int cnt = 10;
-		if(cookie != null) {
-			if(req.getParameter("c") != null) {
+		if(cookie != null) {//두번째 접속해서 쿠키가있을때
+			if(req.getParameter("c") != null) { //쿠키가 있고 c값을 변경해주어서 탐색할때
 				if(!req.getParameter("c").isEmpty()) {
 					cnt = Integer.parseInt(req.getParameter("c"));
 					cookie = new Cookie("cnt", String.valueOf(cnt));
 					cookie.setMaxAge(60 * 60 * 24 * 5);
 					resp.addCookie(cookie);
 				}
-			} else {
+			} else {//쿠키가있는데 c값을 변경해주지않고 그냥 탐색할때.
 				cnt = Integer.parseInt(cookie.getValue());
 			}
 		} else {
-			if(req.getParameter("c") != null) {
+			if(req.getParameter("c") != null) {//처음접속해서  쿠키가 null인데 , c값을 변경해주었을때
 				if(!req.getParameter("c").isEmpty()) {
 					cnt = Integer.parseInt(req.getParameter("c"));
 					cookie = new Cookie("cnt", String.valueOf(cnt));
@@ -66,7 +66,7 @@ public class VisitController extends HttpServlet {
 				}
 			}
 		}
-		
+		//최초접속하여 쿠키가 null,  c가 null일떄
 		VisitService service = new VisitService();
 		Paging data = service.getPage(Integer.parseInt(p), cnt);
 		
