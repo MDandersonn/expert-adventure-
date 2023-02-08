@@ -148,9 +148,20 @@
   	<servlet-name>imageUploadController</servlet-name>
   	<servlet-class>controller.ImageUploadController</servlet-class>
   	<multipart-config>
-  		<location>D:/imageTemp</location>
+  	<!-- location: 이미지또는 파일이 업로드가되면 어디에 업로드할지 임시경로(지정된경로를 안적어주면 기본위치에저장된다는말) -->
+  		<location>C:/imageTemp</location>
+  		
+  		<!--max-file-size: 이미지 크기에 대한 제한.  단위는 바이트.  아래는 5mb라는 뜻. -->
   		<!-- max-file-size>5242880</max-file-size -->
+  		
+  		<!-- max-request-size: 이미지를 여러개 업로드할수있는데 하나의 request요청에는 요청크기가 커질텐데
+  			요청에 대한 전체 크기를 의미함.  max-file-size는 하나의 파일크기를의미 
+  			크기제한을 두고싶지않으면 -1을 적으면 된다. -->
   		<!-- max-request-size>5242880</max-request-size -->
+  		
+  		<!-- 업로드하면 imageTemp폴더에 임시저장하는데 파일의 크기가 어느정도 커졌을때 저기에 저장할건지 그 임계치크기를 의미.
+  		메모리에 저장하는데 원래 . 지정한 크기보다 커지면 디스크 어딘가에 저장하라는의미 
+  		바이트 단위이다. 이걸 안쓰면 메모리상에 남아있다. 메모리에만 있다가 나중에 사라짐(저장안됨) -->
   		<file-size-threshold>1024</file-size-threshold>
   	</multipart-config>
   </servlet>

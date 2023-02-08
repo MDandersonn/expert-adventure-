@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%-- 여기는 web.xml에서 에러페이지로 맵핑해준 페이지가아니라 이미지업로드컨트롤러에서 에러가났을때  여기로 포워딩해주는것.--%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 	<c:choose>
 		<c:when test="${errorType eq 'fileExtError' }">
 			<h1>잘못된 파일 포멧 입니다.</h1>
-			<p>
+			<p><%--web.xml에 <context-param>맵핑해준것을 이렇게 받으면된다. --%>
 				허용된 파일 포멧은 ${initParam.permitFileExt } 입니다.
 			</p>
 		</c:when>

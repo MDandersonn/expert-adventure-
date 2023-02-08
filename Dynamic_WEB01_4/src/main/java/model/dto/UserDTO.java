@@ -45,7 +45,7 @@ public class UserDTO implements HttpSessionBindingListener {
 	
 	@Override
 	public String toString() {
-		return "UserDTO [userId=" + userId + ", password=" + password + ", email=" + email + "]";
+		return "UserDTO [userId=" + userId + ", password=" + password + ", email=" + email + "]"+ pImg;
 	}
 	
 	@Override

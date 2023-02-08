@@ -33,11 +33,15 @@
 		<ul>
 			<c:forEach var="image" items="${requestScope.images }" >
 				<c:url var="imagePath" value="${image.path }${image.uuid }" />
+				<%--realPath/uuid에서 이미지를 받아옴  path경로를 이렇게 url태그에 넣으면 realPath가된다.--%>
+				<%--download="${image.name } 다운로드받을때 파일명설정 --%>
 				<li><a href="${imagePath }" download="${image.name }">${image.name }</a></li>
+				<li><img src="${imagePath }" width="200px;" height="200;"></li>
 			</c:forEach>
 		</ul>
 	</div>
 	<div>
+	<%--필터를 이용해 로그인한 사용자만 추천,비추천누를수 있게 해주었다. --%> 
 		<button type="button" class="btn btn-primary" onclick="location.href='${boardUrl }/rec?id=${requestScope.data.id }'">
 			추천 ${requestScope.data.recCnt }</button>
 		<button type="button" class="btn btn-danger" onclick="location.href='${boardUrl }/nrec?id=${requestScope.data.id }'">

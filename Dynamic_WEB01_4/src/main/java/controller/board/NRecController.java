@@ -27,13 +27,13 @@ public class NRecController extends HttpServlet {
 		dto.setId(id.intValue());
 		
 		BoardService service = new BoardService();
-		if(!recHistory.contains(id) && !nRecHistory.contains(id)) {
-			service.incNRecCnt(dto);
+		if(!recHistory.contains(id) && !nRecHistory.contains(id)) {//추천한적없고 비추천한적없을때
+			service.incNRecCnt(dto);//비추천수증가
 			nRecHistory.add(id);
-		} else if(nRecHistory.contains(id)) {
+		} else if(nRecHistory.contains(id)) {//비추천한적있을때 비추천버튼누르면 취소
 			service.decreNRecCnt(dto);
 			nRecHistory.remove(id);
-		}
+		}//추천한적있을때 비추천버튼누르면 아무일없음
 		session.setAttribute("boardNRecCntHistory", nRecHistory);
 		
 		resp.sendRedirect(req.getContextPath() + "/board/detail?id=" + id);

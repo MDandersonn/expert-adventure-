@@ -27,13 +27,13 @@ public class RecController extends HttpServlet {
 		dto.setId(id.intValue());
 		
 		BoardService service = new BoardService();
-		if(!recHistory.contains(id) && !nRecHistory.contains(id)) {
-			service.incRecCnt(dto);
-			recHistory.add(id);
-		} else if(recHistory.contains(id)) {
+		if(!recHistory.contains(id) && !nRecHistory.contains(id)) {//추천한적없고 비추천한적없을때
+			service.incRecCnt(dto);//추천수증가
+			recHistory.add(id);//추천눌렀다는 기록작성
+		} else if(recHistory.contains(id)) {//추천한적있을때 추천버튼누르면  추천취소됨
 			service.decreRecCnt(dto);
 			recHistory.remove(id);
-		}
+		}//비추천한적있을때 추천버튼누르면 아무일없음
 		session.setAttribute("boardRecCntHistory", recHistory);
 		
 		resp.sendRedirect(req.getContextPath() + "/board/detail?id=" + id);

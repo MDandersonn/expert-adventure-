@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isErrorPage="true"%>
+    <%--exception객체를 쓰려면 isErrorPage를 트루로 설정해야함 --%>
 <!DOCTYPE html>
 <html>
 <head>

@@ -219,31 +219,42 @@ SELECT * FROM ROLE_T;
 
 commit;
 
+-------------이미지파일경로추가---------------------------------------------------------
 
-----------------------------------
+
+ALTER TABLE USER_T ADD pImg VARCHAR2(250) DEFAULT '/static/img/profile/default.png';
+
+SELECT * FROM USER_T;
+
+UPDATE USER_T
+   SET pImg = '/static/img/profile/images.jfif'
+ WHERE userId = 'abcd';
+
+commit;
+
+-------------------board게시판 추천/비추천 추가--------------------------------------------------
 
 ALTER TABLE BOARD_T ADD recCnt NUMBER DEFAULT 0;
 ALTER TABLE BOARD_T ADD nrecCnt NUMBER DEFAULT 0;
-                        
+commit;           
+select * from board_t;
 
+---------------------------게시판 이미지기능-------------------------------------
 
-insert into user_T values('aaaa','123','aaaa@naver.com','/static/img/profile/default.png');
-
-
-
-
+drop table board_img_T;
 
 CREATE TABLE BOARD_IMG_T(
        id NUMBER PRIMARY KEY
      , boardId NUMBER REFERENCES BOARD_T(id)
      , path VARCHAR2(500)
      , name VARCHAR2(250)
+     , uuid VARCHAR2(36)
 );
-
 CREATE SEQUENCE BOARD_IMG_S NOCACHE;
 
 SELECT * FROM BOARD_IMG_T;
-
+commit;
+-------------------------exam볼때...---------------------------------------
 drop table board;
 CREATE TABLE board(
     boardnum NUMBER,
@@ -258,13 +269,4 @@ CREATE TABLE board(
 commit;
 
 select * from board;
-
-
-
-ALTER TABLE USER_T ADD pImg VARCHAR2(250) DEFAULT '/static/img/profile/default.png';
-SELECT * FROM USER_T;
-UPDATE USER_T
-   SET pImg = '/static/img/profile/images.jfif'
- WHERE userId = 'abcd';
-
 

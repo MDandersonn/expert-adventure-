@@ -36,11 +36,11 @@ public class DetailController extends HttpServlet {
 		}
 		
 		BoardDTO data = service.getData(dto);
-		List<BoardImageDTO> images = service.getImages(data);
+		List<BoardImageDTO> images = service.getImages(data);//해당 글id에 해당하는 이미지파일을 가져옴
 		
 		if(data != null) {
 			req.setAttribute("data", data);
-			req.setAttribute("images", images);
+			req.setAttribute("images", images);//이미지게시판에서 이미지정보 꺼내옴
 			req.getRequestDispatcher("/WEB-INF/view/board/detail.jsp").forward(req, resp);
 		} else {
 			resp.sendRedirect(req.getContextPath() + "/error");

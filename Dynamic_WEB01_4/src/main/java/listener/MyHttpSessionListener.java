@@ -17,9 +17,9 @@ public class MyHttpSessionListener implements HttpSessionListener {
 		HttpSession session = se.getSession();
 		session.setAttribute("login", false);
 		session.setAttribute("role", new Role("GUEST"));
-		session.setAttribute("boardViewHistory", new ArrayList<Integer>());
-		session.setAttribute("boardRecCntHistory", new ArrayList<Integer>());
-		session.setAttribute("boardNRecCntHistory", new ArrayList<Integer>());
+		session.setAttribute("boardViewHistory", new ArrayList<Integer>());//조회수
+		session.setAttribute("boardRecCntHistory", new ArrayList<Integer>());//추천수
+		session.setAttribute("boardNRecCntHistory", new ArrayList<Integer>());//비추수
 	}
 	
 	@Override

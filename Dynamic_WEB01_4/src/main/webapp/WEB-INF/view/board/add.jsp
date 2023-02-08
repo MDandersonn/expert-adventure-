@@ -15,7 +15,9 @@
 		function imageValid(element) {
 			if(element.files.length > 3) {
 				alert('이미지는 3개 까지만 선택할 수 있습니다.');
-				element.value = "";
+				console.log(element.files);
+				element.value = "";//선택된 파일들 초기화시켜줌
+				console.log(element.files);
 			}
 		}
 	</script>
