@@ -11,7 +11,7 @@ public class UserService {
 		UserDTO data = dao.selectUser(dto);
 		if(data == null) {
 			int count = dao.insert(dto);
-			if(count == 2) {
+			if(count == 2) {//insert into 구문이 2개 성공했을때
 				dao.commit(); dao.close();
 				return 1;
 			}

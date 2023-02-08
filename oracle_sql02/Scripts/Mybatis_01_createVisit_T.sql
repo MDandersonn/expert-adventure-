@@ -270,3 +270,19 @@ commit;
 
 select * from board;
 
+
+
+
+---------------role배정안된 user 배정해줘야함---------------
+
+select * from user_t;
+select * from ROLE_T;
+insert into role_t values(ROLE_S.NEXTVAL,'kaka' ,'USER');
+insert into role_t values(ROLE_S.NEXTVAL,'dada' ,'USER');
+insert into role_t values(ROLE_S.NEXTVAL,'jaja' ,'USER');
+
+
+
+
+
+

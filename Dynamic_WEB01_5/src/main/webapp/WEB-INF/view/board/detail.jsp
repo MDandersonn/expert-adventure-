@@ -14,20 +14,23 @@
 <body>
 	<c:url var="recommendUrl" value="/ajax/recommend" />
 	<script type="text/javascript">
+	<%-- type: 추천이나 비추천이냐 구분하기위함--%>
 		function recommend(element, id, type) {
 			$.ajax({
 				type: "get",
 				url: "${recommendUrl }",
 				data: {
-					id: id,
-					type: type
+					id: id,// 매개변수에서들어온거
+					type: type// 매개변수에서 들어온거
 				},
 				dataType: "json",
 				success: function(data) {
-					if(data.redirect !== undefined) {
+					//redirect는 로그인체크필터에 있음
+					if(data.redirect !== undefined) {//로그인 안되어있을때 (로그인체크필터에의해 막혀서 data.redirect 값을 갖고 응답받음)
+						console.log(data);
 						let message = "추천/비추천은 회원만 할 수 있습니다. 로그인 페이지로 이동합니까?";
-						if(confirm(message)) {
-							location.href = data.redirect;
+						if(confirm(message)) {//confirm : 확인클릭하면 true 취소누르면 false 반환
+							location.href = data.redirect; //현재페이지의 경로 입력한 경로로 사이트 이동하게된다
 						}
 					} else {
 						if(data.type === "success") {
