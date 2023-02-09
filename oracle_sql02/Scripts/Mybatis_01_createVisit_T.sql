@@ -71,7 +71,7 @@ select BOOKMARK_S.NEXTVAL from dual;
 drop sequence bookmark_S;
 commit;
 -------------------------------------------user
-
+drop table user_t;
 create table user_T(
    USERID varchar2(20) primary key,
    password varchar2(20),
@@ -199,6 +199,9 @@ SELECT id, btype, title, writer, createDate, viewCnt
 SELECT * FROM BOARD_T ORDER BY ID DESC;
 -------------------------------------------------------
 
+select * from user_t;
+
+
 drop table Role_T;
 CREATE TABLE ROLE_T(
        ID NUMBER PRIMARY KEY
@@ -214,7 +217,7 @@ select * from user_T;
 INSERT INTO USER_T VALUES('staff_a', '123', 'staff_a@example.com');
 
 INSERT INTO ROLE_T VALUES(ROLE_S.NEXTVAL, 'staff_a', 'STAFF');
-
+insert into role_t values(ROLE_S.NEXTVAL,'kaka','USER');
 SELECT * FROM ROLE_T;
 
 commit;
