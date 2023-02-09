@@ -37,6 +37,7 @@ public class DetailController extends HttpServlet {
 		
 		BoardDTO data = service.getData(dto);
 		List<BoardImageDTO> images = service.getImages(data);
+		
 		if(data != null) {
 			req.setAttribute("data", data);
 			req.setAttribute("images", images);
@@ -44,5 +45,19 @@ public class DetailController extends HttpServlet {
 		} else {
 			resp.sendRedirect(req.getContextPath() + "/error");
 		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String id = req.getParameter("id");
+		
+		BoardDTO dto = new BoardDTO();
+		dto.setId(Integer.parseInt(id));
+		
+		BoardService service = new BoardService();
+		BoardDTO data = service.getData(dto);
+		
+		resp.getWriter().print("{\"context\":\"" + data.getContext().replace("\"", "'") + "\"}");
+		resp.getWriter().flush();
 	}
 }

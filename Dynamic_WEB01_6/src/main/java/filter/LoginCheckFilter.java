@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-// @WebFilter({"/bookmark", "/bookmark/*", "/myinfo", "/board/add", "/board/rec", "/board/nrec", "/ajax/recommend"})
+// @WebFilter({"/bookmark", "/bookmark/*", "/myinfo", "/board/add", "/board/rec", "/board/nrec"})
 public class LoginCheckFilter implements Filter {
 
 	@Override
@@ -26,15 +26,13 @@ public class LoginCheckFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse)resp;
 		
 		HttpSession session = request.getSession();
-		if((boolean)session.getAttribute("login")) {//로그인이 되어있을때
+		if((boolean)session.getAttribute("login")) {
 			chain.doFilter(req, resp);
-		} else {//로그인이 안되어있을때
-			if(request.getRequestURI().contains("ajax")) {//맵핑경로에 ajax가있으면 , (추천비추천기능)
+		} else {
+			if(request.getRequestURI().contains("ajax")) {
 				response.getWriter().print("{\"redirect\": \"" + request.getContextPath() + "/login\"}");
 				response.getWriter().flush();
-				//redirect:경로  로 응답한다. 
-				
-			} else {//에이잭스안쓴경우
+			} else {
 				response.sendRedirect(request.getContextPath() + "/login");
 			}
 		}

@@ -120,7 +120,7 @@
   <servlet>
   	<servlet-name>boardAddController</servlet-name>
   	<servlet-class>controller.board.AddController</servlet-class>
-  	<multipart-config />
+  	<!-- multipart-config / -->
   </servlet>
   <servlet-mapping>
   	<servlet-name>boardAddController</servlet-name>

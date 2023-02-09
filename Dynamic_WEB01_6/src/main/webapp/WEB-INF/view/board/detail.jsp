@@ -10,27 +10,26 @@
 <title>게시글 상세 페이지</title>
 <%@ include file="/WEB-INF/view/module/bootstrap.jsp" %>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 </head>
 <body>
 	<c:url var="recommendUrl" value="/ajax/recommend" />
 	<script type="text/javascript">
-	<%-- type: 추천이나 비추천이냐 구분하기위함--%>
 		function recommend(element, id, type) {
 			$.ajax({
 				type: "get",
 				url: "${recommendUrl }",
 				data: {
-					id: id,// 매개변수에서들어온거
-					type: type// 매개변수에서 들어온거
+					id: id,
+					type: type
 				},
 				dataType: "json",
 				success: function(data) {
-					//redirect는 로그인체크필터에 있음
-					if(data.redirect !== undefined) {//로그인 안되어있을때 (로그인체크필터에의해 막혀서 data.redirect 값을 갖고 응답받음)
-						console.log(data);
+					if(data.redirect !== undefined) {
 						let message = "추천/비추천은 회원만 할 수 있습니다. 로그인 페이지로 이동합니까?";
-						if(confirm(message)) {//confirm : 확인클릭하면 true 취소누르면 false 반환
-							location.href = data.redirect; //현재페이지의 경로 입력한 경로로 사이트 이동하게된다
+						if(confirm(message)) {
+							location.href = data.redirect;
 						}
 					} else {
 						if(data.type === "success") {
@@ -62,9 +61,7 @@
 		수정일: ${updateDate }<br>
 		조회수: ${requestScope.data.viewCnt }
 	</div>
-	<div>
-		<p>${requestScope.data.context }</p>
-	</div>
+	<div id="viewer"></div>
 	<div>
 		<ul>
 			<c:forEach var="image" items="${requestScope.images }" >
@@ -88,5 +85,26 @@
 			</c:if>
 		</c:if>
 	</div>
+	<script type="text/javascript">
+		var viewer;
+		window.onload = function() {
+			<c:url var="boardDetailUrl" value="/board/detail" />
+			$.ajax({
+				url: "${boardDetailUrl }",
+				data: {
+					id: ${requestScope.data.id }
+				},
+				type: "post",
+				dataType: "json",
+				success: function(data) {
+					viewer = new toastui.Editor.factory({
+						el: document.querySelector("#viewer"),
+						viewer: true,
+						initialValue: data.context
+					});
+				}
+			});
+		}
+	</script>
 </body>
 </html>
