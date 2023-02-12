@@ -25,21 +25,23 @@
 					type: type
 				},
 				dataType: "json",
-				success: function(data) {
-					if(data.redirect !== undefined) {
+				success: function(data1) {
+					if(data1.redirect !== undefined) {
 						let message = "추천/비추천은 회원만 할 수 있습니다. 로그인 페이지로 이동합니까?";
 						if(confirm(message)) {
-							location.href = data.redirect;
+							location.href = data1.redirect;
 						}
 					} else {
-						if(data.type === "success") {
+						if(data1.type === "success") {
 							if(type === "rec") {
-								element.innerText = "추천 " + data.count
+								element.innerText = "추천 " + data1.count
+								console.log(data1)
+								console.log(data1.count)
 							} else if(type === "norec") {
-								element.innerText = "비추천 " + data.count
+								element.innerText = "비추천 " + data1.count
 							}
-						} else if(data.type === "error") {
-							console.log(data.msg);
+						} else if(data1.type === "error") {
+							console.log(data1.msg);
 						}
 					}
 				}

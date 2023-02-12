@@ -15,6 +15,7 @@
 		function previewImage(element) {
 			console.log(element);
 			console.log(element.files);
+			console.log(element.files[0]);
 			console.log(URL.createObjectURL(element.files[0]));
 			
 			var preview = document.getElementById("preview");
