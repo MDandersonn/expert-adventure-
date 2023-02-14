@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //화살표함수는 블록스코프로 취급
+        //const: 블록/함수스코프(재할당불가,재선언불가)
+        //let:블록/함수스코프(재할당가능, 재선언불가)
+        //var : 함수스코프(재할당가능 , 재선언가능) ==타입없이작성
+
+        let a;
+        a=1;//재할당
+        console.log(a);
+
+        // const b;// 초기화없이 선언불가
+        
+        var c;
+        c=2;
+        console.log(c);
+
+        let d;
+        // let d =3;//재선언불가능
+
+        const e=4;
+        // e=44;//재할당불가능
+        // console.log(e);
+
+        {let aa=5;        }
+        // console.log(aa);//블록스코프라 에러
+
+        {var bb=6;}
+        console.log(bb);
+        //var는 함수스코프라 블록은무시
+
+        function aa(){
+            var cc=7;
+        }
+        // console.log(cc);//var는 함수스코프라 함수밖에서는 못불러옴
+
+        function aaa(){
+            dd=8;
+        }
+        // console.log(dd); //dd도 못불러옴
+
+        {ee=9;}
+        console.log(ee);// 타입 없는것은 var로 처리.(함스스코프)
+        
+        function test1(n){
+            if(n===1) {
+                var _content=10;
+                console.log(_content,"으로설정")
+            }
+            else if(n===2) {
+                console.log(_content,"입니다");
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

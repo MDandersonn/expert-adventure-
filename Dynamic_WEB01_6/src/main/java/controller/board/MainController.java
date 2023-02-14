@@ -2,6 +2,7 @@ package controller.board;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -54,7 +55,8 @@ public class MainController extends HttpServlet {
 		req.setAttribute("paging", data);
 		
 		if(((Role)session.getAttribute("role")).isAdmin()) {
-			req.getRequestDispatcher("/WEB-INF/view/admin/board/main.jsp").forward(req, resp);
+			RequestDispatcher a=req.getRequestDispatcher("/WEB-INF/view/admin/board/main.jsp");
+			a.forward(req, resp);
 		} else {
 			req.getRequestDispatcher("/WEB-INF/view/board/main.jsp").forward(req, resp);
 		}
