@@ -54,8 +54,8 @@
 					editor = new toastui.Editor({
 						el: document.querySelector("#editor"),
 						initialValue: data.context,
-						initialEditType: 'wysiwyg'
-					});
+						initialEditType: 'wysiwyg'//처음 수정탭이 markdown이 아니라 wysiwyg로 뜸
+					});//수정하고 저장할때문제가생길것. 고쳐보라
 				}
 			});
 		}

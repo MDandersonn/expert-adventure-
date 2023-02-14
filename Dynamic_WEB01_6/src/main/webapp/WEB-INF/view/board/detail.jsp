@@ -63,7 +63,7 @@
 		수정일: ${updateDate }<br>
 		조회수: ${requestScope.data.viewCnt }
 	</div>
-	<div id="viewer"></div>
+	<div id="viewer"></div><%-- 글내용(Content칼럼)이 여기안에 들어갈것이다.--%>
 	<div>
 		<ul>
 			<c:forEach var="image" items="${requestScope.images }" >
@@ -88,7 +88,7 @@
 		</c:if>
 	</div>
 	<script type="text/javascript">
-		var viewer;
+		var viewer1;
 		window.onload = function() {
 			<c:url var="boardDetailUrl" value="/board/detail" />
 			$.ajax({
@@ -99,10 +99,21 @@
 				type: "post",
 				dataType: "json",
 				success: function(data) {
-					viewer = new toastui.Editor.factory({
+					viewer1 = new toastui.Editor.factory({
+					//viewer1로 할당하는 의미 딱히 없음. 없애도 작동 잘됨	
 						el: document.querySelector("#viewer"),
-						viewer: true,
-						initialValue: data.context
+						viewer: true,//뷰어로 사용하겠다는 의미
+						initialValue: data.context//초기값
+						//위의 initialValue값을 ajax를 사용하여, 페이지가 로드되었을때 서버에 조회요청을 하고
+						//응답 데이터의 context를 찾아서 초기값으로 설정되도록 하였다.
+					<%-- 전달받은 리턴값인 data객체의 context속성값을보면 글내용과 함께 이미지파일이 담겨있따. --%>
+					<%-- 토스트 에디터ui가  HTML태그라서 가능한것.이대로 DB에 context컬럼에 저장하는것. --%>
+					
+					<%-- 원래과정: 사용자가 상세페이지를 요청하면 서버에서는 상세페이지에대한 데이터를 조회하고
+					조회한 데이터를 JSP로 실행해서 HTML태그안에 삽입. 완성된 HTMl코드가 응답--%>
+					
+					<%--ajax과정 :사용자가 상세페이지요청을 하면 서버에서 html페이지를 응답한다
+							그러면 사용자에서 스크립트를 실행하고 ajax요청 서버는 상세조회하여 데이터 응답 --%>
 					});
 				}
 			});

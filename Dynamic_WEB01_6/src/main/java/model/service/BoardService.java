@@ -50,7 +50,7 @@ public class BoardService {
 		dto.setId(id);
 		int count = dao.insert(dto);
 		if(count == 1) {
-			if(boardImageList != null) {
+			if(boardImageList != null) {// 업로드에 이미지가 담겼을경우만 작동.
 				for(BoardImageDTO image: boardImageList) {
 					image.setBoardId(id);
 					dao.insertImage(image);

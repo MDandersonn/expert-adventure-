@@ -22,10 +22,11 @@
 			}
 		}
 		function sendForm(form) {
-			// Toast UI Editor 에 작성된 글 가져와서 전송할 폼에 넣기.
-			form.context.innerText = editor.getHTML();
-			form.submit();
-			return false;
+			// Toast UI Editor 에 작성된 글 가져와서 전송할 폼(textarea)에 넣기.
+			form.context.innerText = editor.getHTML();//에디터에 입력한내용 가져오라는거
+			form.submit();//여기서 submit하는거고
+			return false;//이게 true면 또 submit작업이 일어나게되므로 false로한거.
+			//submit()으로전송하고 false로 전송더안하게.
 		}
 	</script>
 	<div>
@@ -37,6 +38,7 @@
 	<div>
 		<c:url var="boardAddUrl" value="/board/add" />
 		<form action="${boardAddUrl }" method="post" onsubmit="return sendForm(this);">
+		<%--enctype도 빼버리고 --%>
 			<div>
 				<label>제목</label>
 				<input type="text" name="title">
@@ -72,18 +74,24 @@
 					// callback: 파일이 업로드 된 후 에디터에 표시할 이미지 주소를 전달하기 위한 콜백함수
 					let formData = new FormData();
 					formData.append("imageUpload", blob);
+									//키           , 밸류
+									//이미지같은 파일업로드할때 formdata만들어서 키-밸류 쌍으로 데이터 추가하고
+									//ajax로 보낼때 씀.
 					formData.append("location", "board");
-					
+					//이미지를 업로드하면 ajax를 통해서 이미지만 따로 서버에 업로드요청. 서버에서는 업로드 이미지를 받아서 저장하고
+					//데베에도 저장하고 아니면 임시적으로 어디에저장했다고 기록을 남겨놓고 리턴을시킨다.
+					//이미지경로가 리턴되는데 이를 콜백함수에 넣어서 토스트에게 알려주면 토스트가 알아서 작성한 줄 중간에 경로를 넣어줌
 					<c:url var="imageUploadUrl" value="/ajax/imageUpload" />
 					$.ajax({
 						url: "${imageUploadUrl }",
 						type: "post",
 						data: formData,
 						dataType: "json",
-						enctype: "multipart/form-data",
+						enctype: "multipart/form-data",//ajax로 멀티파트폼데이터보낼때는 아래와같은 추가속성이 필요하다 
 						processData: false,
 						contentType: false,
 						success: function(data) {
+							console.log(data)
 							callback(data.imageUrl);
 						}
 					});

@@ -48,6 +48,8 @@ public class AddController extends HttpServlet {
 			}
 		}
 		
+		//<!-- multipart-config / --> 멀티파티로보내는게아니기떄문에 web.xml에 이걸 꼭  주석처리 할것.
+		
 //		int maxFileSize = Integer.parseInt(sc.getInitParameter("maxFileSize"));
 //		String permitFileType = sc.getInitParameter("permitFileType");
 //		String[] permitFileExt = sc.getInitParameter("permitFileExt").split(",");

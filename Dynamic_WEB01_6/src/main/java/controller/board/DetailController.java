@@ -49,6 +49,8 @@ public class DetailController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		/////detail.jsp에서 ajax요청받음
+		
 		String id = req.getParameter("id");
 		
 		BoardDTO dto = new BoardDTO();
@@ -57,7 +59,10 @@ public class DetailController extends HttpServlet {
 		BoardService service = new BoardService();
 		BoardDTO data = service.getData(dto);
 		
+		
+		//이러면 이미지테이블을 만들필요가없다. 이미지는 이미지대로저장 이미지경로만 context컬럼 저장을 해주는것.(context칼럼에는 html태그가 들어가서 가능)
 		resp.getWriter().print("{\"context\":\"" + data.getContext().replace("\"", "'") + "\"}");
+		//이미지가 들어가면 쌍따옴표때문에 제대로 제이슨 구성이안되서 쌍따옴표를 홑따옴표로 바꿔줌.
 		resp.getWriter().flush();
 	}
 }
