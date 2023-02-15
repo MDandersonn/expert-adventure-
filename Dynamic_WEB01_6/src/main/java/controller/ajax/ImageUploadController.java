@@ -53,7 +53,7 @@ public class ImageUploadController extends HttpServlet {
 					resp.getWriter().print("{\"imageUrl\": \"" + String.join("/", req.getContextPath(), path, uuid) + "\"}");
 					//이미지업로드 요청이오면 서버에서 저장하고 저장위치(경로를) json형식으로 알려주면
 					//토스트에디터가 경로를 에디터에다가 작성해줌.
-					resp.getWriter().flush(); 
+					resp.getWriter().flush(); //ddd
 					
 				}
 			}
